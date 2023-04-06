@@ -1,0 +1,37 @@
+export type TmdbFilters = {
+  api_key: string
+  language: string
+  region: string
+  sort_by: string
+  certification_country: string
+  certification: string
+  'certification.lte': string
+  'certification.gte': string
+  include_adult: boolean
+  include_video: boolean
+  page: number
+  primary_release_year: number
+  'primaty_release_date.gte': string
+  'primaty_release_date.lte': string
+  'release_date.gte': string
+  'release_date.lte': string
+  with_release_type: number
+  year: number
+  'vote_count.gte': number
+  'vote_count.lte': number
+  'vote_average.gte': number
+  'vote_average.lte': number
+  with_cast: string
+  with_crew: string
+  with_people: string
+  with_companies: string
+  with_genres: string
+  without_genres: string
+  with_keywords: string
+  'with_runtime.gte': number
+  'with_runtime.lte': number
+  with_original_language: string
+  watch_region: string
+  with_watch_monetization_types: string
+  without_companies: string
+}

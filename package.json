@@ -1,6 +1,6 @@
 {
-  "name": "@lewkz/ts-backend",
-  "version": "1.0.8",
+  "name": "@lewkz/tmdb",
+  "version": "0.0.1",
   "description": "Typescript template for backend apps/packages.",
   "main": "build/src/index.js",
   "repository": "git@github.com:leandrowkz/ts-backend.git",
@@ -13,7 +13,7 @@
     "prepare": "husky install",
     "release": "semantic-release",
     "start:dev": "nodemon ./src/index.ts --config .nodemon.json",
-    "start:prod": "npm run build && TS_NODE_BASEURL=build node -r tsconfig-paths/register build/src/index.js",
+    "start:prod": "npm run build && node build/src/index.js",
     "test": "jest --config .jest.config.ts"
   },
   "devDependencies": {
@@ -35,7 +35,6 @@
     "semantic-release": "^21.0.1",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.3"
   },
   "engines": {
