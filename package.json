@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Typescript template for backend apps/packages.",
   "main": "build/src/index.js",
-  "repository": "git@github.com:leandrowkz/ts-backend.git",
+  "repository": "git@github.com:leandrowkz/tmdb.git",
   "author": "Leandro Mangini Antunes <leandro.antunes@mollie.com>",
   "license": "MIT",
   "scripts": {
