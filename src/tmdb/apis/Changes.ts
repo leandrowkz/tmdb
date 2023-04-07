@@ -1,6 +1,6 @@
 import { BaseAPI } from './BaseAPI'
 import { ChangesResponse } from '../../types/TMDBResponseChanges'
-import { ChangesFilters } from '../../types/TMDBFilterChanges'
+import { ChangesFilters } from '../../types/TMDBFiltersChanges'
 
 export class Changes extends BaseAPI {
   /**
@@ -11,7 +11,7 @@ export class Changes extends BaseAPI {
    * @returns Promise<ChangesResponse>
    * @see https://developers.themoviedb.org/3/changes/get-movie-change-list
    */
-  public async movie(filters: ChangesFilters): Promise<ChangesResponse> {
+  public async movie(filters?: ChangesFilters): Promise<ChangesResponse> {
     const path = this.getPath('/movie/changes', filters)
 
     return this.get<ChangesResponse>(path)
@@ -25,7 +25,7 @@ export class Changes extends BaseAPI {
    * @returns Promise<ChangesResponse>
    * @see https://developers.themoviedb.org/3/changes/get-tv-change-list
    */
-  public async tv(filters: ChangesFilters): Promise<ChangesResponse> {
+  public async tv(filters?: ChangesFilters): Promise<ChangesResponse> {
     const path = this.getPath('/tv/changes', filters)
 
     return this.get<ChangesResponse>(path)
@@ -39,7 +39,7 @@ export class Changes extends BaseAPI {
    * @returns Promise<ChangesResponse>
    * @see https://developers.themoviedb.org/3/changes/get-person-change-list
    */
-  public async person(filters: ChangesFilters): Promise<ChangesResponse> {
+  public async person(filters?: ChangesFilters): Promise<ChangesResponse> {
     const path = this.getPath('/person/changes', filters)
 
     return this.get<ChangesResponse>(path)
