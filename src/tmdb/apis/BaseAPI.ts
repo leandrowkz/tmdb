@@ -16,7 +16,7 @@ export class BaseAPI extends Fetcher {
 
   protected getPath(
     path: string,
-    queryString?: Record<string, string | number>
+    queryString?: Record<string, string | string[] | number | boolean>
   ) {
     const params = new URLSearchParams({
       ...queryString,
