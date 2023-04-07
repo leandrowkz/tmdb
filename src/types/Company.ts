@@ -1,8 +1,13 @@
-import { Country } from './Country'
+import { CountryCode } from './CountryCode'
+import { Nullable } from './Nullable'
 
 export type Company = {
-  id: string
-  logo_path: string
+  id: number
   name: string
-  origin_country: Country
+  description: string
+  headquarters: string
+  homepage: string
+  logo_path: string
+  origin_country: CountryCode
+  parent_company: Nullable<Company>
 }
