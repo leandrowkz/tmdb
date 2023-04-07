@@ -4,6 +4,7 @@ import { Changes } from './apis/Changes'
 import { Collections } from './apis/Collections'
 import { Companies } from './apis/Companies'
 import { Configuration } from './apis/Configuration'
+import { Credits } from './apis/Credits'
 import { Discover } from './apis/Discover'
 import { Genres } from './apis/Genres'
 import { Movies } from './apis/Movies'
@@ -17,6 +18,7 @@ export class TMDB {
   public collections: Collections
   public companies: Companies
   public configuration: Configuration
+  public credits: Credits
   public discover: Discover
   public genres: Genres
   public movies: Movies
@@ -32,6 +34,7 @@ export class TMDB {
     this.collections = new Collections(options)
     this.companies = new Companies(options)
     this.configuration = new Configuration(options)
+    this.credits = new Credits(options)
     this.discover = new Discover(options)
     this.genres = new Genres(options)
     this.movies = new Movies(options)
