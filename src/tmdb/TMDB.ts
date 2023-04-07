@@ -1,4 +1,6 @@
 import { TMDBOptions } from '../types/TMDBOptions'
+import { Certifications } from './apis/Certifications'
+import { Changes } from './apis/Changes'
 import { Discover } from './apis/Discover'
 import { Genres } from './apis/Genres'
 import { Movies } from './apis/Movies'
@@ -7,6 +9,8 @@ import { Trending } from './apis/Trending'
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
 
+  public certifications: Certifications
+  public changes: Changes
   public discover: Discover
   public genres: Genres
   public movies: Movies
@@ -17,6 +21,8 @@ export class TMDB {
       options.url = TMDB.API_URL_V3
     }
 
+    this.certifications = new Certifications(options)
+    this.changes = new Changes(options)
     this.discover = new Discover(options)
     this.genres = new Genres(options)
     this.movies = new Movies(options)

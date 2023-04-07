@@ -1,4 +1,4 @@
-export type TmdbFilters = {
+export type TMDBFilters = {
   api_key: string
   language: string
   region: string
