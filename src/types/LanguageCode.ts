@@ -1,4 +1,4 @@
-export type Language =
+export type LanguageCode =
   | 'aa'
   | 'ab'
   | 'ae'

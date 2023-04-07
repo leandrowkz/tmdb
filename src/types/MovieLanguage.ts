@@ -1,4 +1,4 @@
-import { Language } from './Language'
+import { Language } from './LanguageCode'
 
 export type MovieLanguage = {
   iso_639_1: Language

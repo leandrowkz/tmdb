@@ -1,5 +1,5 @@
 import { Country } from './Country'
-import { Language } from './Language'
+import { Language } from './LanguageCode'
 
 export type MovieVideo = {
   id: string

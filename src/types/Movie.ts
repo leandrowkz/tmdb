@@ -1,4 +1,4 @@
-import { Language } from './Language'
+import { LanguageCode } from './LanguageCode'
 
 export interface Movie {
   id: number
@@ -6,7 +6,7 @@ export interface Movie {
   title: string
   overview: string
   original_title: string
-  original_language: Language
+  original_language: LanguageCode
   release_date: string
   poster_path: string
   backdrop_path: string
