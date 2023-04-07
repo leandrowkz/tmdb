@@ -15,7 +15,7 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "build"]
