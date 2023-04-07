@@ -1,5 +1,3 @@
-import { CertificationCode } from './CertificationCode'
-
 export interface Credit {
   id: string
   media_type: 'tv' | 'movie'
