@@ -1,10 +1,10 @@
-import { Country } from './Country'
-import { Language } from './LanguageCode'
+import { CountryCode } from './CountryCode'
+import { LanguageCode } from './LanguageCode'
 
 export type MovieVideo = {
   id: string
-  iso_639_1: Language
-  iso_3166_1: Country
+  iso_639_1: LanguageCode
+  iso_3166_1: CountryCode
   key: string
   name: string
   official: boolean

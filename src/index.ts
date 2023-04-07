@@ -1,4 +1,1 @@
-import { sample } from '@/sample'
-
-console.debug(sample)
-console.debug('Application running...')
+export { TMDB } from './tmdb/TMDB'
