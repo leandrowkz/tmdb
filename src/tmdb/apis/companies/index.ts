@@ -1,16 +1,14 @@
-import { BaseAPI } from './BaseAPI'
+import { BaseAPI } from '../BaseAPI'
 import {
   DetailsResponse,
   ImagesResponse,
   AlternativeNamesResponse,
-} from '../../types/TMDBResponseCompanies'
+} from './types'
 
 export class Companies extends BaseAPI {
   /**
    * Get company details by id.
    *
-   * @param companyId
-   * @returns Promise<DetailsResponse>
    * @see https://developers.themoviedb.org/3/collections/get-company-details
    */
   public async details(companyId: number): Promise<DetailsResponse> {
@@ -22,8 +20,6 @@ export class Companies extends BaseAPI {
   /**
    * Get the alternative names of a company.
    *
-   * @param companyId
-   * @returns Promise<AlternativeNamesResponse>
    * @see https://developers.themoviedb.org/3/companies/get-company-alternative-names
    */
   public async alternativeNames(
@@ -45,8 +41,6 @@ export class Companies extends BaseAPI {
    * For more information about how SVG's and PNG's can be used, take a read through
    * https://developers.themoviedb.org/3/getting-started/images.
    *
-   * @param companyId
-   * @returns Promise<ImagesResponse>
    * @see https://developers.themoviedb.org/3/companies/get-company-images
    */
   public async images(companyId: number): Promise<ImagesResponse> {
