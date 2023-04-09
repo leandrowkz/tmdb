@@ -1,5 +1,5 @@
 import { TMDBOptions } from '../types/TMDBOptions'
-import { Certifications } from './apis/Certifications'
+import { Certifications } from './apis/certifications'
 import { Changes } from './apis/Changes'
 import { Collections } from './apis/Collections'
 import { Companies } from './apis/Companies'

@@ -1,4 +1,4 @@
-import { CertificationCode } from './CertificationCode'
+import { CertificationCode } from '../tmdb/apis/certifications/types'
 import { CountryCode } from './CountryCode'
 import { LanguageCode } from './LanguageCode'
 

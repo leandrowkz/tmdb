@@ -1,14 +1,10 @@
-import { BaseAPI } from './BaseAPI'
-import {
-  MovieResponse,
-  TVResponse,
-} from '../../types/TMDBResponseCertifications'
+import { BaseAPI } from '../BaseAPI'
+import { MovieResponse, TVResponse } from './types'
 
 export class Certifications extends BaseAPI {
   /**
    * Get an up to date list of the officially supported movie certifications on TMDB.
    *
-   * @returns Promise<MovieResponse>
    * @see https://developers.themoviedb.org/3/certifications/get-movie-certifications
    */
   public async movie(): Promise<MovieResponse> {
@@ -20,7 +16,6 @@ export class Certifications extends BaseAPI {
   /**
    * Get an up to date list of the officially supported TV show certifications on TMDB.
    *
-   * @returns Promise<TVResponse>
    * @see https://developers.themoviedb.org/3/certifications/get-tv-certifications
    */
   public async tv(): Promise<TVResponse> {
