@@ -1,7 +1,7 @@
 import { TMDBOptions } from 'src/types/TMDBOptions'
 import { TMDB } from './TMDB'
 import { Certifications } from './apis/certifications'
-import { Changes } from './apis/Changes'
+import { Changes } from './apis/changes'
 import { Collections } from './apis/Collections'
 import { Companies } from './apis/Companies'
 import { Configuration } from './apis/Configuration'
