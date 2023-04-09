@@ -1,8 +1,13 @@
-import { Image } from './Image'
-import { Movie } from './Movie'
-import { Nullable } from './Nullable'
-import { TMDBResponse } from './TMDBResponse'
-import { Translation } from './Translation'
+import { LanguageCode } from 'src/types/LanguageCode'
+import { Image } from 'src/types/Image'
+import { Movie } from 'src/types/Movie'
+import { Nullable } from 'src/types/Nullable'
+import { TMDBResponse } from 'src/types/TMDBResponse'
+import { Translation } from 'src/types/Translation'
+
+export type CollectionsFilters = {
+  language?: LanguageCode
+}
 
 export type CollectionDetailsResponse = TMDBResponse<{
   id: number

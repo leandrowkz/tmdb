@@ -1,16 +1,15 @@
-import { BaseAPI } from './BaseAPI'
-import { CollectionsFilters } from '../../types/TMDBFiltersCollections'
+import { BaseAPI } from '../BaseAPI'
 import {
+  CollectionsFilters,
   CollectionDetailsResponse,
   CollectionImagesResponse,
   CollectionTranslationsResponse,
-} from '../../types/TMDBResponseCollections'
+} from './types'
 
 export class Collections extends BaseAPI {
   /**
    * Get collection details by id.
    *
-   * @returns Promise<CollectionDetailsResponse>
    * @see https://developers.themoviedb.org/3/collections/get-collection-details
    */
   public async details(
@@ -25,7 +24,6 @@ export class Collections extends BaseAPI {
   /**
    * Get the images for a collection by id.
    *
-   * @returns Promise<CollectionImagesResponse>
    * @see https://developers.themoviedb.org/3/collections/get-collection-images
    */
   public async images(
@@ -40,7 +38,6 @@ export class Collections extends BaseAPI {
   /**
    * Get the list translations for a collection by id.
    *
-   * @returns Promise<CollectionTranslationsResponse>
    * @see https://developers.themoviedb.org/3/collections/get-collection-translations
    */
   public async translations(
