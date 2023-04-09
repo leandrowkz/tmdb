@@ -1,7 +1,7 @@
-import { BaseAPI } from './BaseAPI'
+import { BaseAPI } from '../BaseAPI'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../../types/Movie'
-import { MovieFilters, TVFilters } from 'src/types/TMDBFiltersDiscover'
+import { Movie } from '../../../types/Movie'
+import { MovieFilters, TVFilters } from './types'
 import { TVShow } from 'src/types/TVShow'
 
 export class Discover extends BaseAPI {
@@ -27,8 +27,6 @@ export class Discover extends BaseAPI {
    *
    * Some examples of what can be done with discover can be found https://www.themoviedb.org/documentation/api/discover.
    *
-   * @param filters
-   * @returns Promise<TMDBResponseList<Movie[]>>
    * @see https://developers.themoviedb.org/3/discover/movie-discover
    */
   public async movies(
@@ -50,8 +48,6 @@ export class Discover extends BaseAPI {
    *
    * Some examples of what can be done with discover can be found https://www.themoviedb.org/documentation/api/discover.
    *
-   * @param filters
-   * @returns Promise<TMDBResponseList<TVShow[]>>
    * @see https://developers.themoviedb.org/3/discover/tv-discover
    */
   public async tv(filters?: TVFilters): Promise<TMDBResponseList<TVShow[]>> {

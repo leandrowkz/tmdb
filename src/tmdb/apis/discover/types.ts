@@ -1,6 +1,6 @@
-import { CertificationCode } from '../tmdb/apis/certifications/types'
-import { CountryCode } from './CountryCode'
-import { LanguageCode } from './LanguageCode'
+import { CertificationCode } from '../certifications/types'
+import { CountryCode } from '../../../types/CountryCode'
+import { LanguageCode } from '../../../types/LanguageCode'
 
 type SortBy =
   | 'popularity.asc'
