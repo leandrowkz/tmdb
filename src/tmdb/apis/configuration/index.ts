@@ -1,4 +1,4 @@
-import { BaseAPI } from './BaseAPI'
+import { BaseAPI } from '../BaseAPI'
 import {
   ConfigurationResponse,
   CountriesResponse,
@@ -6,7 +6,7 @@ import {
   LanguagesResponse,
   PrimaryTranslationsResponse,
   TimezonesResponse,
-} from '../../types/TMDBResponseConfiguration'
+} from './types'
 
 export class Configuration extends BaseAPI {
   /**
@@ -26,7 +26,6 @@ export class Configuration extends BaseAPI {
    * The configuration method also contains the list of change keys which can be useful if you are
    * building an app that consumes data from the change feed.
    *
-   * @returns Promise<ConfigurationResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-api-configuration
    */
   public async configuration(): Promise<ConfigurationResponse> {
@@ -38,7 +37,6 @@ export class Configuration extends BaseAPI {
   /**
    * Get the list of countries (ISO 3166-1 tags) used throughout TMDB.
    *
-   * @returns Promise<CountriesResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-countries
    */
   public async countries(): Promise<CountriesResponse> {
@@ -50,7 +48,6 @@ export class Configuration extends BaseAPI {
   /**
    * Get a list of the jobs and departments we use on TMDB.
    *
-   * @returns Promise<JobsResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-jobs
    */
   public async jobs(): Promise<JobsResponse> {
@@ -62,7 +59,6 @@ export class Configuration extends BaseAPI {
   /**
    * Get the list of languages (ISO 639-1 tags) used throughout TMDB.
    *
-   * @returns Promise<LanguagesResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-languages
    */
   public async languages(): Promise<LanguagesResponse> {
@@ -89,7 +85,6 @@ export class Configuration extends BaseAPI {
    * One more thing to mention, these are the translations that map to our website translation
    * project. You can view and contribute to that project https://www.localeapp.com/projects/8267.
    *
-   * @returns Promise<PrimaryTranslationsResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-primary-translations
    */
   public async primaryTranslations(): Promise<PrimaryTranslationsResponse> {
@@ -101,7 +96,6 @@ export class Configuration extends BaseAPI {
   /**
    * Get the list of timezones used throughout TMDB.
    *
-   * @returns Promise<TimezonesResponse>
    * @see https://developers.themoviedb.org/3/configuration/get-timezones
    */
   public async timezones(): Promise<TimezonesResponse> {
