@@ -9,6 +9,7 @@ import { Discover } from './apis/Discover'
 import { Genres } from './apis/Genres'
 import { Movies } from './apis/Movies'
 import { Trending } from './apis/Trending'
+import { Find } from './apis/find'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
@@ -20,6 +21,7 @@ export class TMDB {
   public configuration: Configuration
   public credits: Credits
   public discover: Discover
+  public find: Find
   public genres: Genres
   public movies: Movies
   public trending: Trending
@@ -36,6 +38,7 @@ export class TMDB {
     this.configuration = new Configuration(options)
     this.credits = new Credits(options)
     this.discover = new Discover(options)
+    this.find = new Find(options)
     this.genres = new Genres(options)
     this.movies = new Movies(options)
     this.trending = new Trending(options)

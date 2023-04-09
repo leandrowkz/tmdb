@@ -1,14 +1,19 @@
-export type Person = {
+import { Movie } from './Movie'
+import { TVShow } from './TVShow'
+
+interface MovieTyped extends Movie {
+  media_type: 'movie'
+}
+
+interface TVShowTyped extends TVShow {
+  media_type: 'tv'
+}
+
+export interface Person {
   id: number
   adult: boolean
-  cast_id: number
-  credit_id: string
-  character: string
-  gender: number
-  known_for_department: string
-  name: string
-  order: number
-  original_name: string
-  popularity: string
   profile_path: string
+  name: string
+  popularity: string
+  known_for: MovieTyped | TVShowTyped
 }

@@ -10,6 +10,7 @@ import { Discover } from './apis/Discover'
 import { Genres } from './apis/Genres'
 import { Movies } from './apis/Movies'
 import { Trending } from './apis/Trending'
+import { Find } from './apis/find'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -30,6 +31,7 @@ describe('TMDB client', () => {
     expect(tmdb.configuration).toBeInstanceOf(Configuration)
     expect(tmdb.credits).toBeInstanceOf(Credits)
     expect(tmdb.discover).toBeInstanceOf(Discover)
+    expect(tmdb.find).toBeInstanceOf(Find)
     expect(tmdb.genres).toBeInstanceOf(Genres)
     expect(tmdb.movies).toBeInstanceOf(Movies)
     expect(tmdb.trending).toBeInstanceOf(Trending)
