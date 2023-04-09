@@ -1,10 +1,10 @@
-import { Movie } from '../../../types/Movie'
 import { LanguageCode } from '../../../types/LanguageCode'
 import { Person } from 'src/types/Person'
 import { TVShow } from 'src/types/TVShow'
 import { TVEpisode } from 'src/types/TVEpisode'
 import { TVSeason } from 'src/types/TVSeason'
 import { TMDBResponse } from 'src/types/TMDBResponse'
+import { Movie } from '../movies/types'
 
 export type FindFilters = {
   language?: LanguageCode

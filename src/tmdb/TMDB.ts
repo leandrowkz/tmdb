@@ -7,8 +7,8 @@ import { Configuration } from './apis/configuration'
 import { Credits } from './apis/credits'
 import { Discover } from './apis/discover'
 import { Genres } from './apis/genres'
-import { Movies } from './apis/Movies'
-import { Trending } from './apis/Trending'
+import { Movies } from './apis/movies'
+import { Trending } from './apis/trending'
 import { Find } from './apis/find'
 
 export class TMDB {

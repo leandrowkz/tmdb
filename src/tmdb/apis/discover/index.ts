@@ -1,8 +1,8 @@
 import { BaseAPI } from '../BaseAPI'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../../../types/Movie'
 import { MovieFilters, TVFilters } from './types'
 import { TVShow } from 'src/types/TVShow'
+import { Movie } from '../movies/types'
 
 export class Discover extends BaseAPI {
   /**

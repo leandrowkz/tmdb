@@ -1,22 +1,24 @@
 import { LanguageCode } from 'src/types/LanguageCode'
 import { Image } from 'src/types/Image'
-import { Movie } from 'src/types/Movie'
+import { Movie } from '../movies/types'
 import { Nullable } from 'src/types/Nullable'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { Translation } from 'src/types/Translation'
 
-export type CollectionsFilters = {
-  language?: LanguageCode
-}
-
-export type CollectionDetailsResponse = TMDBResponse<{
+export type CollectionDetails = {
   id: number
   name: string
   overview: string
   poster_path: Nullable<string>
   backdrop_path: Nullable<string>
   parts: Movie[]
-}>
+}
+
+export type CollectionsFilters = {
+  language?: LanguageCode
+}
+
+export type CollectionDetailsResponse = TMDBResponse<CollectionDetails>
 
 export type CollectionImagesResponse = TMDBResponse<{
   id: number

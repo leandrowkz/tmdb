@@ -1,21 +1,23 @@
-import { MovieCredits } from '../../types/MovieCredits'
-import { Movie } from '../../types/Movie'
-import { TmdbAPIResponseList } from '../../types/TmdbAPIResponseList'
-import { BaseAPI } from './BaseAPI'
-import { MovieVideo } from '../../types/MovieVideo'
+import { MovieCredits } from '../../../types/MovieCredits'
+import { TmdbAPIResponseList } from '../../../types/TmdbAPIResponseList'
+import { BaseAPI } from '../BaseAPI'
+import { MovieVideo } from '../../../types/MovieVideo'
+import { Movie, MovieDetails, MoviesFilters } from './types'
+import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export class Movies extends BaseAPI {
   /**
    * Fetch movie details.
    *
-   * @param movieId
-   * @returns Promise<Movie>
    * @see https://developers.themoviedb.org/3/movies/get-movie-details
    */
-  public async details(movieId: number, filters = {}): Promise<Movie> {
+  public async details(
+    movieId: number,
+    filters?: MoviesFilters
+  ): Promise<TMDBResponse<MovieDetails>> {
     const path = this.getPath(`/movie/${movieId}`, filters)
 
-    return this.get<Movie>(path)
+    return this.get<TMDBResponse<MovieDetails>>(path)
   }
 
   /**

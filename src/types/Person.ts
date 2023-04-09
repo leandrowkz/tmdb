@@ -1,4 +1,4 @@
-import { Movie } from './Movie'
+import { Movie } from 'src/tmdb/apis/movies/types'
 import { TVShow } from './TVShow'
 
 interface MovieTyped extends Movie {
