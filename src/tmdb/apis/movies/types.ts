@@ -5,6 +5,7 @@ import { Genre } from '../genres/types'
 import { Company } from '../companies/types'
 import { CountryCode } from 'src/types/CountryCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
+import { CastPerson, CrewPerson, Person } from 'src/types/Person'
 
 export interface Movie {
   id: number
@@ -123,6 +124,10 @@ export type ChangesFilters = {
   end_date?: string
 }
 
+export type CreditsFilters = {
+  language?: LanguageCode
+}
+
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
 
 export type AlternativeTitlesResponse = TMDBResponse<{
@@ -132,4 +137,10 @@ export type AlternativeTitlesResponse = TMDBResponse<{
 
 export type ChangesResponse = TMDBResponse<{
   changes: MovieChanges[]
+}>
+
+export type CreditsResponse = TMDBResponse<{
+  id: number
+  cast: CastPerson[]
+  crew: CrewPerson[]
 }>

@@ -12,6 +12,8 @@ import {
   DetailsFilters,
   ChangesFilters,
   ChangesResponse,
+  CreditsFilters,
+  CreditsResponse,
 } from './types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
@@ -80,6 +82,20 @@ export class Movies extends BaseAPI {
   }
 
   /**
+   * Get the cast and crew for a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-credits
+   */
+  public async credits(
+    movieId: number,
+    filters?: CreditsFilters
+  ): Promise<CreditsResponse> {
+    const path = this.getPath(`/movie/${movieId}/credits`, filters)
+
+    return this.get<CreditsResponse>(path)
+  }
+
+  /**
    * Fetch a list of similar movies based on given movie.
    *
    * @param id
@@ -137,20 +153,6 @@ export class Movies extends BaseAPI {
     const path = this.getPath('/movie/popular', filters)
 
     return this.get<TmdbAPIResponseList<Movie>>(path)
-  }
-
-  /**
-   * Fetch the cast and crew for a movie.
-   *
-   * @param movieId
-   * @param filters
-   * @returns Promise<MovieCredits>
-   * @see https://developers.themoviedb.org/3/movies/get-movie-credits
-   */
-  public async credits(movieId: number, filters = {}): Promise<MovieCredits> {
-    const path = this.getPath(`/movie/${movieId}/credits`, filters)
-
-    return this.get<MovieCredits>(path)
   }
 
   /**
