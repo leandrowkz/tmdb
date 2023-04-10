@@ -156,6 +156,11 @@ export type ListsFilters = {
   language?: LanguageCode
 }
 
+export type RecommendationsFilters = {
+  page?: number
+  language?: LanguageCode
+}
+
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
 
 export type AlternativeTitlesResponse = TMDBResponse<{
@@ -193,3 +198,5 @@ export type KeywordsResponse = TMDBResponse<{
 }>
 
 export type ListsResponse = TMDBResponseList<MovieList[]> & { id: number }
+
+export type RecommendationsResponse = TMDBResponseList<Movie[]>

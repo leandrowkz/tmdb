@@ -17,6 +17,8 @@ import {
   KeywordsResponse,
   ListsFilters,
   ListsResponse,
+  RecommendationsFilters,
+  RecommendationsResponse,
 } from './types'
 
 export class Movies extends BaseAPI {
@@ -149,5 +151,19 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/lists`, filters)
 
     return this.get<ListsResponse>(path)
+  }
+
+  /**
+   * Get a list of recommended movies for a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-recommendations
+   */
+  public async recommendations(
+    movieId: number,
+    filters?: RecommendationsFilters
+  ): Promise<RecommendationsResponse> {
+    const path = this.getPath(`/movie/${movieId}/recommendations`, filters)
+
+    return this.get<RecommendationsResponse>(path)
   }
 }
