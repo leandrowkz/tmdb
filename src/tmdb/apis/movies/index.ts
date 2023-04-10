@@ -14,6 +14,7 @@ import {
   ExternalIdsResponse,
   ImagesFilters,
   ImagesResponse,
+  KeywordsResponse,
 } from './types'
 
 export class Movies extends BaseAPI {
@@ -121,5 +122,16 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/images`, filters)
 
     return this.get<ImagesResponse>(path)
+  }
+
+  /**
+   * Get the keywords that have been added to a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-keywords
+   */
+  public async keywords(movieId: number): Promise<KeywordsResponse> {
+    const path = this.getPath(`/movie/${movieId}/keywords`)
+
+    return this.get<KeywordsResponse>(path)
   }
 }

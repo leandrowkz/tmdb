@@ -106,6 +106,11 @@ export type MovieChanges = {
   }[]
 }
 
+export type MovieKeyword = {
+  id: number
+  name: string
+}
+
 export type DetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
 }
@@ -163,4 +168,9 @@ export type ImagesResponse = TMDBResponse<{
   id: number
   backdrops: Image[]
   posters: Image[]
+}>
+
+export type KeywordsResponse = TMDBResponse<{
+  id: number
+  keywords: MovieKeyword[]
 }>
