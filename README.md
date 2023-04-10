@@ -54,7 +54,7 @@ console.log(fightClub)
 }
 ```
 
-## Namespaced APIs
+## Available APIs
 This client wraps all available apis as namespaces inside of it. All you need is
 invoke them under a single client and your IDE must autocomplete everything:
 
@@ -72,32 +72,30 @@ console.log(
 )
 ```
 
-## Available APIs
-The following table lists all available apis and its methods.
-| API               | TMDB Docs                                             | Access                               | Status |
-|-------------------|-------------------------------------------------------|--------------------------------------|--------|
-| Account           | https://developers.themoviedb.org/3/account           | -                                    | WIP    |
-| Authentication    | https://developers.themoviedb.org/3/authentication    | -                                    | WIP    |
-| Certifications    | https://developers.themoviedb.org/3/certifications    | `new TMDB({ ... }).certifications.*` | Done   |
-| Changes           | https://developers.themoviedb.org/3/changes           | `new TMDB({ ... }).changes.*`        | Done   |
-| Collections       | https://developers.themoviedb.org/3/collections       | `new TMDB({ ... }).collections.*`    | Done   |
-| Companies         | https://developers.themoviedb.org/3/companies         | `new TMDB({ ... }).certifications.*` | Done   |
-| Configuration     | https://developers.themoviedb.org/3/configuration     | `new TMDB({ ... }).configuration.*`  | Done   |
-| Credits           | https://developers.themoviedb.org/3/credits           | `new TMDB({ ... }).credits.*`        | Done   |
-| Discover          | https://developers.themoviedb.org/3/discover          | `new TMDB({ ... }).discover.*`       | Done   |
-| Find              | https://developers.themoviedb.org/3/find              | `new TMDB({ ... }).find.*`           | Done   |
-| Genres            | https://developers.themoviedb.org/3/genres            | `new TMDB({ ... }).genres.*`         | Done   |
-| Guest Sessions    | https://developers.themoviedb.org/3/guest-sessions    | -                                    | WIP    |
-| Keywords          | https://developers.themoviedb.org/3/keywords          | -                                    | WIP    |
-| Lists             | https://developers.themoviedb.org/3/lists             | -                                    | WIP    |
-| Movies            | https://developers.themoviedb.org/3/movies            | `new TMDB({ ... }).movies.*`         | Done   |
-| Networks          | https://developers.themoviedb.org/3/networks          | -                                    | WIP    |
-| Trending          | https://developers.themoviedb.org/3/trending          | -                                    | WIP    |
-| People            | https://developers.themoviedb.org/3/people            | -                                    | WIP    |
-| Reviews           | https://developers.themoviedb.org/3/reviews           | -                                    | WIP    |
-| Search            | https://developers.themoviedb.org/3/search            | -                                    | WIP    |
-| TV                | https://developers.themoviedb.org/3/tv                | -                                    | WIP    |
-| TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | -                                    | WIP    |
-| TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | -                                    | WIP    |
-| TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | -                                    | WIP    |
-| Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | -                                    | WIP    |
+| API               | TMDB Docs                                             | Access                  | Status |
+|-------------------|-------------------------------------------------------|-------------------------|--------|
+| Account           | https://developers.themoviedb.org/3/account           | -                       | WIP    |
+| Authentication    | https://developers.themoviedb.org/3/authentication    | -                       | WIP    |
+| Certifications    | https://developers.themoviedb.org/3/certifications    | `tmdb.certifications.*` | Done   |
+| Changes           | https://developers.themoviedb.org/3/changes           | `tmdb.changes.*`        | Done   |
+| Collections       | https://developers.themoviedb.org/3/collections       | `tmdb.collections.*`    | Done   |
+| Companies         | https://developers.themoviedb.org/3/companies         | `tmdb.certifications.*` | Done   |
+| Configuration     | https://developers.themoviedb.org/3/configuration     | `tmdb.configuration.*`  | Done   |
+| Credits           | https://developers.themoviedb.org/3/credits           | `tmdb.credits.*`        | Done   |
+| Discover          | https://developers.themoviedb.org/3/discover          | `tmdb.discover.*`       | Done   |
+| Find              | https://developers.themoviedb.org/3/find              | `tmdb.find.*`           | Done   |
+| Genres            | https://developers.themoviedb.org/3/genres            | `tmdb.genres.*`         | Done   |
+| Guest Sessions    | https://developers.themoviedb.org/3/guest-sessions    | -                       | WIP    |
+| Keywords          | https://developers.themoviedb.org/3/keywords          | -                       | WIP    |
+| Lists             | https://developers.themoviedb.org/3/lists             | -                       | WIP    |
+| Movies            | https://developers.themoviedb.org/3/movies            | `tmdb.movies.*`         | Done   |
+| Networks          | https://developers.themoviedb.org/3/networks          | -                       | WIP    |
+| Trending          | https://developers.themoviedb.org/3/trending          | -                       | WIP    |
+| People            | https://developers.themoviedb.org/3/people            | -                       | WIP    |
+| Reviews           | https://developers.themoviedb.org/3/reviews           | -                       | WIP    |
+| Search            | https://developers.themoviedb.org/3/search            | -                       | WIP    |
+| TV                | https://developers.themoviedb.org/3/tv                | -                       | WIP    |
+| TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | -                       | WIP    |
+| TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | -                       | WIP    |
+| TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | -                       | WIP    |
+| Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | -                       | WIP    |
