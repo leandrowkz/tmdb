@@ -1,6 +1,6 @@
 {
   "name": "@lewkz/tmdb",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Typescript template for backend apps/packages.",
   "main": "build/src/index.js",
   "repository": "git@github.com:leandrowkz/tmdb.git",
