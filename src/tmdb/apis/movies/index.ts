@@ -14,6 +14,7 @@ import {
   ChangesResponse,
   CreditsFilters,
   CreditsResponse,
+  ExternalIdsResponse,
 } from './types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
@@ -93,6 +94,17 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/credits`, filters)
 
     return this.get<CreditsResponse>(path)
+  }
+
+  /**
+   * Get the external ids for a movie. We currently support the following external sources.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-external-ids
+   */
+  public async externalIds(movieId: number): Promise<ExternalIdsResponse> {
+    const path = this.getPath(`/movie/${movieId}/external_ids`)
+
+    return this.get<ExternalIdsResponse>(path)
   }
 
   /**

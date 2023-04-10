@@ -144,3 +144,11 @@ export type CreditsResponse = TMDBResponse<{
   cast: CastPerson[]
   crew: CrewPerson[]
 }>
+
+export type ExternalIdsResponse = TMDBResponse<{
+  id: number
+  imdb_id: Nullable<string>
+  facebook_id: Nullable<string>
+  instagram_id: Nullable<string>
+  twitter_id: Nullable<string>
+}>
