@@ -5,7 +5,8 @@ import { Genre } from '../genres/types'
 import { Company } from '../companies/types'
 import { CountryCode } from 'src/types/CountryCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
-import { CastPerson, CrewPerson, Person } from 'src/types/Person'
+import { CastPerson, CrewPerson } from 'src/types/Person'
+import { Image } from 'src/types/Image'
 
 export interface Movie {
   id: number
@@ -128,6 +129,11 @@ export type CreditsFilters = {
   language?: LanguageCode
 }
 
+export type ImagesFilters = {
+  language?: LanguageCode
+  include_image_language?: LanguageCode[]
+}
+
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
 
 export type AlternativeTitlesResponse = TMDBResponse<{
@@ -151,4 +157,10 @@ export type ExternalIdsResponse = TMDBResponse<{
   facebook_id: Nullable<string>
   instagram_id: Nullable<string>
   twitter_id: Nullable<string>
+}>
+
+export type ImagesResponse = TMDBResponse<{
+  id: number
+  backdrops: Image[]
+  posters: Image[]
 }>

@@ -1,9 +1,6 @@
-import { MovieCredits } from '../../../types/MovieCredits'
-import { TmdbAPIResponseList } from '../../../types/TmdbAPIResponseList'
 import { BaseAPI } from '../BaseAPI'
-import { MovieVideo } from '../../../types/MovieVideo'
+import { TMDBResponse } from 'src/types/TMDBResponse'
 import {
-  Movie,
   MovieDetails,
   AlternativeTitlesFilters,
   AlternativeTitlesResponse,
@@ -15,8 +12,9 @@ import {
   CreditsFilters,
   CreditsResponse,
   ExternalIdsResponse,
+  ImagesFilters,
+  ImagesResponse,
 } from './types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export class Movies extends BaseAPI {
   /**
@@ -108,79 +106,20 @@ export class Movies extends BaseAPI {
   }
 
   /**
-   * Fetch a list of similar movies based on given movie.
+   * Get the images that belong to a movie.
    *
-   * @param id
-   * @param filters
-   * @returns Promise<TmdbAPIResponseList<Movie>>
-   * @see https://developers.themoviedb.org/3/movies/get-similar-movies
+   * Querying images with a language parameter will filter the results. If you want to include a
+   * fallback language (especially useful for backdrops) you can use the include_image_language
+   * parameter. This should be a comma seperated value like so: include_image_language=en,null.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-images
    */
-  public async similar(
+  public async images(
     movieId: number,
-    filters = {}
-  ): Promise<TmdbAPIResponseList<Movie>> {
-    const path = this.getPath(`/movie/${movieId}/similar`, filters)
+    filters?: ImagesFilters
+  ): Promise<ImagesResponse> {
+    const path = this.getPath(`/movie/${movieId}/images`, filters)
 
-    return this.get<TmdbAPIResponseList<Movie>>(path)
-  }
-
-  /**
-   * Get a list of recommendations for a movie.
-   *
-   * @param id
-   * @param filters
-   * @returns Promise<TmdbAPIResponseList<Movie>>
-   * @see https://developers.themoviedb.org/3/movies/get-movie-recommendations
-   */
-  public async recommendations(
-    movieId: number,
-    filters = {}
-  ): Promise<TmdbAPIResponseList<Movie>> {
-    const path = this.getPath(`/movie/${movieId}/recommendations`, filters)
-
-    return this.get<TmdbAPIResponseList<Movie>>(path)
-  }
-
-  /**
-   * Get a list of movies in theatres.
-   *
-   * @param filters
-   * @returns Promise<TmdbAPIResponseList<Movie>>
-   * @see https://developers.themoviedb.org/3/movies/get-now-playing
-   */
-  public async nowPlaying(filters = {}): Promise<TmdbAPIResponseList<Movie>> {
-    const path = this.getPath('/movie/now_playing', filters)
-
-    return this.get<TmdbAPIResponseList<Movie>>(path)
-  }
-
-  /**
-   * Get a list of popular movies.
-   *
-   * @param filters
-   * @returns Promise<TmdbAPIResponseList<Movie>>
-   * @see https://developers.themoviedb.org/3/movies/get-popular-movies
-   */
-  public async popular(filters = {}): Promise<TmdbAPIResponseList<Movie>> {
-    const path = this.getPath('/movie/popular', filters)
-
-    return this.get<TmdbAPIResponseList<Movie>>(path)
-  }
-
-  /**
-   * Get the videos that have been added to a movie.
-   *
-   * @param movieId
-   * @param filters
-   * @returns Promise<MovieCredits>
-   * @see https://developers.themoviedb.org/3/movies/get-movie-videos
-   */
-  public async videos(
-    movieId: number,
-    filters = {}
-  ): Promise<TmdbAPIResponseList<MovieVideo>> {
-    const path = this.getPath(`/movie/${movieId}/videos`, filters)
-
-    return this.get<TmdbAPIResponseList<MovieVideo>>(path)
+    return this.get<ImagesResponse>(path)
   }
 }
