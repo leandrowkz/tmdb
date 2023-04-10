@@ -78,6 +78,18 @@ export type MovieVideo = {
   type: 'Trailer'
 }
 
-export type MoviesFilters = {
+export type MovieAccountStates = {
+  id: number
+  favorite: boolean
+  rated: { value: number } | boolean
+  watchlist: boolean
+}
+
+export type MovieDetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
+}
+
+export type MovieAccountStatesFilters = {
+  session_id: string
+  guest_session_id?: string
 }

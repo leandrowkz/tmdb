@@ -2,7 +2,13 @@ import { MovieCredits } from '../../../types/MovieCredits'
 import { TmdbAPIResponseList } from '../../../types/TmdbAPIResponseList'
 import { BaseAPI } from '../BaseAPI'
 import { MovieVideo } from '../../../types/MovieVideo'
-import { Movie, MovieDetails, MoviesFilters } from './types'
+import {
+  Movie,
+  MovieDetails,
+  MovieDetailsFilters,
+  MovieAccountStatesFilters,
+  MovieAccountStates,
+} from './types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export class Movies extends BaseAPI {
@@ -13,11 +19,29 @@ export class Movies extends BaseAPI {
    */
   public async details(
     movieId: number,
-    filters?: MoviesFilters
+    filters?: MovieDetailsFilters
   ): Promise<TMDBResponse<MovieDetails>> {
     const path = this.getPath(`/movie/${movieId}`, filters)
 
     return this.get<TMDBResponse<MovieDetails>>(path)
+  }
+
+  /**
+   * Grab the following account states for a session:
+   *
+   * - Movie rating
+   * - If it belongs to your watchlist
+   * - If it belongs to your favourite list
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-account-states
+   */
+  public async accountStates(
+    movieId: number,
+    filters?: MovieAccountStatesFilters
+  ): Promise<TMDBResponse<MovieAccountStates>> {
+    const path = this.getPath(`/movie/${movieId}/account_states`, filters)
+
+    return this.get<TMDBResponse<MovieAccountStates>>(path)
   }
 
   /**
