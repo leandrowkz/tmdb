@@ -7,6 +7,7 @@ import { CountryCode } from 'src/types/CountryCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { CastPerson, CrewPerson } from 'src/types/Person'
 import { Image } from 'src/types/Image'
+import { TMDBResponseList } from 'src/types/TMDBResponseList'
 
 export interface Movie {
   id: number
@@ -111,6 +112,17 @@ export type MovieKeyword = {
   name: string
 }
 
+export type MovieList = {
+  id: number
+  item_count: number
+  favorite_count: number
+  iso_639_1: LanguageCode
+  list_type: string
+  name: string
+  description: string
+  poster_path: string
+}
+
 export type DetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
 }
@@ -137,6 +149,11 @@ export type CreditsFilters = {
 export type ImagesFilters = {
   language?: LanguageCode
   include_image_language?: LanguageCode[]
+}
+
+export type ListsFilters = {
+  page?: number
+  language?: LanguageCode
 }
 
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
@@ -174,3 +191,5 @@ export type KeywordsResponse = TMDBResponse<{
   id: number
   keywords: MovieKeyword[]
 }>
+
+export type ListsResponse = TMDBResponseList<MovieList[]> & { id: number }

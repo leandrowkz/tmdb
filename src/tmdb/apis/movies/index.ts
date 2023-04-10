@@ -15,6 +15,8 @@ import {
   ImagesFilters,
   ImagesResponse,
   KeywordsResponse,
+  ListsFilters,
+  ListsResponse,
 } from './types'
 
 export class Movies extends BaseAPI {
@@ -133,5 +135,19 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/keywords`)
 
     return this.get<KeywordsResponse>(path)
+  }
+
+  /**
+   * Get a list of lists that this movie belongs to.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-lists
+   */
+  public async lists(
+    movieId: number,
+    filters?: ListsFilters
+  ): Promise<ListsResponse> {
+    const path = this.getPath(`/movie/${movieId}/lists`, filters)
+
+    return this.get<ListsResponse>(path)
   }
 }
