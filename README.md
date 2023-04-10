@@ -1,50 +1,74 @@
-# Typescript node template
-Typescript template for backend packages/apps. It provides a working set of
-packages/resources ready to be used. Just put your code under `src` and you'll
-be ready to go.
+# 🍿 TMDB Typescript client
+This package is a typescript wrapper client for [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). It provides an easy way to use and acceess TMDB
+available apis at version 3.
 
-## Packages
-- [Typescript](https://www.typescriptlang.org/)
-- [TSConfig Paths](https://github.com/dividab/tsconfig-paths) (transform `import x from '@/sample'; @/ => src/`)
-- [Node 19+](https://nodejs.org/dist/latest-v19.x/docs/api/)
-- [NPM 7+](https://nodejs.org/dist/latest-v19.x/docs/api/)
-- [Commitlint](https://commitlint.js.org/#/)
-- [Eslint](https://typescript-eslint.io) (typescript)
-- [Prettier](https://prettier.io/) (on eslint)
-- [Jest](https://jestjs.io/docs/getting-started) (with ts-jest)
-- [Editorconfig](https://editorconfig.org/)
-- [Husky hooks](https://typicode.github.io/husky/#/)
-- [Semantic-release](https://semantic-release.gitbook.io/semantic-release/) (automatically publishes this repo on NPM)
+![Autocomplete TMDB](./autocomplete.gif)
 
-## Git hooks
-This repo comes with 3 git hooks handled by [Husky hooks](https://typicode.github.io/husky/#/):
-1. `commit-msg` which checks if commit messages are under [conventional commit format](https://commitlint.js.org/#/concepts-commit-conventions)
-2. `pre-commit` which runs `npm run lint:check` to validate code formatting before actual committing
-3. `pre-push` which runs `npm run test` before pushing code
-
-## Conventional commit messages
-This repo uses [commitlint](https://commitlint.js.org/#/) to validate and standardize commit
-messages. This is also necessary for the release/publish step, which looks for this kind of message
-format to detect the correct version changes. Make sure you use it on your work, or let the
-`commit-msg` hook validate it for you. [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a good complementary read also.
-
-All you have to do is commit like those below examples:
+## Installation
 ```ts
-// see formats on https://commitlint.js.org/#/concepts-commit-conventions
-$ git commit -m 'feat: this change is related to a feature'
-$ git commit -m 'refactor: adjust something'
-$ git commit -m 'docs: change on README.md'
-$ git commit -m 'chore: update CI'
+// Using npm
+npm i @lewkz/tmdb
+
+// Using yarn
+yarn add @lewkz/tmdb
 ```
 
-## Automatic releases and publishing as NPM package
-This repo has all things necessary to be published as a public package on
-[NPM](https://www.npmjs.com/). All you need to do is to:
-1. Create a NPM access token (https://docs.npmjs.com/creating-and-viewing-access-tokens)
-2. Create a repository secret called `NPM_TOKEN` with the value above
-3. Create a Github personal access token (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)
-4. Create a repository secret called `GH_TOKEN` with the value above
-5. That's it! Now every time a push/merge is made on branch `main` a release pipeline will run,
-   building the application, generating a new tag to the repo, bumping `package.json` version on
-   branch `main` according to the last commit change (check the `.releaserc.js`) and publishing this
-   to NPM, according to the config set on `package.json` `publishConfig`.
+## Basic usage
+This client is organized in the same namespace structure present on [TMDB documentation](https://developers.themoviedb.org/3/getting-started/introduction). You'll need create a register and an [API key](https://www.themoviedb.org/settings/api) to interact with TMDB API. After that, just create a new instance from
+TMDB wrapper client:
+```ts
+import { TMDB } from '@lewkz/tmdb'
+
+const tmdb = new TMDB({ apiKey: 'CREATED_ON_TMDB' })
+
+const fightClub = await tmdb.movies.details(550)
+
+console.log(fightClub)
+
+{
+  "adult": false,
+  "backdrop_path": "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
+  "belongs_to_collection": null,
+  "budget": 63000000,
+  "genres": [...],
+  "homepage": "",
+  "id": 550,
+  "imdb_id": "tt0137523",
+  "original_language": "en",
+  "original_title": "Fight Club",
+  "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+  "popularity": 0.5,
+  "poster_path": null,
+  "production_companies": [...],
+  "production_countries": [...],
+  "release_date": "1999-10-12",
+  "revenue": 100853753,
+  "runtime": 139,
+  "spoken_languages": [...],
+  "status": "Released",
+  "tagline": "How much can you know about yourself if you've never been in a fight?",
+  "title": "Fight Club",
+  "video": false,
+  "vote_average": 7.8,
+  "vote_count": 3439
+}
+```
+
+## Namespaced APIs
+This client wraps all available apis as namespaces inside of it. All you need is
+invoke them under a single client and your IDE must autocomplete everything:
+
+
+```ts
+import { TMDB } from '@lewkz/tmdb'
+
+export const tmdb = new TMDB({ apiKey: 'YOUR_API_KEY' })
+
+console.log(
+  // https://developers.themoviedb.org/3/certifications/get-movie-certifications
+  await tmdb.certifications.movie(),
+
+  // https://developers.themoviedb.org/3/certifications/get-tv-certifications
+  await tmdb.certifications.tv()
+)
+```

@@ -12,7 +12,7 @@ export abstract class Fetcher {
     })
   }
 
-  public async get<T>(path: string) {
+  protected async get<T>(path: string) {
     const options: RequestPayload = {
       path,
       method: 'GET',
@@ -21,7 +21,7 @@ export abstract class Fetcher {
     return this.request<T>(options)
   }
 
-  public async post<T>(path: string, body?: RequestBody) {
+  protected async post<T>(path: string, body?: RequestBody) {
     const options: RequestPayload = {
       path,
       body,
@@ -31,7 +31,7 @@ export abstract class Fetcher {
     return this.request<T>(options)
   }
 
-  public async put<T>(path: string, body?: RequestBody) {
+  protected async put<T>(path: string, body?: RequestBody) {
     const options: RequestPayload = {
       path,
       body,
@@ -41,7 +41,7 @@ export abstract class Fetcher {
     return this.request<T>(options)
   }
 
-  public async delete<T>(path: string) {
+  protected async delete<T>(path: string) {
     const options: RequestPayload = {
       path,
       method: 'DELETE',
@@ -50,7 +50,7 @@ export abstract class Fetcher {
     return this.request<T>(options)
   }
 
-  public addHeader(key: string, value: string) {
+  protected addHeader(key: string, value: string) {
     this.headers.append(key, value)
   }
 
