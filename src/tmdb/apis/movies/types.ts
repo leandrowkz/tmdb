@@ -4,6 +4,7 @@ import { Nullable } from 'src/types/Nullable'
 import { Genre } from '../genres/types'
 import { Company } from '../companies/types'
 import { CountryCode } from 'src/types/CountryCode'
+import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export interface Movie {
   id: number
@@ -85,11 +86,28 @@ export type MovieAccountStates = {
   watchlist: boolean
 }
 
-export type MovieDetailsFilters = {
+export type MovieTitle = {
+  iso_3166_1: CountryCode
+  title: string
+  type: string
+}
+
+export type DetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
 }
 
-export type MovieAccountStatesFilters = {
+export type AccountStatesFilters = {
   session_id: string
   guest_session_id?: string
 }
+
+export type AlternativeTitlesFilters = {
+  country?: CountryCode
+}
+
+export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
+
+export type AlternativeTitlesResponse = TMDBResponse<{
+  id: number
+  titles: MovieTitle[]
+}>

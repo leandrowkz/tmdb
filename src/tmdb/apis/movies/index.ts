@@ -5,9 +5,12 @@ import { MovieVideo } from '../../../types/MovieVideo'
 import {
   Movie,
   MovieDetails,
-  MovieDetailsFilters,
-  MovieAccountStatesFilters,
   MovieAccountStates,
+  AlternativeTitlesFilters,
+  AlternativeTitlesResponse,
+  AccountStatesResponse,
+  AccountStatesFilters,
+  DetailsFilters,
 } from './types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
@@ -19,7 +22,7 @@ export class Movies extends BaseAPI {
    */
   public async details(
     movieId: number,
-    filters?: MovieDetailsFilters
+    filters?: DetailsFilters
   ): Promise<TMDBResponse<MovieDetails>> {
     const path = this.getPath(`/movie/${movieId}`, filters)
 
@@ -37,11 +40,25 @@ export class Movies extends BaseAPI {
    */
   public async accountStates(
     movieId: number,
-    filters?: MovieAccountStatesFilters
-  ): Promise<TMDBResponse<MovieAccountStates>> {
+    filters?: AccountStatesFilters
+  ): Promise<AccountStatesResponse> {
     const path = this.getPath(`/movie/${movieId}/account_states`, filters)
 
-    return this.get<TMDBResponse<MovieAccountStates>>(path)
+    return this.get<AccountStatesResponse>(path)
+  }
+
+  /**
+   * Get all of the alternative titles for a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-alternative-titles
+   */
+  public async alternativeTitles(
+    movieId: number,
+    filters?: AlternativeTitlesFilters
+  ): Promise<AlternativeTitlesResponse> {
+    const path = this.getPath(`/movie/${movieId}/alternative_titles`, filters)
+
+    return this.get<AlternativeTitlesResponse>(path)
   }
 
   /**
