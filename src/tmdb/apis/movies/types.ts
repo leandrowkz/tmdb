@@ -92,6 +92,18 @@ export type MovieTitle = {
   type: string
 }
 
+export type MovieChanges = {
+  key: keyof MovieDetails
+  items: {
+    id: string
+    action: 'updated'
+    time: string
+    iso_639_1: LanguageCode
+    value: string
+    original_value: string
+  }[]
+}
+
 export type DetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
 }
@@ -105,9 +117,19 @@ export type AlternativeTitlesFilters = {
   country?: CountryCode
 }
 
+export type ChangesFilters = {
+  page?: number
+  start_date?: string
+  end_date?: string
+}
+
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
 
 export type AlternativeTitlesResponse = TMDBResponse<{
   id: number
   titles: MovieTitle[]
+}>
+
+export type ChangesResponse = TMDBResponse<{
+  changes: MovieChanges[]
 }>

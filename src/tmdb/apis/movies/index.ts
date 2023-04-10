@@ -5,12 +5,13 @@ import { MovieVideo } from '../../../types/MovieVideo'
 import {
   Movie,
   MovieDetails,
-  MovieAccountStates,
   AlternativeTitlesFilters,
   AlternativeTitlesResponse,
   AccountStatesResponse,
   AccountStatesFilters,
   DetailsFilters,
+  ChangesFilters,
+  ChangesResponse,
 } from './types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
@@ -59,6 +60,23 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/alternative_titles`, filters)
 
     return this.get<AlternativeTitlesResponse>(path)
+  }
+
+  /**
+   * Get the changes for a movie. By default only the last 24 hours are returned.
+   *
+   * You can query up to 14 days in a single query by using the start_date and end_date query
+   * parameters.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-changes
+   */
+  public async changes(
+    movieId: number,
+    filters?: ChangesFilters
+  ): Promise<ChangesResponse> {
+    const path = this.getPath(`/movie/${movieId}/changes`, filters)
+
+    return this.get<ChangesResponse>(path)
   }
 
   /**
