@@ -19,6 +19,27 @@ import {
   ListsResponse,
   RecommendationsFilters,
   RecommendationsResponse,
+  ReleaseDatesResponse,
+  ReviewsFilters,
+  ReviewsResponse,
+  SimilarFilters,
+  SimilarResponse,
+  TranslationsResponse,
+  VideosFilters,
+  VideosResponse,
+  WatchProvidersResponse,
+  RateBody,
+  RateFilters,
+  RateResponse,
+  LatestFilters,
+  NowPlayingFilters,
+  NowPlayingResponse,
+  PopularFilters,
+  PopularResponse,
+  TopRatedFilters,
+  TopRatedResponse,
+  UpcomingFilters,
+  UpcomingResponse,
 } from './types'
 
 export class Movies extends BaseAPI {
@@ -165,5 +186,207 @@ export class Movies extends BaseAPI {
     const path = this.getPath(`/movie/${movieId}/recommendations`, filters)
 
     return this.get<RecommendationsResponse>(path)
+  }
+
+  /**
+   * Get the release date along with the certification for a movie.
+   *
+   * Release dates support different types:
+   * 1) Premiere
+   * 2) Theatrical (limited)
+   * 3) Theatrical
+   * 4) Digital
+   * 5) Physical
+   * 6) TV
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-release-dates
+   */
+  public async releaseDates(movieId: number): Promise<ReleaseDatesResponse> {
+    const path = this.getPath(`/movie/${movieId}/release_dates`)
+
+    return this.get<ReleaseDatesResponse>(path)
+  }
+
+  /**
+   * Get the user reviews for a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-reviews
+   */
+  public async reviews(
+    movieId: number,
+    filters?: ReviewsFilters
+  ): Promise<ReviewsResponse> {
+    const path = this.getPath(`/movie/${movieId}/reviews`, filters)
+
+    return this.get<ReviewsResponse>(path)
+  }
+
+  /**
+   * Get a list of similar movies. This is not the same as the "Recommendation" system you see on
+   * the website.
+   *
+   * These items are assembled by looking at keywords and genres.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-similar-movies
+   */
+  public async similar(
+    movieId: number,
+    filters?: SimilarFilters
+  ): Promise<SimilarResponse> {
+    const path = this.getPath(`/movie/${movieId}/similar`, filters)
+
+    return this.get<SimilarResponse>(path)
+  }
+
+  /**
+   * Get a list of translations that have been created for a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-translations
+   */
+  public async translations(movieId: number): Promise<TranslationsResponse> {
+    const path = this.getPath(`/movie/${movieId}/translations`)
+
+    return this.get<TranslationsResponse>(path)
+  }
+
+  /**
+   * Get the videos that have been added to a movie.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-videos
+   */
+  public async videos(
+    movieId: number,
+    filters?: VideosFilters
+  ): Promise<VideosResponse> {
+    const path = this.getPath(`/movie/${movieId}/videos`, filters)
+
+    return this.get<VideosResponse>(path)
+  }
+
+  /**
+   * Powered by our partnership with JustWatch, you can query this method to get a list of the
+   * availabilities per country by provider.
+   *
+   * This is not going to return full deep links, but rather, it's just enough information to
+   * display what's available where.
+   *
+   * You can link to the provided TMDB URL to help support TMDB and provide the actual deep links to
+   * the content.
+   *
+   * Please note: In order to use this data you must attribute the source of the data as JustWatch.
+   * If we find any usage not complying with these terms we will revoke access to the API.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-movie-watch-providers
+   */
+  public async watchProviders(
+    movieId: number
+  ): Promise<WatchProvidersResponse> {
+    const path = this.getPath(`/movie/${movieId}/watch/providers`)
+
+    return this.get<WatchProvidersResponse>(path)
+  }
+
+  /**
+   * Rate a movie.
+   *
+   * A valid session or guest session ID is required. You can read more about how this works
+   * https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id.
+   *
+   * @see https://developers.themoviedb.org/3/movies/rate-movie
+   */
+  public async rate(
+    movieId: number,
+    body: RateBody,
+    filters?: RateFilters
+  ): Promise<RateResponse> {
+    const path = this.getPath(`/movie/${movieId}/rating`, filters)
+
+    return this.post<RateResponse>(path, body)
+  }
+
+  /**
+   * Remove your rating for a movie.
+   *
+   * A valid session or guest session ID is required. You can read more about how this works
+   * https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id.
+   *
+   * @see https://developers.themoviedb.org/3/movies/delete-movie-rating
+   */
+  public async deleteRate(
+    movieId: number,
+    filters?: RateFilters
+  ): Promise<RateResponse> {
+    const path = this.getPath(`/movie/${movieId}/rating`, filters)
+
+    return this.delete<RateResponse>(path)
+  }
+
+  /**
+   * Get the most newly created movie. This is a live response and will continuously change.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-latest-movie
+   */
+  public async latest(
+    filters?: LatestFilters
+  ): Promise<TMDBResponse<MovieDetails>> {
+    const path = this.getPath('/movie/latest', filters)
+
+    return this.get<TMDBResponse<MovieDetails>>(path)
+  }
+
+  /**
+   * Get a list of movies in theatres. This is a release type query that looks
+   * for all movies that have a release type of 2 or 3 within the specified date
+   * range.
+   *
+   * You can optionally specify a region prameter which will narrow the search
+   * to only look for theatrical release dates within the specified country.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-now-playing
+   */
+  public async nowPlaying(
+    filters?: NowPlayingFilters
+  ): Promise<NowPlayingResponse> {
+    const path = this.getPath('/movie/now_playing', filters)
+
+    return this.get<NowPlayingResponse>(path)
+  }
+
+  /**
+   * Get a list of the current popular movies on TMDB. This list updates daily.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-popular-movies
+   */
+  public async popular(filters?: PopularFilters): Promise<PopularResponse> {
+    const path = this.getPath('/movie/popular', filters)
+
+    return this.get<PopularResponse>(path)
+  }
+
+  /**
+   * Get the top rated movies on TMDB.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-top-rated-movies
+   */
+  public async topRated(filters?: TopRatedFilters): Promise<TopRatedResponse> {
+    const path = this.getPath('/movie/top_rated', filters)
+
+    return this.get<TopRatedResponse>(path)
+  }
+
+  /**
+   * Get a list of upcoming movies in theatres. This is a release type query
+   * that looks for all movies that have a release type of 2 or 3 within the
+   * specified date range.
+   *
+   * You can optionally specify a region prameter which will narrow the search
+   * to only look for theatrical release dates within the specified country.
+   *
+   * @see https://developers.themoviedb.org/3/movies/get-upcoming
+   */
+  public async upcoming(filters?: UpcomingFilters): Promise<UpcomingResponse> {
+    const path = this.getPath('/movie/upcoming', filters)
+
+    return this.get<UpcomingResponse>(path)
   }
 }

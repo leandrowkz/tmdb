@@ -8,6 +8,8 @@ import { TMDBResponse } from 'src/types/TMDBResponse'
 import { CastPerson, CrewPerson } from 'src/types/Person'
 import { Image } from 'src/types/Image'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
+import { CertificationCode } from '../certifications/types'
+import { Translation } from 'src/types/Translation'
 
 export interface Movie {
   id: number
@@ -123,6 +125,36 @@ export type MovieList = {
   poster_path: string
 }
 
+export type MovieReleaseDate = {
+  certification: CertificationCode
+  iso_639_1: LanguageCode
+  release_date: string
+  type: number
+  note: string
+}
+
+export type MovieReview = {
+  id: string
+  author: string
+  author_details: {
+    name: string
+    username: string
+    avatar_path: Nullable<string>
+    rating: Nullable<number>
+  }
+  content: string
+  created_at: string
+  updated_at: string
+  url: string
+}
+
+export type MovieWatchProvider = {
+  provider_id: number
+  provider_name: string
+  logo_path: string
+  display_priority: number
+}
+
 export type DetailsFilters = {
   append_to_response: 'cast' | 'videos' | 'images'
 }
@@ -159,6 +191,58 @@ export type ListsFilters = {
 export type RecommendationsFilters = {
   page?: number
   language?: LanguageCode
+}
+
+export type ReviewsFilters = {
+  page?: number
+  language?: LanguageCode
+}
+
+export type SimilarFilters = {
+  page?: number
+  language?: LanguageCode
+}
+
+export type VideosFilters = {
+  language?: LanguageCode
+  include_video_language?: LanguageCode[]
+}
+
+export type LatestFilters = {
+  language?: LanguageCode
+}
+
+export type RateFilters = {
+  session_id?: string
+  guest_session_id?: string
+}
+
+export type RateBody = {
+  value: number
+}
+
+export type NowPlayingFilters = {
+  language?: LanguageCode
+  region?: CountryCode
+  page?: number
+}
+
+export type PopularFilters = {
+  language?: LanguageCode
+  region?: CountryCode
+  page?: number
+}
+
+export type TopRatedFilters = {
+  language?: LanguageCode
+  region?: CountryCode
+  page?: number
+}
+
+export type UpcomingFilters = {
+  language?: LanguageCode
+  region?: CountryCode
+  page?: number
 }
 
 export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
@@ -200,3 +284,60 @@ export type KeywordsResponse = TMDBResponse<{
 export type ListsResponse = TMDBResponseList<MovieList[]> & { id: number }
 
 export type RecommendationsResponse = TMDBResponseList<Movie[]>
+
+export type ReleaseDatesResponse = TMDBResponse<{
+  id: number
+  results: {
+    ido_3166_1: CountryCode
+    release_dates: MovieReleaseDate[]
+  }
+}>
+
+export type ReviewsResponse = TMDBResponseList<MovieReview[]> & { id: number }
+
+export type SimilarResponse = TMDBResponseList<Movie[]>
+
+export type TranslationsResponse = TMDBResponse<{
+  id: number
+  translations: Translation[]
+}>
+
+export type VideosResponse = TMDBResponse<{
+  id: number
+  results: MovieVideo[]
+}>
+
+export type WatchProvidersResponse = TMDBResponse<{
+  id: number
+  results: {
+    [key in CountryCode]?: {
+      link: string
+      flatrate?: MovieWatchProvider[]
+      rent?: MovieWatchProvider[]
+      buy?: MovieWatchProvider[]
+    }
+  }
+}>
+
+export type RateResponse = TMDBResponse<{
+  status_code: number
+  status_message: string
+}>
+
+export type NowPlayingResponse = TMDBResponseList<Movie[]> & {
+  dates: {
+    maximum: string
+    minimum: string
+  }
+}
+
+export type UpcomingResponse = TMDBResponseList<Movie[]> & {
+  dates: {
+    maximum: string
+    minimum: string
+  }
+}
+
+export type PopularResponse = TMDBResponseList<Movie[]>
+
+export type TopRatedResponse = TMDBResponseList<Movie[]>
