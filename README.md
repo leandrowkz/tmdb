@@ -7,17 +7,17 @@ available apis at version 3.
 ## Installation
 ```ts
 // Using npm
-npm i @lewkz/tmdb
+npm i @leandrowkz/tmdb
 
 // Using yarn
-yarn add @lewkz/tmdb
+yarn add @leandrowkz/tmdb
 ```
 
 ## Basic usage
 This client is organized in the same namespace structure present on [TMDB documentation](https://developers.themoviedb.org/3/getting-started/introduction). You'll need create a register and an [API key](https://www.themoviedb.org/settings/api) to interact with TMDB API. After that, just create a new instance from
 TMDB wrapper client:
 ```ts
-import { TMDB } from '@lewkz/tmdb'
+import { TMDB } from '@leandrowkz/tmdb'
 
 const tmdb = new TMDB({ apiKey: 'CREATED_ON_TMDB' })
 
@@ -59,7 +59,7 @@ This client wraps all available apis as namespaces inside of it. All you need is
 invoke them under a single client and your IDE must autocomplete everything:
 
 ```ts
-import { TMDB } from '@lewkz/tmdb'
+import { TMDB } from '@leandrowkz/tmdb'
 
 export const tmdb = new TMDB({ apiKey: 'YOUR_API_KEY' })
 

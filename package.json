@@ -1,5 +1,5 @@
 {
-  "name": "@lewkz/tmdb",
+  "name": "@leandrowkz/tmdb",
   "version": "1.3.3",
   "description": "Typescript template for backend apps/packages.",
   "main": "build/src/index.js",
