@@ -11,6 +11,7 @@ import { Genres } from './apis/genres'
 import { Movies } from './apis/movies'
 import { Trending } from './apis/trending'
 import { Find } from './apis/find'
+import { GuestSessions } from './apis/guest-sessions'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -33,6 +34,7 @@ describe('TMDB client', () => {
     expect(tmdb.discover).toBeInstanceOf(Discover)
     expect(tmdb.find).toBeInstanceOf(Find)
     expect(tmdb.genres).toBeInstanceOf(Genres)
+    expect(tmdb.guestSessions).toBeInstanceOf(GuestSessions)
     expect(tmdb.movies).toBeInstanceOf(Movies)
     expect(tmdb.trending).toBeInstanceOf(Trending)
   })

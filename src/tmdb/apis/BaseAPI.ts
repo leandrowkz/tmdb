@@ -5,11 +5,11 @@ export class BaseAPI extends Fetcher {
   private apiKey: string
 
   constructor({ url, apiKey }: TMDBOptions) {
-    super(url || '')
-
-    if (!apiKey) {
-      throw Error('Missing API access token.')
+    if (!url) {
+      throw Error('Missing URL')
     }
+
+    super(url)
 
     this.apiKey = apiKey
   }
