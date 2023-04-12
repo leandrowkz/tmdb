@@ -11,6 +11,7 @@ import { Movies } from './apis/movies'
 import { Trending } from './apis/trending'
 import { Find } from './apis/find'
 import { GuestSessions } from './apis/guest-sessions'
+import { Keywords } from './apis/keywords'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
@@ -25,6 +26,7 @@ export class TMDB {
   public find: Find
   public genres: Genres
   public guestSessions: GuestSessions
+  public keywords: Keywords
   public movies: Movies
   public trending: Trending
 
@@ -43,6 +45,7 @@ export class TMDB {
     this.find = new Find(options)
     this.genres = new Genres(options)
     this.guestSessions = new GuestSessions(options)
+    this.keywords = new Keywords(options)
     this.movies = new Movies(options)
     this.trending = new Trending(options)
   }
