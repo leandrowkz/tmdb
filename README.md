@@ -74,7 +74,7 @@ console.log(
 
 | API               | TMDB Docs                                             | Access                  | Status |
 |-------------------|-------------------------------------------------------|-------------------------|--------|
-| Account           | https://developers.themoviedb.org/3/account           | -                       | WIP    |
+| Account           | https://developers.themoviedb.org/3/account           | `tmdb.account.*`        | Done   |
 | Authentication    | https://developers.themoviedb.org/3/authentication    | -                       | WIP    |
 | Certifications    | https://developers.themoviedb.org/3/certifications    | `tmdb.certifications.*` | Done   |
 | Changes           | https://developers.themoviedb.org/3/changes           | `tmdb.changes.*`        | Done   |
