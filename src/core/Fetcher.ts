@@ -41,9 +41,10 @@ export abstract class Fetcher {
     return this.request<T>(options)
   }
 
-  protected async delete<T>(path: string) {
+  protected async delete<T>(path: string, body?: RequestBody) {
     const options: RequestPayload = {
       path,
+      body,
       method: 'DELETE',
     }
 

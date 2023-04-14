@@ -14,6 +14,7 @@ import { Find } from './apis/find'
 import { GuestSessions } from './apis/guest-sessions'
 import { Keywords } from './apis/keywords'
 import { Account } from './apis/account'
+import { Authentication } from './apis/authentication'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -28,6 +29,7 @@ describe('TMDB client', () => {
     const tmdb = new TMDB({ apiKey: 'API_KEY' })
 
     expect(tmdb.account).toBeInstanceOf(Account)
+    expect(tmdb.authentication).toBeInstanceOf(Authentication)
     expect(tmdb.certifications).toBeInstanceOf(Certifications)
     expect(tmdb.changes).toBeInstanceOf(Changes)
     expect(tmdb.collections).toBeInstanceOf(Collections)

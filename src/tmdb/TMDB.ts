@@ -13,11 +13,13 @@ import { Find } from './apis/find'
 import { GuestSessions } from './apis/guest-sessions'
 import { Keywords } from './apis/keywords'
 import { Account } from './apis/account'
+import { Authentication } from './apis/authentication'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
 
   public account: Account
+  public authentication: Authentication
   public certifications: Certifications
   public changes: Changes
   public collections: Collections
@@ -38,6 +40,7 @@ export class TMDB {
     }
 
     this.account = new Account(options)
+    this.authentication = new Authentication(options)
     this.certifications = new Certifications(options)
     this.changes = new Changes(options)
     this.collections = new Collections(options)
