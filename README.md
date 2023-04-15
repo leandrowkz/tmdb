@@ -87,7 +87,7 @@ console.log(
 | Genres            | https://developers.themoviedb.org/3/genres            | `tmdb.genres.*`         | Done   |
 | Guest Sessions    | https://developers.themoviedb.org/3/guest-sessions    | `tmdb.guestSessions.*`  | Done   |
 | Keywords          | https://developers.themoviedb.org/3/keywords          | `tmdb.keywords.*`       | Done   |
-| Lists             | https://developers.themoviedb.org/3/lists             | -                       | WIP    |
+| Lists             | https://developers.themoviedb.org/3/lists             | `tmdb.lists.*`          | Done   |
 | Movies            | https://developers.themoviedb.org/3/movies            | `tmdb.movies.*`         | Done   |
 | Networks          | https://developers.themoviedb.org/3/networks          | -                       | WIP    |
 | Trending          | https://developers.themoviedb.org/3/trending          | -                       | WIP    |
