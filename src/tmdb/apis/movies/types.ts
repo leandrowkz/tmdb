@@ -10,6 +10,7 @@ import { Image } from 'src/types/Image'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { CertificationCode } from '../certifications/types'
 import { Translation } from 'src/types/Translation'
+import { List } from '../lists/types'
 
 export interface Movie {
   id: number
@@ -112,17 +113,6 @@ export type MovieChanges = {
 export type MovieKeyword = {
   id: number
   name: string
-}
-
-export type MovieList = {
-  id: number
-  item_count: number
-  favorite_count: number
-  iso_639_1: LanguageCode
-  list_type: string
-  name: string
-  description: string
-  poster_path: string
 }
 
 export type MovieReleaseDate = {
@@ -281,7 +271,7 @@ export type KeywordsResponse = TMDBResponse<{
   keywords: MovieKeyword[]
 }>
 
-export type ListsResponse = TMDBResponseList<MovieList[]> & { id: number }
+export type ListsResponse = TMDBResponseList<List[]> & { id: number }
 
 export type RecommendationsResponse = TMDBResponseList<Movie[]>
 
