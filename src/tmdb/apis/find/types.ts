@@ -1,5 +1,5 @@
 import { LanguageCode } from '../../../types/LanguageCode'
-import { Person } from 'src/types/Person'
+import { Person } from '../people/types'
 import { TVShow } from 'src/types/TVShow'
 import { TVEpisode } from 'src/types/TVEpisode'
 import { TVSeason } from 'src/types/TVSeason'
