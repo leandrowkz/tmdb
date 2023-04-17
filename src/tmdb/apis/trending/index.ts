@@ -1,7 +1,5 @@
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { BaseAPI } from '../BaseAPI'
-import { Movie } from '../movies/types'
-import { TrendingFilters } from './types'
+import { TrendingResponse } from './types'
 
 export class Trending extends BaseAPI {
   /**
@@ -11,12 +9,12 @@ export class Trending extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/trending/get-trending
    */
-  public async movies({
-    media_type,
-    time_window,
-  }: TrendingFilters): Promise<TMDBResponseList<Movie[]>> {
-    const path = this.getPath(`/trending/${media_type}/${time_window}`)
+  public async getTrending(
+    mediaType: 'all' | 'movie' | 'tv' | 'person',
+    timeWindow: 'day' | 'week'
+  ): Promise<TrendingResponse> {
+    const path = this.getPath(`/trending/${mediaType}/${timeWindow}`)
 
-    return this.get<TMDBResponseList<Movie[]>>(path)
+    return this.get<TrendingResponse>(path)
   }
 }
