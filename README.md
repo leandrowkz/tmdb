@@ -90,7 +90,7 @@ console.log(
 | Lists             | https://developers.themoviedb.org/3/lists             | `tmdb.lists.*`          | Done   |
 | Movies            | https://developers.themoviedb.org/3/movies            | `tmdb.movies.*`         | Done   |
 | Networks          | https://developers.themoviedb.org/3/networks          | `tmdb.networks.*`       | Done   |
-| Trending          | https://developers.themoviedb.org/3/trending          | -                       | WIP    |
+| Trending          | https://developers.themoviedb.org/3/trending          | `tmdb.trending.*`       | Done   |
 | People            | https://developers.themoviedb.org/3/people            | -                       | WIP    |
 | Reviews           | https://developers.themoviedb.org/3/reviews           | -                       | WIP    |
 | Search            | https://developers.themoviedb.org/3/search            | -                       | WIP    |
