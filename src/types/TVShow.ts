@@ -3,6 +3,7 @@ import { LanguageCode } from './LanguageCode'
 
 export interface TVShow {
   id: number
+  media_type?: 'tv'
   genre_ids: number[]
   name: string
   original_name: string

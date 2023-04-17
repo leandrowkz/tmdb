@@ -17,6 +17,7 @@ import { Account } from './apis/account'
 import { Authentication } from './apis/authentication'
 import { Lists } from './apis/lists'
 import { Networks } from './apis/networks'
+import { People } from './apis/people'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -46,6 +47,7 @@ describe('TMDB client', () => {
     expect(tmdb.lists).toBeInstanceOf(Lists)
     expect(tmdb.movies).toBeInstanceOf(Movies)
     expect(tmdb.networks).toBeInstanceOf(Networks)
+    expect(tmdb.people).toBeInstanceOf(People)
     expect(tmdb.trending).toBeInstanceOf(Trending)
   })
 })

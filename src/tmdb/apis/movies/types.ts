@@ -5,7 +5,7 @@ import { Genre } from '../genres/types'
 import { Company } from '../companies/types'
 import { CountryCode } from 'src/types/CountryCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
-import { CastPerson, CrewPerson } from 'src/types/Person'
+import { PersonCast, PersonCrew } from '../people/types'
 import { Image } from 'src/types/Image'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { CertificationCode } from '../certifications/types'
@@ -14,6 +14,7 @@ import { List } from '../lists/types'
 
 export interface Movie {
   id: number
+  media_type?: 'movie'
   genre_ids: number[]
   title: string
   overview: string
@@ -248,8 +249,8 @@ export type ChangesResponse = TMDBResponse<{
 
 export type CreditsResponse = TMDBResponse<{
   id: number
-  cast: CastPerson[]
-  crew: CrewPerson[]
+  cast: PersonCast[]
+  crew: PersonCrew[]
 }>
 
 export type ExternalIdsResponse = TMDBResponse<{
