@@ -92,7 +92,7 @@ console.log(
 | Networks          | https://developers.themoviedb.org/3/networks          | `tmdb.networks.*`       | Done   |
 | Trending          | https://developers.themoviedb.org/3/trending          | `tmdb.trending.*`       | Done   |
 | People            | https://developers.themoviedb.org/3/people            | `tmdb.people.*`         | Done   |
-| Reviews           | https://developers.themoviedb.org/3/reviews           | -                       | WIP    |
+| Reviews           | https://developers.themoviedb.org/3/reviews           | `tmdb.reviews.*`        | Done   |
 | Search            | https://developers.themoviedb.org/3/search            | -                       | WIP    |
 | TV                | https://developers.themoviedb.org/3/tv                | -                       | WIP    |
 | TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | -                       | WIP    |
