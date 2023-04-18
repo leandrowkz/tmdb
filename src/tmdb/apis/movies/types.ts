@@ -11,6 +11,7 @@ import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { CertificationCode } from '../certifications/types'
 import { Translation } from 'src/types/Translation'
 import { List } from '../lists/types'
+import { Review } from '../reviews/types'
 
 export interface Movie {
   id: number
@@ -122,21 +123,6 @@ export type MovieReleaseDate = {
   release_date: string
   type: number
   note: string
-}
-
-export type MovieReview = {
-  id: string
-  author: string
-  author_details: {
-    name: string
-    username: string
-    avatar_path: Nullable<string>
-    rating: Nullable<number>
-  }
-  content: string
-  created_at: string
-  updated_at: string
-  url: string
 }
 
 export type MovieWatchProvider = {
@@ -284,7 +270,7 @@ export type ReleaseDatesResponse = TMDBResponse<{
   }
 }>
 
-export type ReviewsResponse = TMDBResponseList<MovieReview[]> & { id: number }
+export type ReviewsResponse = TMDBResponseList<Review[]> & { id: number }
 
 export type SimilarResponse = TMDBResponseList<Movie[]>
 
