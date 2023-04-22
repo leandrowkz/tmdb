@@ -18,6 +18,7 @@ import { Lists } from './apis/lists'
 import { Networks } from './apis/networks'
 import { People } from './apis/people'
 import { Reviews } from './apis/reviews'
+import { WatchProviders } from './apis/watch-providers'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
@@ -41,6 +42,7 @@ export class TMDB {
   public people: People
   public reviews: Reviews
   public trending: Trending
+  public watchProviders: WatchProviders
 
   constructor(options: TMDBOptions) {
     if (!options.url) {
@@ -66,5 +68,6 @@ export class TMDB {
     this.people = new People(options)
     this.reviews = new Reviews(options)
     this.trending = new Trending(options)
+    this.watchProviders = new WatchProviders(options)
   }
 }

@@ -19,6 +19,7 @@ import { Lists } from './apis/lists'
 import { Networks } from './apis/networks'
 import { People } from './apis/people'
 import { Reviews } from './apis/reviews'
+import { WatchProviders } from './apis/watch-providers'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -51,5 +52,6 @@ describe('TMDB client', () => {
     expect(tmdb.people).toBeInstanceOf(People)
     expect(tmdb.reviews).toBeInstanceOf(Reviews)
     expect(tmdb.trending).toBeInstanceOf(Trending)
+    expect(tmdb.watchProviders).toBeInstanceOf(WatchProviders)
   })
 })
