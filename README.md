@@ -1,4 +1,4 @@
-# 📦 TMDB TypeScript client
+# 📦 🎥 TMDB TypeScript client
 This package is a TS wrapper client for [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). It provides an easy way to use and acceess TMDB
 available apis at version 3.
 
