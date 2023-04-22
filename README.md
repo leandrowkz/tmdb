@@ -1,5 +1,5 @@
-# 🍿 TMDB Typescript client
-This package is a typescript wrapper client for [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). It provides an easy way to use and acceess TMDB
+# 📦 TMDB TypeScript client
+This package is a TS wrapper client for [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). It provides an easy way to use and acceess TMDB
 available apis at version 3.
 
 ![Autocomplete TMDB](./autocomplete.gif)
@@ -98,4 +98,4 @@ console.log(
 | TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | -                       | WIP    |
 | TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | -                       | WIP    |
 | TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | -                       | WIP    |
-| Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | -                       | WIP    |
+| Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | `tmdb.watchProviders.*` | Done   |
