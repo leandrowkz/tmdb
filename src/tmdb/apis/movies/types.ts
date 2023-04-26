@@ -2,7 +2,7 @@ import { LanguageCode } from 'src/types/LanguageCode'
 import { CollectionDetails } from '../collections/types'
 import { Nullable } from 'src/types/Nullable'
 import { Genre } from '../genres/types'
-import { Company } from '../companies/types'
+import { Company, CompanyDetails } from '../companies/types'
 import { CountryCode } from 'src/types/CountryCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { PersonCast, PersonCrew } from '../people/types'
@@ -61,7 +61,7 @@ export interface MovieDetails {
   vote_average: number
   vote_count: number
   production_companies: Pick<
-    Company,
+    CompanyDetails,
     'id' | 'logo_path' | 'name' | 'origin_country'
   >[]
   production_countries: {
