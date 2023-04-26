@@ -1,8 +1,8 @@
 import { LanguageCode } from '../../../types/LanguageCode'
 import { Person } from '../people/types'
-import { TVShow } from 'src/types/TVShow'
-import { TVEpisode } from 'src/types/TVEpisode'
-import { TVSeason } from 'src/types/TVSeason'
+import { TVShow } from '../tv/types'
+import { TVEpisode } from '../tv-episodes/types'
+import { TVSeason } from '../tv-seasons/types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { Movie } from '../movies/types'
 

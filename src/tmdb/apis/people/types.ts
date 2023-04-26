@@ -6,17 +6,11 @@ import { Nullable } from 'src/types/Nullable'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { Image } from 'src/types/Image'
 import { CountryCode } from 'src/types/CountryCode'
+import { AppendToResponse } from 'src/types/AppendToResponse'
 
 export type DetailsFilters = {
   language?: LanguageCode
-  append_to_response?: (
-    | 'videos'
-    | 'cast'
-    | 'images'
-    | 'movies'
-    | 'cast'
-    | 'tv'
-  )[]
+  append_to_response?: AppendToResponse[]
 }
 
 export interface Person {
