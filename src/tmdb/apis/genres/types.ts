@@ -1,7 +1,7 @@
 import { LanguageCode } from 'src/types/LanguageCode'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
-export enum GenreType {
+export enum GenreCode {
   ACTION = 28,
   ADVENTURE = 12,
   ANIMATION = 16,
@@ -24,7 +24,7 @@ export enum GenreType {
 }
 
 export interface Genre {
-  id: string
+  id: GenreCode
   name: string
 }
 

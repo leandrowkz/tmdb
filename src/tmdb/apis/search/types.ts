@@ -5,7 +5,7 @@ import { Collection } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { CountryCode } from 'src/types/CountryCode'
 import { Movie } from '../movies/types'
-import { TVShow } from 'src/types/TVShow'
+import { TVShow } from '../tv/types'
 import { Person } from '../people/types'
 
 export type SearchFilters = {

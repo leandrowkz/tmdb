@@ -19,6 +19,7 @@ import { Networks } from './apis/networks'
 import { People } from './apis/people'
 import { Reviews } from './apis/reviews'
 import { Search } from './apis/search'
+import { TV } from './apis/tv'
 import { WatchProviders } from './apis/watch-providers'
 
 export class TMDB {
@@ -44,6 +45,7 @@ export class TMDB {
   public reviews: Reviews
   public search: Search
   public trending: Trending
+  public tv: TV
   public watchProviders: WatchProviders
 
   constructor(options: TMDBOptions) {
@@ -71,6 +73,7 @@ export class TMDB {
     this.reviews = new Reviews(options)
     this.search = new Search(options)
     this.trending = new Trending(options)
+    this.tv = new TV(options)
     this.watchProviders = new WatchProviders(options)
   }
 }

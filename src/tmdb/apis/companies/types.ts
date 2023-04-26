@@ -7,6 +7,7 @@ export type Company = {
   id: number
   name: string
   logo_path: Nullable<string>
+  origin_country?: CountryCode
 }
 
 export type CompanyDetails = {

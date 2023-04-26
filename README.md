@@ -94,7 +94,7 @@ console.log(
 | People            | https://developers.themoviedb.org/3/people            | `tmdb.people.*`         | Done   |
 | Reviews           | https://developers.themoviedb.org/3/reviews           | `tmdb.reviews.*`        | Done   |
 | Search            | https://developers.themoviedb.org/3/search            | `tmdb.search.*`         | Done   |
-| TV                | https://developers.themoviedb.org/3/tv                | -                       | WIP    |
+| TV                | https://developers.themoviedb.org/3/tv                | `tmdb.tv.*`             | Done   |
 | TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | -                       | WIP    |
 | TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | -                       | WIP    |
 | TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | -                       | WIP    |

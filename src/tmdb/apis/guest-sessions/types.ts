@@ -1,8 +1,8 @@
 import { LanguageCode } from 'src/types/LanguageCode'
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { Movie } from '../movies/types'
-import { TVShow } from 'src/types/TVShow'
-import { TVEpisode } from 'src/types/TVEpisode'
+import { TVShow } from '../tv/types'
+import { TVEpisode } from '../tv-episodes/types'
 
 export type RatedFilters = {
   language?: LanguageCode

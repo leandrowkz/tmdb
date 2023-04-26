@@ -1,6 +1,6 @@
 import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { Movie } from '../movies/types'
-import { TVShow } from 'src/types/TVShow'
+import { TVShow } from '../tv/types'
 import { Person } from '../people/types'
 
 type MovieItem = Movie & { media_type: 'movie' }
