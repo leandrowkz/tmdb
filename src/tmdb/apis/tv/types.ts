@@ -176,7 +176,7 @@ export type TVShowWatchProvider = TMDBResponse<{
 // Filters
 export type DetailsFilters = {
   language?: LanguageCode
-  append_to_response?: AppendToResponse
+  append_to_response?: AppendToResponse[]
 }
 
 export type AccountStatesFilters = {
