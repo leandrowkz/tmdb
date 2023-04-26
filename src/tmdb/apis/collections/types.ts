@@ -5,6 +5,13 @@ import { Nullable } from 'src/types/Nullable'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { Translation } from 'src/types/Translation'
 
+export type Collection = {
+  id: number
+  name: string
+  backdrop_path: Nullable<string>
+  poster_patH: Nullable<string>
+}
+
 export type CollectionDetails = {
   id: number
   name: string
