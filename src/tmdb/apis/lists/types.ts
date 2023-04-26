@@ -1,7 +1,7 @@
 import { LanguageCode } from 'src/types/LanguageCode'
 import { Nullable } from 'src/types/Nullable'
 import { Movie } from '../movies/types'
-import { TVShow } from 'src/types/TVShow'
+import { TVShow } from '../tv/types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export type List = {

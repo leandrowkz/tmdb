@@ -4,8 +4,8 @@ import { Movie } from '../movies/types'
 import { TMDBResponse } from 'src/types/TMDBResponse'
 import { CountryCode } from 'src/types/CountryCode'
 import { List } from '../lists/types'
-import { TVShow } from 'src/types/TVShow'
-import { TVEpisode } from 'src/types/TVEpisode'
+import { TVShow } from '../tv/types'
+import { TVEpisode } from '../tv-episodes/types'
 
 export type Account = {
   id: number
