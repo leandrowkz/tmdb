@@ -21,6 +21,7 @@ import { Reviews } from './apis/reviews'
 import { Search } from './apis/search'
 import { TV } from './apis/tv'
 import { WatchProviders } from './apis/watch-providers'
+import { TVEpisodes } from './apis/tv-episodes'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
@@ -46,6 +47,7 @@ export class TMDB {
   public search: Search
   public trending: Trending
   public tv: TV
+  public tvEpisodes: TVEpisodes
   public watchProviders: WatchProviders
 
   constructor(options: TMDBOptions) {
@@ -74,6 +76,7 @@ export class TMDB {
     this.search = new Search(options)
     this.trending = new Trending(options)
     this.tv = new TV(options)
+    this.tvEpisodes = new TVEpisodes(options)
     this.watchProviders = new WatchProviders(options)
   }
 }

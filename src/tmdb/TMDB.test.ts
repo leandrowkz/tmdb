@@ -22,6 +22,7 @@ import { Reviews } from './apis/reviews'
 import { WatchProviders } from './apis/watch-providers'
 import { Search } from './apis/search'
 import { TV } from './apis/tv'
+import { TVEpisodes } from './apis/tv-episodes'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -56,6 +57,7 @@ describe('TMDB client', () => {
     expect(tmdb.search).toBeInstanceOf(Search)
     expect(tmdb.trending).toBeInstanceOf(Trending)
     expect(tmdb.tv).toBeInstanceOf(TV)
+    expect(tmdb.tvEpisodes).toBeInstanceOf(TVEpisodes)
     expect(tmdb.watchProviders).toBeInstanceOf(WatchProviders)
   })
 })

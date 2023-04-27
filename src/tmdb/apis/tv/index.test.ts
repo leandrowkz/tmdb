@@ -82,7 +82,7 @@ describe('TV API', () => {
     )
   })
 
-  test('alternativeTitles should call TMDB URL properly', async () => {
+  test('changes should call TMDB URL properly', async () => {
     const { api, filters } = makeSUT()
 
     await api.changes(4000, filters.changes)
