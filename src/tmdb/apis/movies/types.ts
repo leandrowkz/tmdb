@@ -276,7 +276,11 @@ export type SimilarResponse = TMDBResponseList<Movie[]>
 
 export type TranslationsResponse = TMDBResponse<{
   id: number
-  translations: Translation[]
+  translations: Translation<{
+    title: string
+    overview: string
+    homepage: string
+  }>[]
 }>
 
 export type VideosResponse = TMDBResponse<{
