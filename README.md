@@ -96,6 +96,6 @@ console.log(
 | Search            | https://developers.themoviedb.org/3/search            | `tmdb.search.*`         | Done   |
 | TV                | https://developers.themoviedb.org/3/tv                | `tmdb.tv.*`             | Done   |
 | TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | `tmdb.tvEpisodes.*`     | Done   |
-| TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | -                       | WIP    |
+| TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | `tmdb.tvSeasons.*`      | Done   |
 | TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | -                       | WIP    |
 | Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | `tmdb.watchProviders.*` | Done   |
