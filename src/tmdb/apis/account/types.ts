@@ -6,7 +6,7 @@ import {
 } from 'src/types'
 import { List } from '../lists/types'
 import { MovieItem } from '../movies/types'
-import { TVShow } from '../tv/types'
+import { TVShowItem } from '../tv/types'
 import { TVEpisodeItem } from '../tv-episodes/types'
 
 export type Account = {
@@ -59,7 +59,7 @@ export type AddToWatchlistFilters = Pick<MediaFilters, 'session_id'>
 
 type ListsResponse = TMDBResponseList<List[]>
 type MoviesResponse = TMDBResponseList<MovieItem[]>
-type TVShowsResponse = TMDBResponseList<TVShow[]>
+type TVShowsResponse = TMDBResponseList<TVShowItem[]>
 type TVEpisodesResponse = TMDBResponseList<TVEpisodeItem[]>
 
 export type DetailsResponse = TMDBResponse<Account>

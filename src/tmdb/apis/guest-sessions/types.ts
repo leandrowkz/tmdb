@@ -1,6 +1,6 @@
 import { LanguageCode, TMDBResponseList } from 'src/types'
 import { MovieItem } from '../movies/types'
-import { TVShow } from '../tv/types'
+import { TVShowItem } from '../tv/types'
 import { TVEpisodeItem } from '../tv-episodes/types'
 
 export type RatedFilters = {
@@ -11,7 +11,7 @@ export type RatedFilters = {
 type Rating = { rating: number }
 
 type MovieItemRating = MovieItem & Rating
-type TVShowItemRating = TVShow & Rating
+type TVShowItemRating = TVShowItem & Rating
 type TVEpisodeItemRating = TVEpisodeItem & Rating
 
 export type RatedMoviesResponse = TMDBResponseList<MovieItemRating[]>

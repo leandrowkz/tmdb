@@ -3,7 +3,7 @@ import { Company } from '../companies/types'
 import { Collection } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { MovieItem } from '../movies/types'
-import { TVShow } from '../tv/types'
+import { TVShowItem } from '../tv/types'
 import { Person } from '../people/types'
 
 export type SearchFilters = {
@@ -50,9 +50,9 @@ export type KeywordsResponse = TMDBResponseList<Keyword[]>
 export type MoviesResponse = TMDBResponseList<MovieItem[]>
 
 export type MultiSearchResponse = TMDBResponseList<
-  (MovieItem | TVShow | Person)[]
+  (MovieItem | TVShowItem | Person)[]
 >
 
 export type PeopleResponse = TMDBResponseList<Person[]>
 
-export type TVShowsResponse = TMDBResponseList<TVShow[]>
+export type TVShowsResponse = TMDBResponseList<TVShowItem[]>

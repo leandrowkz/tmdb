@@ -12,7 +12,7 @@ import {
   TMDBResponseList,
   Video,
 } from 'src/types'
-import { Genre } from '../genres/types'
+import { Genre, GenreCode } from '../genres/types'
 import { TVEpisode } from '../tv-episodes/types'
 import { Network } from '../networks/types'
 import { Company } from '../companies/types'
@@ -32,32 +32,17 @@ export type TVAuthor = {
   profile_path: Nullable<string>
 }
 
-export interface TVShow {
-  id: number
-  media_type?: 'tv'
-  genre_ids: number[]
-  name: string
-  original_name: string
-  poster_path: string
-  backdrop_path: string
-  popularity: number
-  overview: string
-  first_air_date: string
-  origin_country: CountryCode[]
-  original_language: LanguageCode
-  vote_count: number
-  vote_average: number
-}
-
-export type TVShowDetails = {
+export type TVShow = {
   id: number
   name: string
+  media_type: 'tv'
   overview: string
   tagline: string
   backdrop_path: Nullable<string>
   created_by: TVAuthor[]
   episode_run_time: number[]
   genres: Genre[]
+  genre_ids?: GenreCode[]
   homepage: string
   in_production: boolean
   languages: LanguageCode[]
@@ -82,6 +67,24 @@ export type TVShowDetails = {
   vote_average: number
   vote_count: number
 }
+
+export type TVShowItem = Pick<
+  TVShow,
+  | 'id'
+  | 'media_type'
+  | 'genre_ids'
+  | 'name'
+  | 'original_name'
+  | 'poster_path'
+  | 'backdrop_path'
+  | 'popularity'
+  | 'overview'
+  | 'first_air_date'
+  | 'origin_country'
+  | 'original_language'
+  | 'vote_count'
+  | 'vote_average'
+>
 
 export type TVShowAccountStates = {
   id: number
@@ -139,7 +142,7 @@ export type TVShowAlternativeTitle = {
 }
 
 export type TVShowChange = {
-  key: keyof TVShowDetails
+  key: keyof TVShow
   items: Record<string, string | number | object | boolean>[]
 }
 
@@ -275,7 +278,7 @@ export type RateBody = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVShowDetails>
+export type DetailsResponse = TMDBResponse<TVShow>
 
 export type AccountStatesResponse = TMDBResponse<TVShowAccountStates>
 

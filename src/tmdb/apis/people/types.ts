@@ -9,7 +9,7 @@ import {
   TMDBResponseList,
 } from 'src/types'
 import { MovieItem } from '../movies/types'
-import { TVShow } from '../tv/types'
+import { TVShowItem } from '../tv/types'
 
 export type DetailsFilters = {
   language?: LanguageCode
@@ -22,7 +22,7 @@ export interface Person {
   profile_path: string
   name: string
   popularity: string
-  known_for: MovieItem | TVShow
+  known_for: MovieItem | TVShowItem
 }
 
 export type PersonDetails = {
@@ -108,14 +108,15 @@ export type MovieCreditsResponse = TMDBResponse<{
 
 export type TVCreditsResponse = TMDBResponse<{
   id: number
-  cast: (TVShow & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: (TVShow & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
+  cast: (TVShowItem & Pick<PersonCast, 'character' | 'credit_id'>)[]
+  crew: (TVShowItem & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
 }>
 
 export type CombinedCreditsResponse = TMDBResponse<{
   id: number
-  cast: ((TVShow | MovieItem) & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: ((TVShow | MovieItem) &
+  cast: ((TVShowItem | MovieItem) &
+    Pick<PersonCast, 'character' | 'credit_id'>)[]
+  crew: ((TVShowItem | MovieItem) &
     Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
 }>
 
@@ -130,7 +131,7 @@ export type ExternalIdsResponse = TMDBResponse<{
   twitter_id: Nullable<string>
 }>
 
-type TaggedImage = Image & { media: MovieItem | TVShow }
+type TaggedImage = Image & { media: MovieItem | TVShowItem }
 
 export type ImagesResponse = TMDBResponseList<Image> & { id: number }
 

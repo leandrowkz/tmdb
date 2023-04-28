@@ -1,7 +1,7 @@
 import { BaseAPI } from '../BaseAPI'
 import { TMDBResponseList } from 'src/types'
 import { MovieFilters, TVFilters } from './types'
-import { TVShow } from '../tv/types'
+import { TVShowItem } from '../tv/types'
 import { MovieItem } from '../movies/types'
 
 export class Discover extends BaseAPI {
@@ -50,9 +50,11 @@ export class Discover extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/discover/tv-discover
    */
-  public async tv(filters?: TVFilters): Promise<TMDBResponseList<TVShow[]>> {
+  public async tv(
+    filters?: TVFilters
+  ): Promise<TMDBResponseList<TVShowItem[]>> {
     const path = this.getPath('/discover/tv', filters)
 
-    return this.get<TMDBResponseList<TVShow[]>>(path)
+    return this.get<TMDBResponseList<TVShowItem[]>>(path)
   }
 }
