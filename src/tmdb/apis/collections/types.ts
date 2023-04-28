@@ -1,9 +1,11 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Image } from 'src/types/Image'
-import { Movie } from '../movies/types'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { Translation } from 'src/types/Translation'
+import {
+  Image,
+  Nullable,
+  LanguageCode,
+  Translation,
+  TMDBResponse,
+} from 'src/types'
+import { MovieItem } from '../movies/types'
 
 export type Collection = {
   id: number
@@ -18,7 +20,7 @@ export type CollectionDetails = {
   overview: string
   poster_path: Nullable<string>
   backdrop_path: Nullable<string>
-  parts: Movie[]
+  parts: MovieItem[]
 }
 
 export type CollectionsFilters = {

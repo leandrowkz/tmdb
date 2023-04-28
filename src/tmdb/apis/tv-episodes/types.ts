@@ -1,13 +1,15 @@
-import { AppendToResponse } from 'src/types/AppendToResponse'
-import { KnownForDepartment } from 'src/types/KnownForDeparment'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import {
+  AppendToResponse,
+  Department,
+  ExternalId,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  Translation,
+  Video,
+} from 'src/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { ExternalId } from 'src/types/ExternalId'
-import { Image } from 'src/types/Image'
-import { Translation } from 'src/types/Translation'
-import { Video } from 'src/types/Video'
 
 export type TVEpisode = {
   id: number
@@ -41,7 +43,7 @@ export type TVEpisodePersonCrew = {
   id: number
   credit_id: string
   name: string
-  department: KnownForDepartment
+  department: Department
   job: string
   profile_path: Nullable<string>
 }

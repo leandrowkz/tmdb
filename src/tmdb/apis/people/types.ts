@@ -1,12 +1,15 @@
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
+import {
+  AppendToResponse,
+  CountryCode,
+  Department,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  TMDBResponseList,
+} from 'src/types'
+import { MovieItem } from '../movies/types'
 import { TVShow } from '../tv/types'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { Image } from 'src/types/Image'
-import { CountryCode } from 'src/types/CountryCode'
-import { AppendToResponse } from 'src/types/AppendToResponse'
 
 export type DetailsFilters = {
   language?: LanguageCode
@@ -19,7 +22,7 @@ export interface Person {
   profile_path: string
   name: string
   popularity: string
-  known_for: Movie | TVShow
+  known_for: MovieItem | TVShow
 }
 
 export type PersonDetails = {
@@ -30,7 +33,7 @@ export type PersonDetails = {
   birthday: string
   deathday: Nullable<string>
   also_known_as: string[]
-  known_for_department: string
+  known_for_department: Department
   biography: string
   popularity: number
   place_of_birth: Nullable<string>
@@ -45,7 +48,7 @@ export type PersonCast = {
   credit_id: string
   gender: Nullable<number>
   adult: boolean
-  known_for_department: string
+  known_for_department: Department
   name: string
   original_name: string
   popularity: number
@@ -59,7 +62,7 @@ export type PersonCrew = {
   credit_id: string
   gender: Nullable<string>
   adult: boolean
-  known_for_department: string
+  known_for_department: Department
   name: string
   original_name: string
   popularity: number
@@ -99,8 +102,8 @@ export type ChangesResponse = TMDBResponse<{
 
 export type MovieCreditsResponse = TMDBResponse<{
   id: number
-  cast: (Movie & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: (Movie & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
+  cast: (MovieItem & Pick<PersonCast, 'character' | 'credit_id'>)[]
+  crew: (MovieItem & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
 }>
 
 export type TVCreditsResponse = TMDBResponse<{
@@ -111,8 +114,8 @@ export type TVCreditsResponse = TMDBResponse<{
 
 export type CombinedCreditsResponse = TMDBResponse<{
   id: number
-  cast: ((TVShow | Movie) & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: ((TVShow | Movie) &
+  cast: ((TVShow | MovieItem) & Pick<PersonCast, 'character' | 'credit_id'>)[]
+  crew: ((TVShow | MovieItem) &
     Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
 }>
 
@@ -127,7 +130,7 @@ export type ExternalIdsResponse = TMDBResponse<{
   twitter_id: Nullable<string>
 }>
 
-type TaggedImage = Image & { media: Movie | TVShow }
+type TaggedImage = Image & { media: MovieItem | TVShow }
 
 export type ImagesResponse = TMDBResponseList<Image> & { id: number }
 

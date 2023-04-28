@@ -1,9 +1,11 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { CountryCode } from 'src/types/CountryCode'
+import {
+  LanguageCode,
+  TMDBResponseList,
+  CountryCode,
+  TMDBResponse,
+} from 'src/types'
 import { List } from '../lists/types'
+import { Movie } from '../movies/types'
 import { TVShow } from '../tv/types'
 import { TVEpisode } from '../tv-episodes/types'
 

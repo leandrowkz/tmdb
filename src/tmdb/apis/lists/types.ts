@@ -1,8 +1,6 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { Movie } from '../movies/types'
+import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
+import { MovieItem } from '../movies/types'
 import { TVShow } from '../tv/types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export type List = {
   id: number
@@ -15,7 +13,6 @@ export type List = {
   list_type: 'movie' | 'tv'
 }
 
-type MovieItem = Movie & { media_type: 'movie' }
 type TVShowItem = TVShow & { media_type: 'tv' }
 
 export type ListDetails = {

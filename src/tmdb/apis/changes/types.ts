@@ -1,5 +1,4 @@
-import { Nullable } from '../../../types/Nullable'
-import { TMDBResponseList } from '../../../types/TMDBResponseList'
+import { Nullable, TMDBResponseList } from 'src/types'
 
 export type ChangesFilters = {
   end_date?: string

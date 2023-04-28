@@ -1,8 +1,6 @@
-import { Nullable } from 'src/types/Nullable'
+import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
 import { Network } from '../networks/types'
 import { TVEpisode } from '../tv-episodes/types'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponse } from 'src/types/TMDBResponse'
 
 export type TVEpisodeGroup = {
   id: string

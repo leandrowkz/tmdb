@@ -1,4 +1,4 @@
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { TMDBResponse } from 'src/types'
 
 export type CreateSessionBody = {
   request_token: string

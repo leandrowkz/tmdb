@@ -1,6 +1,4 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { CountryCode } from 'src/types/CountryCode'
+import { CountryCode, LanguageCode, TMDBResponse } from 'src/types'
 
 export type AvailableRegion = {
   iso_3166_1: CountryCode

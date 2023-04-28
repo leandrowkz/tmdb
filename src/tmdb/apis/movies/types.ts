@@ -1,50 +1,38 @@
-import { LanguageCode } from 'src/types/LanguageCode'
+import {
+  CountryCode,
+  Image,
+  LanguageCode,
+  Nullable,
+  Translation,
+  TMDBResponse,
+  TMDBResponseList,
+  Country,
+  Language,
+} from 'src/types'
 import { CollectionDetails } from '../collections/types'
-import { Nullable } from 'src/types/Nullable'
-import { Genre } from '../genres/types'
-import { CompanyDetails } from '../companies/types'
-import { CountryCode } from 'src/types/CountryCode'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { Genre, GenreCode } from '../genres/types'
+import { Company } from '../companies/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { Image } from 'src/types/Image'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { CertificationCode } from '../certifications/types'
-import { Translation } from 'src/types/Translation'
 import { List } from '../lists/types'
 import { Review } from '../reviews/types'
 
-export interface Movie {
-  id: number
-  media_type?: 'movie'
-  genre_ids: number[]
-  title: string
-  overview: string
-  original_title: string
-  original_language: LanguageCode
-  release_date: string
-  poster_path: string
-  backdrop_path: string
-  popularity: number
-  vote_count: number
-  vote_average: number
-  adult: boolean
-  video: boolean
-}
-
-export interface MovieDetails {
+export type Movie = {
   id: number
   imdb_id: string
+  media_type?: 'movie'
   title: string
-  backdrop_path: string
+  backdrop_path: Nullable<string>
   belongs_to_collection: Nullable<CollectionDetails>
   budget: number
   genres: Genre[]
+  genre_ids?: GenreCode[]
   homepage: string
   original_language: LanguageCode
   original_title: string
-  overview: string
+  overview: Nullable<string>
   popularity: number
-  poster_path: string
+  poster_path: Nullable<string>
   release_date: string
   revenue: number
   runtime: number
@@ -55,24 +43,34 @@ export interface MovieDetails {
     | 'Post Production'
     | 'Released'
     | 'Canceled'
-  tagline: string
+  tagline: Nullable<string>
   adult: false
   video: boolean
   vote_average: number
   vote_count: number
-  production_companies: Pick<
-    CompanyDetails,
-    'id' | 'logo_path' | 'name' | 'origin_country'
-  >[]
-  production_countries: {
-    iso_3166_1: CountryCode
-    name: string
-  }[]
-  spoken_languages: {
-    iso_639_1: LanguageCode
-    name: string
-  }[]
+  production_companies: Company[]
+  production_countries: Country[]
+  spoken_languages: Language[]
 }
+
+export type MovieItem = Pick<
+  Movie,
+  | 'id'
+  | 'media_type'
+  | 'poster_path'
+  | 'adult'
+  | 'overview'
+  | 'release_date'
+  | 'genre_ids'
+  | 'original_title'
+  | 'original_language'
+  | 'title'
+  | 'backdrop_path'
+  | 'popularity'
+  | 'vote_count'
+  | 'video'
+  | 'vote_average'
+>
 
 export type MovieVideo = {
   id: string
@@ -101,7 +99,7 @@ export type MovieTitle = {
 }
 
 export type MovieChanges = {
-  key: keyof MovieDetails
+  key: keyof Movie
   items: {
     id: string
     action: 'updated'

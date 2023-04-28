@@ -1,4 +1,4 @@
-import { TMDBResponse } from '../../../types/TMDBResponse'
+import { TMDBResponse } from 'src/types'
 
 export type CertificationCode =
   | '0'

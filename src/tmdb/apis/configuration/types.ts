@@ -1,6 +1,4 @@
-import { CountryCode } from '../../../types/CountryCode'
-import { LanguageCode } from '../../../types/LanguageCode'
-import { TMDBResponse } from '../../../types/TMDBResponse'
+import { CountryCode, LanguageCode, TMDBResponse } from 'src/types'
 
 export type ConfigurationResponse = TMDBResponse<{
   images: {

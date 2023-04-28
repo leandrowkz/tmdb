@@ -1,14 +1,16 @@
-import { Nullable } from 'src/types/Nullable'
+import {
+  AppendToResponse,
+  ExternalId,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  Translation,
+  Video,
+} from 'src/types'
 import { TVEpisodeDetails } from '../tv-episodes/types'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { AppendToResponse } from 'src/types/AppendToResponse'
-import { TMDBResponse } from 'src/types/TMDBResponse'
 import { PersonCast, PersonCrew } from '../people/types'
-import { Image } from 'src/types/Image'
-import { Translation } from 'src/types/Translation'
-import { Video } from 'src/types/Video'
 import { TVShowPersonCast, TVShowPersonCrew } from '../tv/types'
-import { ExternalId } from 'src/types/ExternalId'
 
 export type TVSeason = {
   id: number

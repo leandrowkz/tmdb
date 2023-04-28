@@ -1,6 +1,5 @@
+import { CountryCode, LanguageCode } from 'src/types'
 import { CertificationCode } from '../certifications/types'
-import { CountryCode } from '../../../types/CountryCode'
-import { LanguageCode } from '../../../types/LanguageCode'
 
 type SortBy =
   | 'popularity.asc'

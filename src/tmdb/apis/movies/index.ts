@@ -1,7 +1,7 @@
 import { BaseAPI } from '../BaseAPI'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { TMDBResponse } from 'src/types'
 import {
-  MovieDetails,
+  Movie,
   AlternativeTitlesFilters,
   AlternativeTitlesResponse,
   AccountStatesResponse,
@@ -51,10 +51,10 @@ export class Movies extends BaseAPI {
   public async details(
     movieId: number,
     filters?: DetailsFilters
-  ): Promise<TMDBResponse<MovieDetails>> {
+  ): Promise<TMDBResponse<Movie>> {
     const path = this.getPath(`/movie/${movieId}`, filters)
 
-    return this.get<TMDBResponse<MovieDetails>>(path)
+    return this.get<TMDBResponse<Movie>>(path)
   }
 
   /**
@@ -326,12 +326,10 @@ export class Movies extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-latest-movie
    */
-  public async latest(
-    filters?: LatestFilters
-  ): Promise<TMDBResponse<MovieDetails>> {
+  public async latest(filters?: LatestFilters): Promise<TMDBResponse<Movie>> {
     const path = this.getPath('/movie/latest', filters)
 
-    return this.get<TMDBResponse<MovieDetails>>(path)
+    return this.get<TMDBResponse<Movie>>(path)
   }
 
   /**

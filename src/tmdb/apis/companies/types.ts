@@ -1,7 +1,4 @@
-import { Image } from '../../../types/Image'
-import { TMDBResponse } from '../../../types/TMDBResponse'
-import { CountryCode } from '../../../types/CountryCode'
-import { Nullable } from '../../../types/Nullable'
+import { Image, Nullable, CountryCode, TMDBResponse } from 'src/types'
 
 export type Company = {
   id: number

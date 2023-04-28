@@ -1,5 +1,5 @@
 import { BaseAPI } from '../BaseAPI'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { TMDBResponse } from 'src/types'
 import { Credit } from './types'
 
 export class Credits extends BaseAPI {

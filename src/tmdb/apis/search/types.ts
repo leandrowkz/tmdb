@@ -1,10 +1,8 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
+import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
 import { Company } from '../companies/types'
 import { Collection } from '../collections/types'
 import { Keyword } from '../keywords/types'
-import { CountryCode } from 'src/types/CountryCode'
-import { Movie } from '../movies/types'
+import { MovieItem } from '../movies/types'
 import { TVShow } from '../tv/types'
 import { Person } from '../people/types'
 
@@ -49,9 +47,11 @@ export type CollectionsResponse = TMDBResponseList<Collection[]>
 
 export type KeywordsResponse = TMDBResponseList<Keyword[]>
 
-export type MoviesResponse = TMDBResponseList<Movie[]>
+export type MoviesResponse = TMDBResponseList<MovieItem[]>
 
-export type MultiSearchResponse = TMDBResponseList<(Movie | TVShow | Person)[]>
+export type MultiSearchResponse = TMDBResponseList<
+  (MovieItem | TVShow | Person)[]
+>
 
 export type PeopleResponse = TMDBResponseList<Person[]>
 

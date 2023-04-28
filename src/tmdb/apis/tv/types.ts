@@ -1,24 +1,26 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import {
+  AppendToResponse,
+  Country,
+  CountryCode,
+  Department,
+  ExternalId,
+  Image,
+  Language,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  TMDBResponseList,
+  Video,
+} from 'src/types'
 import { Genre } from '../genres/types'
 import { TVEpisode } from '../tv-episodes/types'
 import { Network } from '../networks/types'
-import { CountryCode } from 'src/types/CountryCode'
 import { Company } from '../companies/types'
-import { Country } from 'src/types/Country'
 import { TVSeason } from '../tv-seasons/types'
-import { Language } from 'src/types/Language'
-import { AppendToResponse } from 'src/types/AppendToResponse'
-import { KnownForDepartment } from 'src/types/KnownForDeparment'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVEpisodeGroup } from '../tv-episode-groups/types'
-import { ExternalId } from 'src/types/ExternalId'
-import { Image } from 'src/types/Image'
 import { Keyword } from '../keywords/types'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
 import { Review } from '../reviews/types'
-import { Video } from 'src/types/Video'
 import { WatchProvider } from '../watch-providers/types'
 
 // Models/Entities
@@ -112,8 +114,8 @@ export type TVShowPersonCrew = {
   original_name: string
   adult: boolean
   gender: Nullable<number>
-  known_for_department: KnownForDepartment
-  department: KnownForDepartment
+  known_for_department: Department
+  department: Department
   popularity: number
   profile_path: Nullable<string>
   jobs: {

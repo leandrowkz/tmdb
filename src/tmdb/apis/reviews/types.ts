@@ -1,6 +1,4 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
 
 export type Review = {
   id: string
