@@ -16,7 +16,7 @@ import { Genre } from '../genres/types'
 import { TVEpisode } from '../tv-episodes/types'
 import { Network } from '../networks/types'
 import { Company } from '../companies/types'
-import { TVSeason } from '../tv-seasons/types'
+import { TVSeasonItem } from '../tv-seasons/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVEpisodeGroup } from '../tv-episode-groups/types'
 import { Keyword } from '../keywords/types'
@@ -75,7 +75,7 @@ export type TVShowDetails = {
   poster_path: Nullable<string>
   production_companies: Company[]
   production_countries: Country[]
-  seasons: TVSeason[]
+  seasons: TVSeasonItem[]
   spoken_languages: Language[]
   status: 'Ended'
   type: 'Scripted'

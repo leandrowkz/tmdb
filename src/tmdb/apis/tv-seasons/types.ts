@@ -13,16 +13,6 @@ import { PersonCast, PersonCrew } from '../people/types'
 import { TVShowPersonCast, TVShowPersonCrew } from '../tv/types'
 
 export type TVSeason = {
-  id: number
-  name: string
-  overview: string
-  poster_path: Nullable<string>
-  season_number: number
-  episode_count: number
-  air_date: string
-}
-
-export type TVSeasonDetails = {
   _id: string
   id: number
   name: string
@@ -32,6 +22,11 @@ export type TVSeasonDetails = {
   air_date: string
   episodes: TVEpisode[]
 }
+
+export type TVSeasonItem = Pick<
+  TVSeason,
+  'id' | 'name' | 'overview' | 'poster_path' | 'season_number' | 'air_date'
+> & { episode_count: number }
 
 export type TVSeasonAccountStates = {
   id: number
@@ -43,7 +38,7 @@ export type TVSeasonAccountStates = {
 }
 
 export type TVSeasonChange = {
-  key: keyof TVSeasonDetails
+  key: keyof TVSeason
   items: {
     id: string
     action: string
@@ -117,7 +112,7 @@ export type TranslationFilters = LanguageFilter
 export type VideosFilters = LanguageFilter
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVSeasonDetails>
+export type DetailsResponse = TMDBResponse<TVSeason>
 
 export type AccountStatesResponse = TMDBResponse<TVSeasonAccountStates>
 
