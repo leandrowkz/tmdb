@@ -13,20 +13,8 @@ import { PersonCast, PersonCrew } from '../people/types'
 
 export type TVEpisode = {
   id: number
-  air_date: string
-  episode_number: number
   name: string
-  overview: string
-  production_code: Nullable<string>
-  season_number: number
-  still_path: Nullable<string>
-  vote_average: number
-  vote_count: number
-}
-
-export type TVEpisodeDetails = {
-  id: number
-  name: string
+  media_type?: 'tv'
   overview: string
   air_date: string
   production_code: Nullable<string>
@@ -38,6 +26,21 @@ export type TVEpisodeDetails = {
   crew: TVEpisodePersonCrew[]
   guest_stars: TVEpisodePersonGuestStar[]
 }
+
+export type TVEpisodeItem = Pick<
+  TVEpisode,
+  | 'id'
+  | 'media_type'
+  | 'air_date'
+  | 'episode_number'
+  | 'name'
+  | 'overview'
+  | 'production_code'
+  | 'season_number'
+  | 'still_path'
+  | 'vote_average'
+  | 'vote_count'
+>
 
 export type TVEpisodePersonCrew = {
   id: number
@@ -63,7 +66,7 @@ export type TVEpisodeAccountStates = {
 }
 
 export type TVEpisodeChange = {
-  key: keyof TVEpisodeDetails
+  key: keyof TVEpisode
   items: {
     id: string
     action: string
@@ -140,7 +143,7 @@ export type RateBody = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVEpisodeDetails>
+export type DetailsResponse = TMDBResponse<TVEpisode>
 
 export type AccountStatesResponse = TMDBResponse<TVEpisodeAccountStates>
 

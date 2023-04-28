@@ -8,7 +8,7 @@ import {
   Translation,
   Video,
 } from 'src/types'
-import { TVEpisodeDetails } from '../tv-episodes/types'
+import { TVEpisode } from '../tv-episodes/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVShowPersonCast, TVShowPersonCrew } from '../tv/types'
 
@@ -30,7 +30,7 @@ export type TVSeasonDetails = {
   poster_path: Nullable<string>
   season_number: number
   air_date: string
-  episodes: TVEpisodeDetails[]
+  episodes: TVEpisode[]
 }
 
 export type TVSeasonAccountStates = {
