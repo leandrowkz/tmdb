@@ -23,6 +23,8 @@ import { WatchProviders } from './apis/watch-providers'
 import { Search } from './apis/search'
 import { TV } from './apis/tv'
 import { TVEpisodes } from './apis/tv-episodes'
+import { TVEpisodeGroups } from './apis/tv-episode-groups'
+import { TVSeasons } from './apis/tv-seasons'
 
 describe('TMDB client', () => {
   test('should set API url with default value', async () => {
@@ -58,6 +60,8 @@ describe('TMDB client', () => {
     expect(tmdb.trending).toBeInstanceOf(Trending)
     expect(tmdb.tv).toBeInstanceOf(TV)
     expect(tmdb.tvEpisodes).toBeInstanceOf(TVEpisodes)
+    expect(tmdb.tvSeasons).toBeInstanceOf(TVSeasons)
+    expect(tmdb.tvEpisodeGroups).toBeInstanceOf(TVEpisodeGroups)
     expect(tmdb.watchProviders).toBeInstanceOf(WatchProviders)
   })
 })

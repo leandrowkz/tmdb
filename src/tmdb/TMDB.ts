@@ -23,6 +23,7 @@ import { TV } from './apis/tv'
 import { WatchProviders } from './apis/watch-providers'
 import { TVEpisodes } from './apis/tv-episodes'
 import { TVSeasons } from './apis/tv-seasons'
+import { TVEpisodeGroups } from './apis/tv-episode-groups'
 
 export class TMDB {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
@@ -50,6 +51,7 @@ export class TMDB {
   public tv: TV
   public tvEpisodes: TVEpisodes
   public tvSeasons: TVSeasons
+  public tvEpisodeGroups: TVEpisodeGroups
   public watchProviders: WatchProviders
 
   constructor(options: TMDBOptions) {
@@ -80,6 +82,7 @@ export class TMDB {
     this.tv = new TV(options)
     this.tvEpisodes = new TVEpisodes(options)
     this.tvSeasons = new TVSeasons(options)
+    this.tvEpisodeGroups = new TVEpisodeGroups(options)
     this.watchProviders = new WatchProviders(options)
   }
 }
