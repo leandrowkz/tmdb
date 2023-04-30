@@ -4,7 +4,7 @@ import { Collection } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
-import { Person } from '../people/types'
+import { PersonItem } from '../people/types'
 
 export type SearchFilters = {
   query: string
@@ -41,6 +41,8 @@ export type TVShowsFilters = SearchFilters & {
   first_air_date_year?: number
 }
 
+type MultiSearch = MovieItem | TVShowItem | PersonItem
+
 export type CompaniesResponse = TMDBResponseList<Company[]>
 
 export type CollectionsResponse = TMDBResponseList<Collection[]>
@@ -49,10 +51,8 @@ export type KeywordsResponse = TMDBResponseList<Keyword[]>
 
 export type MoviesResponse = TMDBResponseList<MovieItem[]>
 
-export type MultiSearchResponse = TMDBResponseList<
-  (MovieItem | TVShowItem | Person)[]
->
+export type MultiSearchResponse = TMDBResponseList<MultiSearch[]>
 
-export type PeopleResponse = TMDBResponseList<Person[]>
+export type PeopleResponse = TMDBResponseList<PersonItem[]>
 
 export type TVShowsResponse = TMDBResponseList<TVShowItem[]>

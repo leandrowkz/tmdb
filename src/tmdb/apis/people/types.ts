@@ -16,60 +16,67 @@ export type DetailsFilters = {
   append_to_response?: AppendToResponse[]
 }
 
-export interface Person {
-  id: number
-  adult: boolean
-  profile_path: string
-  name: string
-  popularity: string
-  known_for: MovieItem | TVShowItem
-}
-
-export type PersonDetails = {
+export type Person = {
   id: number
   imdb_id: string
+  cast_id?: number
+  credit_id?: string
+  media_type?: 'person'
+  adult: boolean
   name: string
-  gender: number
+  original_name?: string
+  gender: Nullable<number>
   birthday: string
   deathday: Nullable<string>
   also_known_as: string[]
+  known_for?: MovieItem | TVShowItem
   known_for_department: Department
+  department?: Department
   biography: string
   popularity: number
   place_of_birth: Nullable<string>
   profile_path: Nullable<string>
-  adult: boolean
   homepage: Nullable<string>
+  order?: number
+  job?: string
+  character?: string
 }
 
-export type PersonCast = {
-  id: number
-  cast_id: number
-  credit_id: string
-  gender: Nullable<number>
-  adult: boolean
-  known_for_department: Department
-  name: string
-  original_name: string
-  popularity: number
-  profile_path: Nullable<string>
-  character: string
-  order: number
-}
+export type PersonItem = Pick<
+  Person,
+  'id' | 'adult' | 'profile_path' | 'name' | 'popularity' | 'known_for'
+>
 
-export type PersonCrew = {
-  id: number
-  credit_id: string
-  gender: Nullable<string>
-  adult: boolean
-  known_for_department: Department
-  name: string
-  original_name: string
-  popularity: number
-  profile_path: Nullable<string>
-  department: string
-  job: string
-}
+export type PersonCast = Pick<
+  Person,
+  | 'id'
+  | 'cast_id'
+  | 'credit_id'
+  | 'gender'
+  | 'adult'
+  | 'known_for_department'
+  | 'name'
+  | 'original_name'
+  | 'popularity'
+  | 'profile_path'
+  | 'character'
+  | 'order'
+>
+
+export type PersonCrew = Pick<
+  Person,
+  | 'id'
+  | 'credit_id'
+  | 'gender'
+  | 'adult'
+  | 'known_for_department'
+  | 'name'
+  | 'original_name'
+  | 'popularity'
+  | 'profile_path'
+  | 'department'
+  | 'job'
+>
 
 export type ChangesFilters = {
   page?: number
@@ -86,7 +93,7 @@ export type LanguageAndPageFilters = {
   language?: LanguageCode
 }
 
-export type DetailsResponse = TMDBResponse<PersonDetails>
+export type DetailsResponse = TMDBResponse<Person>
 
 export type ChangesResponse = TMDBResponse<{
   key: keyof Person
