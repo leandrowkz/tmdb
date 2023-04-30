@@ -1,5 +1,5 @@
 import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
-import { Company } from '../companies/types'
+import { CompanyItem } from '../companies/types'
 import { Collection } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { MovieItem } from '../movies/types'
@@ -43,7 +43,7 @@ export type TVShowsFilters = SearchFilters & {
 
 type MultiSearch = MovieItem | TVShowItem | PersonItem
 
-export type CompaniesResponse = TMDBResponseList<Company[]>
+export type CompaniesResponse = TMDBResponseList<CompanyItem[]>
 
 export type CollectionsResponse = TMDBResponseList<Collection[]>
 

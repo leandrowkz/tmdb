@@ -1,5 +1,6 @@
 import { TMDBResponse } from 'src/types'
 
+// Body
 export type CreateSessionBody = {
   request_token: string
 }
@@ -18,6 +19,7 @@ export type DeleteSessionBody = {
   session_id: string
 }
 
+// Responses
 export type CreateGuestSessionResponse = TMDBResponse<{
   success: boolean
   guest_session_id: string

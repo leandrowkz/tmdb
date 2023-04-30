@@ -8,14 +8,16 @@ import {
   TMDBResponseList,
   Country,
   Language,
+  Video,
 } from 'src/types'
 import { CollectionDetails } from '../collections/types'
 import { Genre, GenreCode } from '../genres/types'
-import { Company } from '../companies/types'
+import { CompanyItem } from '../companies/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { CertificationCode } from '../certifications/types'
 import { List } from '../lists/types'
 import { Review } from '../reviews/types'
+import { WatchProvider } from '../watch-providers/types'
 
 export type Movie = {
   id: number
@@ -48,7 +50,7 @@ export type Movie = {
   video: boolean
   vote_average: number
   vote_count: number
-  production_companies: Company[]
+  production_companies: CompanyItem[]
   production_countries: Country[]
   spoken_languages: Language[]
 }
@@ -71,19 +73,6 @@ export type MovieItem = Pick<
   | 'video'
   | 'vote_average'
 >
-
-export type MovieVideo = {
-  id: string
-  iso_639_1: LanguageCode
-  iso_3166_1: CountryCode
-  key: string
-  name: string
-  official: boolean
-  published_at: string
-  site: 'Youtube' | 'Vimeo'
-  size: number
-  type: 'Trailer'
-}
 
 export type MovieAccountStates = {
   id: number
@@ -121,13 +110,6 @@ export type MovieReleaseDate = {
   release_date: string
   type: number
   note: string
-}
-
-export type MovieWatchProvider = {
-  provider_id: number
-  provider_name: string
-  logo_path: string
-  display_priority: number
 }
 
 export type DetailsFilters = {
@@ -283,7 +265,7 @@ export type TranslationsResponse = TMDBResponse<{
 
 export type VideosResponse = TMDBResponse<{
   id: number
-  results: MovieVideo[]
+  results: Video[]
 }>
 
 export type WatchProvidersResponse = TMDBResponse<{
@@ -291,9 +273,9 @@ export type WatchProvidersResponse = TMDBResponse<{
   results: {
     [key in CountryCode]?: {
       link: string
-      flatrate?: MovieWatchProvider[]
-      rent?: MovieWatchProvider[]
-      buy?: MovieWatchProvider[]
+      flatrate?: WatchProvider[]
+      rent?: WatchProvider[]
+      buy?: WatchProvider[]
     }
   }
 }>

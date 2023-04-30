@@ -15,7 +15,7 @@ import {
 import { Genre, GenreCode } from '../genres/types'
 import { TVEpisode } from '../tv-episodes/types'
 import { Network } from '../networks/types'
-import { Company } from '../companies/types'
+import { CompanyItem } from '../companies/types'
 import { TVSeasonItem } from '../tv-seasons/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVEpisodeGroup } from '../tv-episode-groups/types'
@@ -58,7 +58,7 @@ export type TVShow = {
   original_name: string
   popularity: number
   poster_path: Nullable<string>
-  production_companies: Company[]
+  production_companies: CompanyItem[]
   production_countries: Country[]
   seasons: TVSeasonItem[]
   spoken_languages: Language[]

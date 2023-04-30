@@ -13,6 +13,7 @@ export type WatchProvider = {
   display_priority: number
 }
 
+// Filters
 export type AvailableRegionsFilters = {
   language?: LanguageCode
 }
@@ -22,6 +23,7 @@ export type WatchProvidersFilters = {
   watch_region?: CountryCode
 }
 
+// Responses
 export type AvailableRegionsResponse = TMDBResponse<{
   results: AvailableRegion[]
 }>

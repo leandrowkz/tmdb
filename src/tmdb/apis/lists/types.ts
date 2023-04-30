@@ -4,17 +4,7 @@ import { TVShowItem } from '../tv/types'
 
 export type List = {
   id: number
-  name: string
-  description: string
-  poster_path: Nullable<string>
-  favorite_count: number
-  item_count: number
-  iso_639_1: LanguageCode
-  list_type: 'movie' | 'tv'
-}
-
-export type ListDetails = {
-  id: number
+  list_type?: 'movie' | 'tv'
   name: string
   description: string
   poster_path: Nullable<string>
@@ -25,34 +15,37 @@ export type ListDetails = {
   items: (MovieItem | TVShowItem)[]
 }
 
-export type DetailsFilters = {
-  language?: LanguageCode
-}
+export type ListItem = Pick<
+  List,
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'poster_path'
+  | 'favorite_count'
+  | 'item_count'
+  | 'iso_639_1'
+>
 
-export type ItemStatusFilters = {
-  movie_id: number
-}
+// Filters
+type LanguageFilter = { language?: LanguageCode }
+type MediaIdFilter = { media_id: number }
+type SessionIdFilter = { session_id: string }
 
-export type CreateListFilters = {
-  session_id: string
-}
+export type DetailsFilters = LanguageFilter
 
-export type AddItemFilters = {
-  session_id: string
-}
+export type ItemStatusFilters = { movie_id: number }
 
-export type RemoveItemFilters = {
-  session_id: string
-}
+export type CreateListFilters = SessionIdFilter
 
-export type ClearListFilters = {
-  session_id: string
+export type AddItemFilters = SessionIdFilter
+
+export type RemoveItemFilters = SessionIdFilter
+
+export type ClearListFilters = SessionIdFilter & {
   confirm: boolean
 }
 
-export type DeleteListFilters = {
-  session_id: string
-}
+export type DeleteListFilters = SessionIdFilter
 
 export type CreateListBody = {
   name: string
@@ -60,44 +53,34 @@ export type CreateListBody = {
   language: LanguageCode
 }
 
-export type AddItemBody = {
-  media_id: number
+export type AddItemBody = MediaIdFilter
+
+export type RemoveItemBody = MediaIdFilter
+
+// Responses
+type GenericResponse = {
+  status_code: number
+  status_message: string
 }
 
-export type RemoveItemBody = {
-  media_id: number
-}
-
-export type DetailsResponse = TMDBResponse<ListDetails>
+export type DetailsResponse = TMDBResponse<List>
 
 export type ItemStatusResponse = TMDBResponse<{
   id: string
   item_present: boolean
 }>
 
-export type CreateListResponse = TMDBResponse<{
-  list_id: number
-  success: boolean
-  status_code: number
-  status_message: string
-}>
+export type CreateListResponse = TMDBResponse<
+  GenericResponse & {
+    list_id: number
+    success: boolean
+  }
+>
 
-export type AddItemResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type AddItemResponse = TMDBResponse<GenericResponse>
 
-export type RemoveItemResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type RemoveItemResponse = TMDBResponse<GenericResponse>
 
-export type ClearListResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type ClearListResponse = TMDBResponse<GenericResponse>
 
-export type DeleteListResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type DeleteListResponse = TMDBResponse<GenericResponse>
