@@ -20,7 +20,7 @@ import { CompanyItem } from '../companies/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { CertificationCode } from '../certifications/types'
 import { ListItem } from '../lists/types'
-import { Review } from '../reviews/types'
+import { ReviewItem } from '../reviews/types'
 import { WatchProvider } from '../watch-providers/types'
 
 export type Movie = {
@@ -250,7 +250,7 @@ export type RecommendationsResponse = TMDBResponseList<Movie[]>
 
 export type ReleaseDatesResponse = TMDBResponse<MovieReleaseDates>
 
-export type ReviewsResponse = WithId<TMDBResponseList<Review[]>>
+export type ReviewsResponse = WithId<TMDBResponseList<ReviewItem[]>>
 
 export type SimilarResponse = TMDBResponseList<MovieItem[]>
 

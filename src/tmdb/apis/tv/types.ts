@@ -20,7 +20,7 @@ import { TVSeasonItem } from '../tv-seasons/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVEpisodeGroup } from '../tv-episode-groups/types'
 import { Keyword } from '../keywords/types'
-import { Review } from '../reviews/types'
+import { ReviewItem } from '../reviews/types'
 import { WatchProvider } from '../watch-providers/types'
 
 // Models/Entities
@@ -324,7 +324,7 @@ export type KeywordsResponse = TMDBResponse<{
 
 export type RecommendationsResponse = TMDBResponseList<TVShow[]>
 
-export type ReviewsResponse = TMDBResponseList<Review[]>
+export type ReviewsResponse = TMDBResponseList<ReviewItem[]>
 
 export type ScreenedTheatricallyResponse = TMDBResponse<{
   id: number
