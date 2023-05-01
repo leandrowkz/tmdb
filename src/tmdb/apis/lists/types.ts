@@ -1,4 +1,9 @@
-import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
+import {
+  GenericResponse,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+} from 'src/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
 
@@ -58,11 +63,6 @@ export type AddItemBody = MediaIdFilter
 export type RemoveItemBody = MediaIdFilter
 
 // Responses
-type GenericResponse = {
-  status_code: number
-  status_message: string
-}
-
 export type DetailsResponse = TMDBResponse<List>
 
 export type ItemStatusResponse = TMDBResponse<{

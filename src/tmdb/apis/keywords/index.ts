@@ -1,9 +1,5 @@
 import { BaseAPI } from '../BaseAPI'
-import {
-  KeywordDetailsResponse,
-  KeywordMoviesFilters,
-  KeywordMoviesResponse,
-} from './types'
+import { DetailsResponse, MoviesFilters, MoviesResponse } from './types'
 
 export class Keywords extends BaseAPI {
   /**
@@ -11,10 +7,10 @@ export class Keywords extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/keywords/get-keyword-details
    */
-  public async details(keywordId: string): Promise<KeywordDetailsResponse> {
+  public async details(keywordId: string): Promise<DetailsResponse> {
     const path = this.getPath(`/keyword/${keywordId}`)
 
-    return this.get<KeywordDetailsResponse>(path)
+    return this.get<DetailsResponse>(path)
   }
 
   /**
@@ -27,10 +23,10 @@ export class Keywords extends BaseAPI {
    */
   public async movies(
     keywordId: string,
-    filters?: KeywordMoviesFilters
-  ): Promise<KeywordMoviesResponse> {
+    filters?: MoviesFilters
+  ): Promise<MoviesResponse> {
     const path = this.getPath(`/keyword/${keywordId}/movies`, filters)
 
-    return this.get<KeywordMoviesResponse>(path)
+    return this.get<MoviesResponse>(path)
   }
 }
