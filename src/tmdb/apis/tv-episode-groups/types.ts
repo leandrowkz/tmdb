@@ -1,5 +1,5 @@
 import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
-import { Network } from '../networks/types'
+import { NetworkItem } from '../networks/types'
 import { TVEpisode } from '../tv-episodes/types'
 
 export type TVEpisodeGroup = {
@@ -9,7 +9,7 @@ export type TVEpisodeGroup = {
   episode_count: number
   group_count: number
   type: number
-  network: Nullable<Network>
+  network: Nullable<NetworkItem>
   groups?: {
     id: string
     name: string

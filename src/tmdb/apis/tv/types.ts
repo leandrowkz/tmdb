@@ -14,7 +14,7 @@ import {
 } from 'src/types'
 import { Genre, GenreCode } from '../genres/types'
 import { TVEpisode } from '../tv-episodes/types'
-import { Network } from '../networks/types'
+import { NetworkItem } from '../networks/types'
 import { CompanyItem } from '../companies/types'
 import { TVSeasonItem } from '../tv-seasons/types'
 import { PersonCast, PersonCrew } from '../people/types'
@@ -50,7 +50,7 @@ export type TVShow = {
   last_air_date: string
   last_episode_to_air: TVEpisode
   next_episode_to_air: Nullable<TVEpisode>
-  networks: Network[]
+  networks: NetworkItem[]
   number_of_episodes: number
   number_of_seasons: number
   origin_country: CountryCode[]
