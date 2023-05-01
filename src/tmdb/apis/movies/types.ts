@@ -9,13 +9,17 @@ import {
   Country,
   Language,
   Video,
+  AppendToResponse,
+  WithId,
+  ExternalId,
+  GenericResponse,
 } from 'src/types'
-import { CollectionDetails } from '../collections/types'
+import { Collection } from '../collections/types'
 import { Genre, GenreCode } from '../genres/types'
 import { CompanyItem } from '../companies/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { CertificationCode } from '../certifications/types'
-import { List } from '../lists/types'
+import { ListItem } from '../lists/types'
 import { Review } from '../reviews/types'
 import { WatchProvider } from '../watch-providers/types'
 
@@ -25,7 +29,7 @@ export type Movie = {
   media_type?: 'movie'
   title: string
   backdrop_path: Nullable<string>
-  belongs_to_collection: Nullable<CollectionDetails>
+  belongs_to_collection: Nullable<Collection>
   budget: number
   genres: Genre[]
   genre_ids?: GenreCode[]
@@ -81,194 +85,78 @@ export type MovieAccountStates = {
   watchlist: boolean
 }
 
-export type MovieTitle = {
-  iso_3166_1: CountryCode
-  title: string
-  type: string
-}
-
-export type MovieChanges = {
-  key: keyof Movie
-  items: {
-    id: string
-    action: 'updated'
-    time: string
-    iso_639_1: LanguageCode
-    value: string
-    original_value: string
+export type MovieAlternativeTitles = {
+  id: number
+  titles: {
+    iso_3166_1: CountryCode
+    title: string
+    type: string
   }[]
 }
 
-export type MovieKeyword = {
-  id: number
-  name: string
+export type MovieChanges = {
+  changes: {
+    key: keyof Movie
+    items: {
+      id: string
+      action: 'updated'
+      time: string
+      iso_639_1: LanguageCode
+      value: string
+      original_value: string
+    }[]
+  }[]
 }
 
-export type MovieReleaseDate = {
-  certification: CertificationCode
-  iso_639_1: LanguageCode
-  release_date: string
-  type: number
-  note: string
-}
-
-export type DetailsFilters = {
-  append_to_response: 'cast' | 'videos' | 'images'
-}
-
-export type AccountStatesFilters = {
-  session_id: string
-  guest_session_id?: string
-}
-
-export type AlternativeTitlesFilters = {
-  country?: CountryCode
-}
-
-export type ChangesFilters = {
-  page?: number
-  start_date?: string
-  end_date?: string
-}
-
-export type CreditsFilters = {
-  language?: LanguageCode
-}
-
-export type ImagesFilters = {
-  language?: LanguageCode
-  include_image_language?: LanguageCode[]
-}
-
-export type ListsFilters = {
-  page?: number
-  language?: LanguageCode
-}
-
-export type RecommendationsFilters = {
-  page?: number
-  language?: LanguageCode
-}
-
-export type ReviewsFilters = {
-  page?: number
-  language?: LanguageCode
-}
-
-export type SimilarFilters = {
-  page?: number
-  language?: LanguageCode
-}
-
-export type VideosFilters = {
-  language?: LanguageCode
-  include_video_language?: LanguageCode[]
-}
-
-export type LatestFilters = {
-  language?: LanguageCode
-}
-
-export type RateFilters = {
-  session_id?: string
-  guest_session_id?: string
-}
-
-export type RateBody = {
-  value: number
-}
-
-export type NowPlayingFilters = {
-  language?: LanguageCode
-  region?: CountryCode
-  page?: number
-}
-
-export type PopularFilters = {
-  language?: LanguageCode
-  region?: CountryCode
-  page?: number
-}
-
-export type TopRatedFilters = {
-  language?: LanguageCode
-  region?: CountryCode
-  page?: number
-}
-
-export type UpcomingFilters = {
-  language?: LanguageCode
-  region?: CountryCode
-  page?: number
-}
-
-export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
-
-export type AlternativeTitlesResponse = TMDBResponse<{
-  id: number
-  titles: MovieTitle[]
-}>
-
-export type ChangesResponse = TMDBResponse<{
-  changes: MovieChanges[]
-}>
-
-export type CreditsResponse = TMDBResponse<{
-  id: number
-  cast: PersonCast[]
-  crew: PersonCrew[]
-}>
-
-export type ExternalIdsResponse = TMDBResponse<{
-  id: number
-  imdb_id: Nullable<string>
-  facebook_id: Nullable<string>
-  instagram_id: Nullable<string>
-  twitter_id: Nullable<string>
-}>
-
-export type ImagesResponse = TMDBResponse<{
-  id: number
-  backdrops: Image[]
-  posters: Image[]
-}>
-
-export type KeywordsResponse = TMDBResponse<{
-  id: number
-  keywords: MovieKeyword[]
-}>
-
-export type ListsResponse = TMDBResponseList<List[]> & { id: number }
-
-export type RecommendationsResponse = TMDBResponseList<Movie[]>
-
-export type ReleaseDatesResponse = TMDBResponse<{
-  id: number
-  results: {
-    ido_3166_1: CountryCode
-    release_dates: MovieReleaseDate[]
-  }
-}>
-
-export type ReviewsResponse = TMDBResponseList<Review[]> & { id: number }
-
-export type SimilarResponse = TMDBResponseList<Movie[]>
-
-export type TranslationsResponse = TMDBResponse<{
+export type MovieTranslations = {
   id: number
   translations: Translation<{
     title: string
     overview: string
     homepage: string
   }>[]
-}>
+}
 
-export type VideosResponse = TMDBResponse<{
+export type MovieReleaseDates = {
+  id: number
+  results: {
+    ido_3166_1: CountryCode
+    release_dates: {
+      certification: CertificationCode
+      iso_639_1: LanguageCode
+      release_date: string
+      type: number
+      note: string
+    }[]
+  }
+}
+
+export type MovieCredits = {
+  id: number
+  cast: PersonCast[]
+  crew: PersonCrew[]
+}
+
+export type MovieImages = {
+  id: number
+  backdrops: Image[]
+  posters: Image[]
+}
+
+export type MovieKeyworks = {
+  id: number
+  keywords: {
+    id: number
+    name: string
+  }[]
+}
+
+export type MovieVideos = {
   id: number
   results: Video[]
-}>
+}
 
-export type WatchProvidersResponse = TMDBResponse<{
+export type MovieWatchProviders = {
   id: number
   results: {
     [key in CountryCode]?: {
@@ -278,27 +166,106 @@ export type WatchProvidersResponse = TMDBResponse<{
       buy?: WatchProvider[]
     }
   }
-}>
+}
 
-export type RateResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+// Filters
+type AppendToResponseFilters = { append_to_response: AppendToResponse[] }
+type RegionFilter = { region?: CountryCode }
+type CountryFilter = { country?: CountryCode }
+type LanguageFilter = { language?: LanguageCode }
+type IncludeImageLanguageFilter = { include_image_language?: LanguageCode[] }
+type PageFilter = { page?: number }
+type SessionFilters = { session_id: string; guest_session_id?: string }
+type OptionalSessionFilters = { session_id?: string; guest_session_id?: string }
+type DateRangeFilters = { start_date?: string; end_date?: string }
 
-export type NowPlayingResponse = TMDBResponseList<Movie[]> & {
+export type DetailsFilters = AppendToResponseFilters & LanguageFilter
+
+export type AccountStatesFilters = SessionFilters
+
+export type AlternativeTitlesFilters = CountryFilter
+
+export type ChangesFilters = DateRangeFilters & PageFilter
+
+export type CreditsFilters = LanguageFilter
+
+export type ImagesFilters = LanguageFilter & IncludeImageLanguageFilter
+
+export type ListsFilters = LanguageFilter & PageFilter
+
+export type RecommendationsFilters = LanguageFilter & PageFilter
+
+export type ReviewsFilters = LanguageFilter & PageFilter
+
+export type SimilarFilters = LanguageFilter & PageFilter
+
+export type VideosFilters = LanguageFilter & IncludeImageLanguageFilter
+
+export type LatestFilters = LanguageFilter
+
+export type RateFilters = OptionalSessionFilters
+
+export type NowPlayingFilters = LanguageFilter & RegionFilter & PageFilter
+
+export type PopularFilters = LanguageFilter & RegionFilter & PageFilter
+
+export type TopRatedFilters = LanguageFilter & RegionFilter & PageFilter
+
+export type UpcomingFilters = LanguageFilter & RegionFilter & PageFilter
+
+// Body
+export type RateBody = {
+  value: number
+}
+
+// Responses
+type WithDates<T> = T & {
   dates: {
     maximum: string
     minimum: string
   }
 }
 
-export type UpcomingResponse = TMDBResponseList<Movie[]> & {
-  dates: {
-    maximum: string
-    minimum: string
-  }
-}
+export type DetailsResponse = TMDBResponse<Movie>
 
-export type PopularResponse = TMDBResponseList<Movie[]>
+export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
 
-export type TopRatedResponse = TMDBResponseList<Movie[]>
+export type AlternativeTitlesResponse = TMDBResponse<MovieAlternativeTitles>
+
+export type ChangesResponse = TMDBResponse<MovieChanges>
+
+export type CreditsResponse = TMDBResponse<MovieCredits>
+
+export type ExternalIdsResponse = TMDBResponse<ExternalId>
+
+export type ImagesResponse = TMDBResponse<MovieImages>
+
+export type KeywordsResponse = TMDBResponse<MovieKeyworks>
+
+export type LatestResponse = TMDBResponse<Movie>
+
+export type ListsResponse = WithId<TMDBResponseList<ListItem[]>>
+
+export type RecommendationsResponse = TMDBResponseList<Movie[]>
+
+export type ReleaseDatesResponse = TMDBResponse<MovieReleaseDates>
+
+export type ReviewsResponse = WithId<TMDBResponseList<Review[]>>
+
+export type SimilarResponse = TMDBResponseList<MovieItem[]>
+
+export type TranslationsResponse = TMDBResponse<MovieTranslations>
+
+export type VideosResponse = TMDBResponse<MovieVideos>
+
+export type WatchProvidersResponse = TMDBResponse<MovieWatchProviders>
+
+export type RateResponse = TMDBResponse<GenericResponse>
+
+export type NowPlayingResponse = WithDates<TMDBResponseList<Movie[]>>
+
+export type UpcomingResponse = WithDates<TMDBResponseList<Movie[]>>
+
+export type PopularResponse = TMDBResponseList<MovieItem[]>
+
+export type TopRatedResponse = TMDBResponseList<MovieItem[]>
