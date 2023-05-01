@@ -1,4 +1,4 @@
-import { TMDBOptions } from '../types'
+import { TMDBOptions } from 'src/types'
 import { TMDB } from './TMDB'
 import { Certifications } from './apis/certifications'
 import { Changes } from './apis/changes'
@@ -37,10 +37,6 @@ describe('TMDB client', () => {
 
   test('should has all namespaces properly', async () => {
     const tmdb = new TMDB({ apiKey: 'API_KEY' })
-
-    const movie = await tmdb.movies.details(24352)
-
-    console.log(movie)
 
     expect(tmdb.account).toBeInstanceOf(Account)
     expect(tmdb.authentication).toBeInstanceOf(Authentication)
