@@ -1,6 +1,5 @@
 import { BaseAPI } from '../BaseAPI'
-import { TMDBResponse } from 'src/types'
-import { Credit } from './types'
+import { DetailsResponse } from './types'
 
 export class Credits extends BaseAPI {
   /**
@@ -8,9 +7,9 @@ export class Credits extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/credits/get-credit-details
    */
-  public async details(creditId: string): Promise<TMDBResponse<Credit>> {
+  public async details(creditId: string): Promise<DetailsResponse> {
     const path = this.getPath(`/credit/${creditId}`)
 
-    return this.get<TMDBResponse<Credit>>(path)
+    return this.get<DetailsResponse>(path)
   }
 }

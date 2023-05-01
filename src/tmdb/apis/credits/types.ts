@@ -1,4 +1,6 @@
-export interface Credit {
+import { TMDBResponse } from 'src/types'
+
+export type Credit = {
   id: string
   media_type: 'tv' | 'movie'
   credit_type: 'cast' | 'crew'
@@ -21,3 +23,6 @@ export interface Credit {
     name: string
   }
 }
+
+// Responses
+export type DetailsResponse = TMDBResponse<Credit>
