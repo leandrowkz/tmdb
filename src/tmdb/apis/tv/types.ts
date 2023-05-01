@@ -4,12 +4,14 @@ import {
   CountryCode,
   Department,
   ExternalId,
+  GenericResponse,
   Image,
   Language,
   LanguageCode,
   Nullable,
   TMDBResponse,
   TMDBResponseList,
+  Translation,
   Video,
 } from 'src/types'
 import { Genre, GenreCode } from '../genres/types'
@@ -135,142 +137,133 @@ export type TVShowAggregateCredits = {
   crew: TVShowPersonCrew[]
 }
 
-export type TVShowAlternativeTitle = {
-  title: string
-  iso_3166_1: CountryCode
-  type: string
+export type TVShowCredits = {
+  id: number
+  cast: PersonCast[]
+  crew: PersonCrew[]
 }
 
-export type TVShowChange = {
-  key: keyof TVShow
-  items: Record<string, string | number | object | boolean>[]
+export type TVShowImages = {
+  id: number
+  posters: Image[]
+  backdrops: Image[]
 }
 
-export type TVShowContentRating = {
-  iso_3166_1: CountryCode
-  rating: string
+export type TVShowEpisodeGroups = {
+  id: number
+  results: TVEpisodeGroup[]
+}
+
+export type TVShowAlternativeTitles = {
+  id: number
+  results: {
+    title: string
+    iso_3166_1: CountryCode
+    type: string
+  }[]
+}
+
+export type TVShowKeywords = {
+  id: number
+  results: Keyword[]
+}
+
+export type TVShowChanges = {
+  changes: {
+    key: keyof TVShow
+    items: Record<string, string | number | object | boolean>[]
+  }[]
+}
+
+export type TVShowContentRatings = {
+  id: number
+  results: {
+    iso_3166_1: CountryCode
+    rating: string
+  }[]
 }
 
 export type TVShowScreenedTheatrically = {
   id: number
-  episode_number: number
-  season_number: number
+  results: {
+    id: number
+    episode_number: number
+    season_number: number
+  }[]
 }
 
-export type TVShowTranslation = {
-  iso_3166_1: CountryCode
-  iso_639_1: LanguageCode
-  name: string
-  english_name: string
-  data: {
+export type TVShowTranslations = {
+  id: number
+  translations: Translation<{
     name: string
     overview: string
     homepage: string
-  }
+  }>
 }
 
-export type TVShowWatchProvider = TMDBResponse<{
-  [key in CountryCode]?: {
-    link: string
-    flatrate?: WatchProvider[]
-    rent?: WatchProvider[]
-    buy?: WatchProvider[]
-  }
+export type TVShowWatchProviders = TMDBResponse<{
+  id: number
+  results: {
+    [key in CountryCode]?: {
+      link: string
+      flatrate?: WatchProvider[]
+      rent?: WatchProvider[]
+      buy?: WatchProvider[]
+    }
+  }[]
 }>
 
+export type TVShowVideos = {
+  id: number
+  results: Video[]
+}
+
 // Filters
-export type DetailsFilters = {
-  language?: LanguageCode
-  append_to_response?: AppendToResponse[]
-}
+type AppendToResponseFilters = { append_to_response?: AppendToResponse[] }
+type LanguageFilter = { language?: LanguageCode }
+type PageFilter = { page?: number }
+type OptionalSessionFilters = { session_id?: string; guest_session_id?: string }
+type DateRangeFilters = { start_date?: string; end_date?: string }
 
-export type AccountStatesFilters = {
-  language?: LanguageCode
-  guest_session_id?: string
-  session_id?: string
-}
+export type DetailsFilters = LanguageFilter & AppendToResponseFilters
 
-export type AggregateCreditsFilters = {
-  language?: LanguageCode
-}
+export type AccountStatesFilters = LanguageFilter & OptionalSessionFilters
 
-export type AlternativeTitlesFilters = {
-  language?: LanguageCode
-}
+export type AggregateCreditsFilters = LanguageFilter
 
-export type ChangesFilters = {
-  start_date?: string
-  end_date?: string
-  page?: number
-}
+export type AlternativeTitlesFilters = LanguageFilter
 
-export type ContentRatingsFilters = {
-  language?: LanguageCode
-}
+export type ChangesFilters = PageFilter & DateRangeFilters
 
-export type CreditsFilters = {
-  language?: LanguageCode
-}
+export type ContentRatingsFilters = LanguageFilter
 
-export type EpisodeGroupsFilters = {
-  language?: LanguageCode
-}
+export type CreditsFilters = LanguageFilter
 
-export type ExternalIdsFilters = {
-  language?: LanguageCode
-}
+export type EpisodeGroupsFilters = LanguageFilter
 
-export type ImagesFilters = {
-  language?: LanguageCode
-}
+export type ExternalIdsFilters = LanguageFilter
 
-export type RecommendationsFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type ImagesFilters = LanguageFilter
 
-export type ReviewsFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type RecommendationsFilters = LanguageFilter & PageFilter
 
-export type SimilarFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type ReviewsFilters = LanguageFilter & PageFilter
 
-export type VideosFilters = {
-  language?: LanguageCode
-}
+export type SimilarFilters = LanguageFilter & PageFilter
 
-export type RateFilters = {
-  guest_session_id?: string
-  session_id?: string
-}
+export type VideosFilters = LanguageFilter
 
-export type LatestFilters = {
-  language?: LanguageCode
-}
+export type RateFilters = OptionalSessionFilters
 
-export type AiringTodayFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type LatestFilters = LanguageFilter
 
-export type OnTheAirFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type AiringTodayFilters = LanguageFilter & PageFilter
 
-export type PopularFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type OnTheAirFilters = LanguageFilter & PageFilter
 
-export type TopRatedFilters = {
-  language?: LanguageCode
-  page?: number
-}
+export type PopularFilters = LanguageFilter & PageFilter
+
+export type TopRatedFilters = LanguageFilter & PageFilter
 
 // Body
 export type RateBody = {
@@ -284,81 +277,45 @@ export type AccountStatesResponse = TMDBResponse<TVShowAccountStates>
 
 export type AggregateCreditsResponse = TMDBResponse<TVShowAggregateCredits>
 
-export type AlternativeTitlesResponse = TMDBResponse<{
-  id: number
-  results: TVShowAlternativeTitle[]
-}>
+export type AlternativeTitlesResponse = TMDBResponse<TVShowAlternativeTitles>
 
-export type ChangesResponse = TMDBResponse<{
-  changes: TVShowChange[]
-}>
+export type ChangesResponse = TMDBResponse<TVShowChanges>
 
-export type ContentRatingsResponse = TMDBResponse<{
-  id: number
-  results: TVShowAlternativeTitle[]
-}>
+export type ContentRatingsResponse = TMDBResponse<TVShowContentRatings>
 
-export type CreditsResponse = TMDBResponse<{
-  id: number
-  cast: PersonCast[]
-  crew: PersonCrew[]
-}>
+export type CreditsResponse = TMDBResponse<TVShowCredits>
 
-export type EpisodeGroupsResponse = TMDBResponse<{
-  id: number
-  results: TVEpisodeGroup[]
-}>
+export type EpisodeGroupsResponse = TMDBResponse<TVShowEpisodeGroups>
 
 export type ExternalIdsResponse = TMDBResponse<ExternalId>
 
-export type ImagesResponse = TMDBResponse<{
-  id: number
-  posters: Image[]
-  backdrops: Image[]
-}>
+export type ImagesResponse = TMDBResponse<TVShowImages>
 
-export type KeywordsResponse = TMDBResponse<{
-  id: number
-  results: Keyword[]
-}>
+export type KeywordsResponse = TMDBResponse<TVShowKeywords>
 
-export type RecommendationsResponse = TMDBResponseList<TVShow[]>
+export type RecommendationsResponse = TMDBResponseList<TVShowItem[]>
 
 export type ReviewsResponse = TMDBResponseList<ReviewItem[]>
 
-export type ScreenedTheatricallyResponse = TMDBResponse<{
-  id: number
-  results: TVShowScreenedTheatrically[]
-}>
+export type ScreenedTheatricallyResponse =
+  TMDBResponse<TVShowScreenedTheatrically>
 
-export type SimilarResponse = TMDBResponseList<TVShow[]>
+export type SimilarResponse = TMDBResponseList<TVShowItem[]>
 
-export type TranslationsResponse = TMDBResponse<{
-  id: number
-  translations: TVShowTranslation[]
-}>
+export type TranslationsResponse = TMDBResponse<TVShowTranslations>
 
-export type VideosResponse = TMDBResponse<{
-  id: number
-  results: Video[]
-}>
+export type VideosResponse = TMDBResponse<TVShowVideos>
 
-export type WatchProvidersResponse = TMDBResponse<{
-  id: number
-  results: TVShowWatchProvider[]
-}>
+export type WatchProvidersResponse = TMDBResponse<TVShowWatchProviders>
 
-export type RateResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type RateResponse = TMDBResponse<GenericResponse>
 
 export type LatestResponse = TMDBResponse<TVShow>
 
-export type AiringTodayResponse = TMDBResponseList<TVShow[]>
+export type AiringTodayResponse = TMDBResponseList<TVShowItem[]>
 
-export type OnTheAirResponse = TMDBResponseList<TVShow[]>
+export type OnTheAirResponse = TMDBResponseList<TVShowItem[]>
 
-export type PopularResponse = TMDBResponseList<TVShow[]>
+export type PopularResponse = TMDBResponseList<TVShowItem[]>
 
-export type TopRatedResponse = TMDBResponseList<TVShow[]>
+export type TopRatedResponse = TMDBResponseList<TVShowItem[]>
