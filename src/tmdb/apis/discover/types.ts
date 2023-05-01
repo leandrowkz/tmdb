@@ -1,5 +1,7 @@
-import { CountryCode, LanguageCode } from 'src/types'
+import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
 import { CertificationCode } from '../certifications/types'
+import { MovieItem } from '../movies/types'
+import { TVShowItem } from '../tv/types'
 
 type SortBy =
   | 'popularity.asc'
@@ -59,7 +61,7 @@ export type MovieFilters = {
   'vote_average.lte'?: number
 }
 
-export type TVFilters = {
+export type TVShowFilters = {
   language?: LanguageCode
   sort_by?: SortBy
   'air_date.gte'?: string
@@ -89,3 +91,8 @@ export type TVFilters = {
   with_type?: ('0' | '1' | '2' | '3' | '4' | '5' | '6')[]
   without_companies?: string[]
 }
+
+// Responses
+export type MovieResponse = TMDBResponseList<MovieItem[]>
+
+export type TVShowResponse = TMDBResponseList<TVShowItem[]>
