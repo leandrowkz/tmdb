@@ -1,14 +1,19 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
-import { TVShow } from '../tv/types'
-import { TVEpisode } from '../tv-episodes/types'
+import { LanguageCode, TMDBResponseList } from 'src/types'
+import { MovieItem } from '../movies/types'
+import { TVShowItem } from '../tv/types'
+import { TVEpisodeItem } from '../tv-episodes/types'
 
 export type RatedFilters = {
   language?: LanguageCode
   sort_by?: 'created_at.asc' | 'created_at.desc'
 }
 
-export type RatedMoviesResponse = TMDBResponseList<Movie[]>
-export type RatedTVShowsResponse = TMDBResponseList<TVShow[]>
-export type RatedTVEpisodesResponse = TMDBResponseList<TVEpisode[]>
+type Rating = { rating: number }
+
+type MovieItemRating = MovieItem & Rating
+type TVShowItemRating = TVShowItem & Rating
+type TVEpisodeItemRating = TVEpisodeItem & Rating
+
+export type RatedMoviesResponse = TMDBResponseList<MovieItemRating[]>
+export type RatedTVShowsResponse = TMDBResponseList<TVShowItemRating[]>
+export type RatedTVEpisodesResponse = TMDBResponseList<TVEpisodeItemRating[]>

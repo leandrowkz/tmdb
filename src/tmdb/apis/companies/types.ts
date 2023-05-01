@@ -1,37 +1,37 @@
-import { Image } from '../../../types/Image'
-import { TMDBResponse } from '../../../types/TMDBResponse'
-import { CountryCode } from '../../../types/CountryCode'
-import { Nullable } from '../../../types/Nullable'
+import { Image, Nullable, CountryCode, TMDBResponse } from 'src/types'
 
 export type Company = {
-  id: number
-  name: string
-  logo_path: Nullable<string>
-  origin_country?: CountryCode
-}
-
-export type CompanyDetails = {
   id: number
   name: string
   description: string
   headquarters: string
   homepage: string
-  logo_path: string
+  logo_path: Nullable<string>
   origin_country: CountryCode
-  parent_company: Nullable<CompanyDetails>
+  parent_company: Nullable<Company>
 }
 
-export type DetailsResponse = TMDBResponse<CompanyDetails>
+export type CompanyItem = Pick<
+  Company,
+  'id' | 'name' | 'logo_path' | 'origin_country'
+>
 
-export type AlternativeNamesResponse = TMDBResponse<{
+export type CompanyImages = {
+  id: number
+  logos: Image[]
+}
+
+export type CompanyAlternativeNames = {
   id: number
   results: {
     name: string
     type: string
   }[]
-}>
+}
 
-export type ImagesResponse = TMDBResponse<{
-  id: number
-  logos: Image[]
-}>
+// Responses
+export type DetailsResponse = TMDBResponse<Company>
+
+export type AlternativeNamesResponse = TMDBResponse<CompanyAlternativeNames>
+
+export type ImagesResponse = TMDBResponse<CompanyImages>

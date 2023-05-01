@@ -12,7 +12,7 @@ export class Find extends BaseAPI {
    */
   public async find(
     externalId: string,
-    filters?: FindFilters
+    filters: FindFilters
   ): Promise<FindResponse> {
     const path = this.getPath(`/find/${externalId}`, filters)
 

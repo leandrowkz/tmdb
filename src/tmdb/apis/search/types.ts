@@ -1,12 +1,10 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Company } from '../companies/types'
-import { Collection } from '../collections/types'
+import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
+import { CompanyItem } from '../companies/types'
+import { CollectionItem } from '../collections/types'
 import { Keyword } from '../keywords/types'
-import { CountryCode } from 'src/types/CountryCode'
-import { Movie } from '../movies/types'
-import { TVShow } from '../tv/types'
-import { Person } from '../people/types'
+import { MovieItem } from '../movies/types'
+import { TVShowItem } from '../tv/types'
+import { PersonItem } from '../people/types'
 
 export type SearchFilters = {
   query: string
@@ -43,16 +41,18 @@ export type TVShowsFilters = SearchFilters & {
   first_air_date_year?: number
 }
 
-export type CompaniesResponse = TMDBResponseList<Company[]>
+type MultiSearch = MovieItem | TVShowItem | PersonItem
 
-export type CollectionsResponse = TMDBResponseList<Collection[]>
+export type CompaniesResponse = TMDBResponseList<CompanyItem[]>
+
+export type CollectionsResponse = TMDBResponseList<CollectionItem[]>
 
 export type KeywordsResponse = TMDBResponseList<Keyword[]>
 
-export type MoviesResponse = TMDBResponseList<Movie[]>
+export type MoviesResponse = TMDBResponseList<MovieItem[]>
 
-export type MultiSearchResponse = TMDBResponseList<(Movie | TVShow | Person)[]>
+export type MultiSearchResponse = TMDBResponseList<MultiSearch[]>
 
-export type PeopleResponse = TMDBResponseList<Person[]>
+export type PeopleResponse = TMDBResponseList<PersonItem[]>
 
-export type TVShowsResponse = TMDBResponseList<TVShow[]>
+export type TVShowsResponse = TMDBResponseList<TVShowItem[]>

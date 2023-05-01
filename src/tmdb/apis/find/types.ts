@@ -1,28 +1,19 @@
-import { LanguageCode } from '../../../types/LanguageCode'
-import { Person } from '../people/types'
-import { TVShow } from '../tv/types'
-import { TVEpisode } from '../tv-episodes/types'
-import { TVSeason } from '../tv-seasons/types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { Movie } from '../movies/types'
+import { TMDBResponse, LanguageCode, ExternalId } from 'src/types'
+import { PersonItem } from '../people/types'
+import { TVShowItem } from '../tv/types'
+import { TVEpisodeItem } from '../tv-episodes/types'
+import { TVSeasonItem } from '../tv-seasons/types'
+import { MovieItem } from '../movies/types'
 
 export type FindFilters = {
   language?: LanguageCode
-  external_source:
-    | 'imdb_id'
-    | 'freebase_mid'
-    | 'freebase_id'
-    | 'tvdb_id'
-    | 'tvrage_id'
-    | 'facebook_id'
-    | 'twitter_id'
-    | 'instagram_id'
+  external_source: keyof ExternalId
 }
 
 export type FindResponse = TMDBResponse<{
-  movie_results: Movie[]
-  person_results: Person[]
-  tv_results: TVShow[]
-  tv_episode_results: TVEpisode[]
-  tv_season_results: TVSeason[]
+  movie_results: MovieItem[]
+  person_results: PersonItem[]
+  tv_results: TVShowItem[]
+  tv_episode_results: TVEpisodeItem[]
+  tv_season_results: TVSeasonItem[]
 }>

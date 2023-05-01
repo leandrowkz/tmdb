@@ -1,26 +1,18 @@
-import { Nullable } from 'src/types/Nullable'
-import { TVEpisodeDetails } from '../tv-episodes/types'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { AppendToResponse } from 'src/types/AppendToResponse'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import {
+  AppendToResponse,
+  ExternalId,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  Translation,
+  Video,
+} from 'src/types'
+import { TVEpisode } from '../tv-episodes/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { Image } from 'src/types/Image'
-import { Translation } from 'src/types/Translation'
-import { Video } from 'src/types/Video'
 import { TVShowPersonCast, TVShowPersonCrew } from '../tv/types'
-import { ExternalId } from 'src/types/ExternalId'
 
 export type TVSeason = {
-  id: number
-  name: string
-  overview: string
-  poster_path: Nullable<string>
-  season_number: number
-  episode_count: number
-  air_date: string
-}
-
-export type TVSeasonDetails = {
   _id: string
   id: number
   name: string
@@ -28,8 +20,13 @@ export type TVSeasonDetails = {
   poster_path: Nullable<string>
   season_number: number
   air_date: string
-  episodes: TVEpisodeDetails[]
+  episodes: TVEpisode[]
 }
+
+export type TVSeasonItem = Pick<
+  TVSeason,
+  'id' | 'name' | 'overview' | 'poster_path' | 'season_number' | 'air_date'
+> & { episode_count: number }
 
 export type TVSeasonAccountStates = {
   id: number
@@ -40,15 +37,17 @@ export type TVSeasonAccountStates = {
   }[]
 }
 
-export type TVSeasonChange = {
-  key: keyof TVSeasonDetails
-  items: {
-    id: string
-    action: string
-    time: string
-    iso_639_1: LanguageCode
-    value: string | number | boolean | object
-    original_value?: string | number | boolean | object
+export type TVSeasonChanges = {
+  changes: {
+    key: keyof TVSeason
+    items: {
+      id: string
+      action: string
+      time: string
+      iso_639_1: LanguageCode
+      value: string | number | boolean | object
+      original_value?: string | number | boolean | object
+    }[]
   }[]
 }
 
@@ -115,13 +114,13 @@ export type TranslationFilters = LanguageFilter
 export type VideosFilters = LanguageFilter
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVSeasonDetails>
+export type DetailsResponse = TMDBResponse<TVSeason>
 
 export type AccountStatesResponse = TMDBResponse<TVSeasonAccountStates>
 
 export type AggregateCreditsResponse = TMDBResponse<TVSeasonAggregateCredits>
 
-export type ChangesResponse = TMDBResponse<{ changes: TVSeasonChange[] }>
+export type ChangesResponse = TMDBResponse<TVSeasonChanges>
 
 export type CreditsResponse = TMDBResponse<TVSeasonCredits>
 

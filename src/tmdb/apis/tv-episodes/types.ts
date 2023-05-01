@@ -1,30 +1,22 @@
-import { AppendToResponse } from 'src/types/AppendToResponse'
-import { KnownForDepartment } from 'src/types/KnownForDeparment'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import {
+  AppendToResponse,
+  Department,
+  ExternalId,
+  GenericResponse,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  Translation,
+  Video,
+} from 'src/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { ExternalId } from 'src/types/ExternalId'
-import { Image } from 'src/types/Image'
-import { Translation } from 'src/types/Translation'
-import { Video } from 'src/types/Video'
+import { TVShowChanges } from '../tv/types'
 
 export type TVEpisode = {
   id: number
-  air_date: string
-  episode_number: number
   name: string
-  overview: string
-  production_code: Nullable<string>
-  season_number: number
-  still_path: Nullable<string>
-  vote_average: number
-  vote_count: number
-}
-
-export type TVEpisodeDetails = {
-  id: number
-  name: string
+  media_type?: 'tv'
   overview: string
   air_date: string
   production_code: Nullable<string>
@@ -37,11 +29,26 @@ export type TVEpisodeDetails = {
   guest_stars: TVEpisodePersonGuestStar[]
 }
 
+export type TVEpisodeItem = Pick<
+  TVEpisode,
+  | 'id'
+  | 'media_type'
+  | 'air_date'
+  | 'episode_number'
+  | 'name'
+  | 'overview'
+  | 'production_code'
+  | 'season_number'
+  | 'still_path'
+  | 'vote_average'
+  | 'vote_count'
+>
+
 export type TVEpisodePersonCrew = {
   id: number
   credit_id: string
   name: string
-  department: KnownForDepartment
+  department: Department
   job: string
   profile_path: Nullable<string>
 }
@@ -60,15 +67,17 @@ export type TVEpisodeAccountStates = {
   rated: boolean | { value: number }
 }
 
-export type TVEpisodeChange = {
-  key: keyof TVEpisodeDetails
-  items: {
-    id: string
-    action: string
-    time: string
-    iso_639_1: LanguageCode
-    value: string | number | boolean
-    original_value?: string | number | boolean
+export type TVEpisodeChanges = {
+  changes: {
+    key: keyof TVEpisode
+    items: {
+      id: string
+      action: string
+      time: string
+      iso_639_1: LanguageCode
+      value: string | number | boolean
+      original_value?: string | number | boolean
+    }[]
   }[]
 }
 
@@ -138,13 +147,11 @@ export type RateBody = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVEpisodeDetails>
+export type DetailsResponse = TMDBResponse<TVEpisode>
 
 export type AccountStatesResponse = TMDBResponse<TVEpisodeAccountStates>
 
-export type ChangesResponse = TMDBResponse<{
-  changes: TVEpisodeChange[]
-}>
+export type ChangesResponse = TMDBResponse<TVShowChanges>
 
 export type CreditsResponse = TMDBResponse<TVEpisodeCredits>
 
@@ -154,9 +161,6 @@ export type ImagesResponse = TMDBResponse<TVEpisodeImages>
 
 export type TranslationsResponse = TMDBResponse<TVEpisodeTranslations>
 
-export type RateResponse = TMDBResponse<{
-  status_code: string
-  status_message: string
-}>
+export type RateResponse = TMDBResponse<GenericResponse>
 
 export type VideosResponse = TMDBResponse<TVEpisodeVideos>

@@ -1,5 +1,4 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { TMDBResponse, LanguageCode } from 'src/types'
 
 export enum GenreCode {
   ACTION = 28,

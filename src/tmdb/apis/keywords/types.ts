@@ -1,17 +1,15 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { LanguageCode, TMDBResponse, TMDBResponseList, WithId } from 'src/types'
+import { MovieItem } from '../movies/types'
 
 export type Keyword = {
   id: number
   name: string
 }
 
-export type KeywordMoviesFilters = {
+export type MoviesFilters = {
   language?: LanguageCode
   include_adult?: boolean
 }
 
-export type KeywordDetailsResponse = TMDBResponse<Keyword>
-export type KeywordMoviesResponse = TMDBResponseList<Movie[]> & { id: number }
+export type DetailsResponse = TMDBResponse<Keyword>
+export type MoviesResponse = WithId<TMDBResponseList<MovieItem[]>>

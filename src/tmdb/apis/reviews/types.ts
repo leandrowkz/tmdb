@@ -1,23 +1,6 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
+import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
 
 export type Review = {
-  id: string
-  content: string
-  created_at: string
-  updated_at: string
-  url: string
-  author: string
-  author_details: {
-    name: string
-    username: string
-    avatar_path: Nullable<string>
-    rating: number
-  }
-}
-
-export type ReviewDetails = {
   id: string
   author: string
   author_details: {
@@ -36,4 +19,15 @@ export type ReviewDetails = {
   iso_639_1: LanguageCode
 }
 
-export type DetailsResponse = TMDBResponse<ReviewDetails>
+export type ReviewItem = Pick<
+  Review,
+  | 'id'
+  | 'content'
+  | 'created_at'
+  | 'updated_at'
+  | 'url'
+  | 'author'
+  | 'author_details'
+>
+
+export type DetailsResponse = TMDBResponse<Review>

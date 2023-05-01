@@ -1,4 +1,4 @@
-import { TMDBOptions } from 'src/types/TMDBOptions'
+import { TMDBOptions } from 'src/types'
 import { TMDB } from './TMDB'
 import { Certifications } from './apis/certifications'
 import { Changes } from './apis/changes'

@@ -1,71 +1,123 @@
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
-import { TVShow } from '../tv/types'
-import { LanguageCode } from 'src/types/LanguageCode'
-import { Nullable } from 'src/types/Nullable'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { Image } from 'src/types/Image'
-import { CountryCode } from 'src/types/CountryCode'
-import { AppendToResponse } from 'src/types/AppendToResponse'
+import {
+  AppendToResponse,
+  Department,
+  ExternalId,
+  Image,
+  LanguageCode,
+  Nullable,
+  TMDBResponse,
+  TMDBResponseList,
+  Translation,
+  WithId,
+} from 'src/types'
+import { MovieItem } from '../movies/types'
+import { TVShowItem } from '../tv/types'
 
-export type DetailsFilters = {
-  language?: LanguageCode
-  append_to_response?: AppendToResponse[]
-}
-
-export interface Person {
-  id: number
-  adult: boolean
-  profile_path: string
-  name: string
-  popularity: string
-  known_for: Movie | TVShow
-}
-
-export type PersonDetails = {
+export type Person = {
   id: number
   imdb_id: string
+  cast_id?: number
+  credit_id?: string
+  media_type?: 'person'
+  adult: boolean
   name: string
-  gender: number
+  original_name?: string
+  gender: Nullable<number>
   birthday: string
   deathday: Nullable<string>
   also_known_as: string[]
-  known_for_department: string
+  known_for?: MovieItem | TVShowItem
+  known_for_department: Department
+  department?: Department
   biography: string
   popularity: number
   place_of_birth: Nullable<string>
   profile_path: Nullable<string>
-  adult: boolean
   homepage: Nullable<string>
+  order?: number
+  job?: string
+  character?: string
 }
 
-export type PersonCast = {
-  id: number
-  cast_id: number
-  credit_id: string
-  gender: Nullable<number>
-  adult: boolean
-  known_for_department: string
-  name: string
-  original_name: string
-  popularity: number
-  profile_path: Nullable<string>
-  character: string
-  order: number
+export type PersonItem = Pick<
+  Person,
+  'id' | 'adult' | 'profile_path' | 'name' | 'popularity' | 'known_for'
+>
+
+export type PersonCast = Pick<
+  Person,
+  | 'id'
+  | 'cast_id'
+  | 'credit_id'
+  | 'gender'
+  | 'adult'
+  | 'known_for_department'
+  | 'name'
+  | 'original_name'
+  | 'popularity'
+  | 'profile_path'
+  | 'character'
+  | 'order'
+>
+
+export type PersonCrew = Pick<
+  Person,
+  | 'id'
+  | 'credit_id'
+  | 'gender'
+  | 'adult'
+  | 'known_for_department'
+  | 'name'
+  | 'original_name'
+  | 'popularity'
+  | 'profile_path'
+  | 'department'
+  | 'job'
+>
+
+export type PersonChanges = {
+  key: keyof Person
+  items: {
+    id: string
+    action: string
+    time: string
+    original_value: {
+      [key: string]: Record<string, string | number | boolean | object>
+    }
+  }[]
 }
 
-export type PersonCrew = {
+type WithPersonCast<T> = T & Pick<PersonCast, 'character' | 'credit_id'>
+type WithPersonCrew<T> = T &
+  Pick<PersonCrew, 'department' | 'credit_id' | 'job'>
+
+export type PersonMovieCredits = {
   id: number
-  credit_id: string
-  gender: Nullable<string>
-  adult: boolean
-  known_for_department: string
-  name: string
-  original_name: string
-  popularity: number
-  profile_path: Nullable<string>
-  department: string
-  job: string
+  cast: WithPersonCast<MovieItem>[]
+  crew: WithPersonCrew<MovieItem>[]
+}
+
+export type PersonTVCredits = {
+  id: number
+  cast: WithPersonCast<TVShowItem>[]
+  crew: WithPersonCrew<TVShowItem>[]
+}
+
+export type PersonCombinedCredits = {
+  id: number
+  cast: WithPersonCast<MovieItem | TVShowItem>[]
+  crew: WithPersonCrew<MovieItem | TVShowItem>[]
+}
+
+export type PersonTranslations = {
+  id: number
+  translations: Translation<{ biography: string }>[]
+}
+
+// Filters
+export type DetailsFilters = {
+  language?: LanguageCode
+  append_to_response?: AppendToResponse[]
 }
 
 export type ChangesFilters = {
@@ -83,68 +135,29 @@ export type LanguageAndPageFilters = {
   language?: LanguageCode
 }
 
-export type DetailsResponse = TMDBResponse<PersonDetails>
+// Responses
+export type DetailsResponse = TMDBResponse<Person>
 
-export type ChangesResponse = TMDBResponse<{
-  key: keyof Person
-  items: {
-    id: string
-    action: string
-    time: string
-    original_value: {
-      [key: string]: Record<string, string | number | boolean | object>
-    }
-  }[]
-}>
+export type ChangesResponse = TMDBResponse<PersonChanges>
 
-export type MovieCreditsResponse = TMDBResponse<{
-  id: number
-  cast: (Movie & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: (Movie & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
-}>
+export type MovieCreditsResponse = TMDBResponse<PersonMovieCredits>
 
-export type TVCreditsResponse = TMDBResponse<{
-  id: number
-  cast: (TVShow & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: (TVShow & Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
-}>
+export type TVCreditsResponse = TMDBResponse<PersonTVCredits>
 
-export type CombinedCreditsResponse = TMDBResponse<{
-  id: number
-  cast: ((TVShow | Movie) & Pick<PersonCast, 'character' | 'credit_id'>)[]
-  crew: ((TVShow | Movie) &
-    Pick<PersonCrew, 'department' | 'credit_id' | 'job'>)[]
-}>
+export type CombinedCreditsResponse = TMDBResponse<PersonCombinedCredits>
 
-export type ExternalIdsResponse = TMDBResponse<{
-  id: number
-  imdb_id: Nullable<string>
-  instagram_id: Nullable<string>
-  facebook_id: Nullable<string>
-  freebase_mid: Nullable<string>
-  freebase_id: Nullable<string>
-  tvrage_id: Nullable<number>
-  twitter_id: Nullable<string>
-}>
+export type ExternalIdsResponse = TMDBResponse<ExternalId>
 
-type TaggedImage = Image & { media: Movie | TVShow }
-
-export type ImagesResponse = TMDBResponseList<Image> & { id: number }
-
-export type TaggedImagesResponse = TMDBResponseList<TaggedImage> & {
-  id: number
+type TaggedImage = Image & {
+  media: MovieItem | TVShowItem
+  media_type: 'tv' | 'movie'
 }
 
-export type TranslationsResponse = TMDBResponse<{
-  id: number
-  translations: {
-    iso_639_1: LanguageCode
-    iso_3166_1: CountryCode
-    name: string
-    data: Record<string, string>
-    english_name: LanguageCode
-  }[]
-}>
+export type ImagesResponse = WithId<TMDBResponseList<Image>>
+
+export type TaggedImagesResponse = WithId<TMDBResponseList<TaggedImage>>
+
+export type TranslationsResponse = TMDBResponse<PersonTranslations>
 
 export type LatestResponse = TMDBResponse<Person>
 

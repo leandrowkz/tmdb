@@ -1,8 +1,14 @@
-import { CountryCode } from '../../../types/CountryCode'
-import { LanguageCode } from '../../../types/LanguageCode'
-import { TMDBResponse } from '../../../types/TMDBResponse'
+import {
+  Country,
+  Job,
+  Language,
+  LanguageCode,
+  TMDBResponse,
+  Timezone,
+} from 'src/types'
 
-export type ConfigurationResponse = TMDBResponse<{
+export type Configuration = {
+  change_keys: string[]
   images: {
     base_url: string
     secure_base_url: string
@@ -12,36 +18,17 @@ export type ConfigurationResponse = TMDBResponse<{
     profile_sizes: string[]
     still_sizes: string[]
   }
-  change_keys: string[]
-}>
+}
 
-export type CountriesResponse = TMDBResponse<
-  {
-    iso_3166_1: CountryCode
-    english_name: string
-  }[]
->
+// Responses
+export type ConfigurationResponse = TMDBResponse<Configuration>
 
-export type JobsResponse = TMDBResponse<
-  {
-    department: string
-    jobs: string[]
-  }[]
->
+export type CountriesResponse = TMDBResponse<Country[]>
 
-export type LanguagesResponse = TMDBResponse<
-  {
-    iso_639_1: LanguageCode
-    english_name: string
-    name: string
-  }[]
->
+export type JobsResponse = TMDBResponse<Job[]>
+
+export type LanguagesResponse = TMDBResponse<Language[]>
 
 export type PrimaryTranslationsResponse = TMDBResponse<LanguageCode[]>
 
-export type TimezonesResponse = TMDBResponse<
-  {
-    iso_3166_1: CountryCode
-    zones: string[]
-  }[]
->
+export type TimezonesResponse = TMDBResponse<Timezone[]>

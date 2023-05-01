@@ -1,11 +1,14 @@
-import { LanguageCode } from 'src/types/LanguageCode'
-import { TMDBResponseList } from 'src/types/TMDBResponseList'
-import { Movie } from '../movies/types'
-import { TMDBResponse } from 'src/types/TMDBResponse'
-import { CountryCode } from 'src/types/CountryCode'
-import { List } from '../lists/types'
-import { TVShow } from '../tv/types'
-import { TVEpisode } from '../tv-episodes/types'
+import {
+  LanguageCode,
+  TMDBResponseList,
+  CountryCode,
+  TMDBResponse,
+  GenericResponse,
+} from 'src/types'
+import { ListItem } from '../lists/types'
+import { MovieItem } from '../movies/types'
+import { TVShowItem } from '../tv/types'
+import { TVEpisodeItem } from '../tv-episodes/types'
 
 export type Account = {
   id: number
@@ -44,6 +47,7 @@ export type AddToWatchlistBody = {
   watchlist: boolean
 }
 
+// Filters
 export type CreatedListsFilters = Omit<MediaFilters, 'sort_by'>
 export type FavoriteMoviesFilters = MediaFilters
 export type FavoriteTVShowsFilters = MediaFilters
@@ -55,10 +59,11 @@ export type TVShowWatchlistFilters = MediaFilters
 export type MarkAsFavoriteFilters = Pick<MediaFilters, 'session_id'>
 export type AddToWatchlistFilters = Pick<MediaFilters, 'session_id'>
 
-type ListsResponse = TMDBResponseList<List[]>
-type MoviesResponse = TMDBResponseList<Movie[]>
-type TVShowsResponse = TMDBResponseList<TVShow[]>
-type TVEpisodesResponse = TMDBResponseList<TVEpisode[]>
+// Responses
+type ListsResponse = TMDBResponseList<ListItem[]>
+type MoviesResponse = TMDBResponseList<MovieItem[]>
+type TVShowsResponse = TMDBResponseList<TVShowItem[]>
+type TVEpisodesResponse = TMDBResponseList<TVEpisodeItem[]>
 
 export type DetailsResponse = TMDBResponse<Account>
 
@@ -78,12 +83,6 @@ export type MovieWatchlistResponse = MoviesResponse
 
 export type TVShowWatchlistResponse = TVShowsResponse
 
-export type MarkAsFavoriteResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type MarkAsFavoriteResponse = TMDBResponse<GenericResponse>
 
-export type AddToWatchlistResponse = TMDBResponse<{
-  status_code: number
-  status_message: string
-}>
+export type AddToWatchlistResponse = TMDBResponse<GenericResponse>

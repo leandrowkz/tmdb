@@ -1,9 +1,8 @@
 import { Keywords } from '.'
-import { KeywordMoviesFilters } from './types'
 
 const makeSUT = () => {
-  const filters: KeywordMoviesFilters = {
-    language: 'en-US',
+  const filters = {
+    language: <const>'en-US',
     include_adult: true,
   }
 
