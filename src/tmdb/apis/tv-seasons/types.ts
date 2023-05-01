@@ -37,15 +37,17 @@ export type TVSeasonAccountStates = {
   }[]
 }
 
-export type TVSeasonChange = {
-  key: keyof TVSeason
-  items: {
-    id: string
-    action: string
-    time: string
-    iso_639_1: LanguageCode
-    value: string | number | boolean | object
-    original_value?: string | number | boolean | object
+export type TVSeasonChanges = {
+  changes: {
+    key: keyof TVSeason
+    items: {
+      id: string
+      action: string
+      time: string
+      iso_639_1: LanguageCode
+      value: string | number | boolean | object
+      original_value?: string | number | boolean | object
+    }[]
   }[]
 }
 
@@ -118,7 +120,7 @@ export type AccountStatesResponse = TMDBResponse<TVSeasonAccountStates>
 
 export type AggregateCreditsResponse = TMDBResponse<TVSeasonAggregateCredits>
 
-export type ChangesResponse = TMDBResponse<{ changes: TVSeasonChange[] }>
+export type ChangesResponse = TMDBResponse<TVSeasonChanges>
 
 export type CreditsResponse = TMDBResponse<TVSeasonCredits>
 

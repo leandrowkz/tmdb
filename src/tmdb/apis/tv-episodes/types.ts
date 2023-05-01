@@ -2,6 +2,7 @@ import {
   AppendToResponse,
   Department,
   ExternalId,
+  GenericResponse,
   Image,
   LanguageCode,
   Nullable,
@@ -10,6 +11,7 @@ import {
   Video,
 } from 'src/types'
 import { PersonCast, PersonCrew } from '../people/types'
+import { TVShowChanges } from '../tv/types'
 
 export type TVEpisode = {
   id: number
@@ -65,15 +67,17 @@ export type TVEpisodeAccountStates = {
   rated: boolean | { value: number }
 }
 
-export type TVEpisodeChange = {
-  key: keyof TVEpisode
-  items: {
-    id: string
-    action: string
-    time: string
-    iso_639_1: LanguageCode
-    value: string | number | boolean
-    original_value?: string | number | boolean
+export type TVEpisodeChanges = {
+  changes: {
+    key: keyof TVEpisode
+    items: {
+      id: string
+      action: string
+      time: string
+      iso_639_1: LanguageCode
+      value: string | number | boolean
+      original_value?: string | number | boolean
+    }[]
   }[]
 }
 
@@ -147,9 +151,7 @@ export type DetailsResponse = TMDBResponse<TVEpisode>
 
 export type AccountStatesResponse = TMDBResponse<TVEpisodeAccountStates>
 
-export type ChangesResponse = TMDBResponse<{
-  changes: TVEpisodeChange[]
-}>
+export type ChangesResponse = TMDBResponse<TVShowChanges>
 
 export type CreditsResponse = TMDBResponse<TVEpisodeCredits>
 
@@ -159,9 +161,6 @@ export type ImagesResponse = TMDBResponse<TVEpisodeImages>
 
 export type TranslationsResponse = TMDBResponse<TVEpisodeTranslations>
 
-export type RateResponse = TMDBResponse<{
-  status_code: string
-  status_message: string
-}>
+export type RateResponse = TMDBResponse<GenericResponse>
 
 export type VideosResponse = TMDBResponse<TVEpisodeVideos>
