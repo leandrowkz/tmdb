@@ -1,4 +1,5 @@
-import { TMDBResponse, LanguageCode } from 'src/types'
+import { TMDBResponse } from 'src/types'
+import { Filters } from 'src/types/filters'
 
 export enum GenreCode {
   ACTION = 28,
@@ -27,10 +28,10 @@ export interface Genre {
   name: string
 }
 
-export type GenresFilters = {
-  language?: LanguageCode
-}
+// Filters
+export type GenresFilters = Pick<Filters, 'language'>
 
+// Responses
 export type GenresResponse = TMDBResponse<{
   genres: Genre[]
 }>

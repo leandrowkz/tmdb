@@ -1,6 +1,7 @@
-import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
+import { Nullable, TMDBResponse } from 'src/types'
 import { NetworkItem } from '../networks/types'
 import { TVEpisode } from '../tv-episodes/types'
+import { Filters } from 'src/types/filters'
 
 export type TVEpisodeGroup = {
   id: string
@@ -19,9 +20,7 @@ export type TVEpisodeGroup = {
 }
 
 // Filters
-export type DetailsFilters = {
-  language?: LanguageCode
-}
+export type DetailsFilters = Pick<Filters, 'language'>
 
 // Responses
 export type DetailsResponse = TMDBResponse<TVEpisodeGroup>

@@ -1,9 +1,7 @@
 import {
-  AppendToResponse,
   Department,
   ExternalId,
   Image,
-  LanguageCode,
   Nullable,
   TMDBResponse,
   TMDBResponseList,
@@ -12,6 +10,7 @@ import {
 } from 'src/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
+import { Filters } from 'src/types/filters'
 
 export type Person = {
   id: number
@@ -115,27 +114,20 @@ export type PersonTranslations = {
 }
 
 // Filters
-export type DetailsFilters = {
-  language?: LanguageCode
-  append_to_response?: AppendToResponse[]
-}
+export type DetailsFilters = Pick<Filters, 'language' | 'append_to_response'>
 
-export type ChangesFilters = {
-  page?: number
-  start_date?: string
-  end_date?: string
-}
+export type ChangesFilters = Pick<Filters, 'page' | 'start_date' | 'end_date'>
 
-export type LanguageFilters = {
-  language?: LanguageCode
-}
+export type LanguageFilters = Pick<Filters, 'language'>
 
-export type LanguageAndPageFilters = {
-  page?: number
-  language?: LanguageCode
-}
+export type LanguageAndPageFilters = Pick<Filters, 'page' | 'language'>
 
 // Responses
+type TaggedImage = Image & {
+  media: MovieItem | TVShowItem
+  media_type: 'tv' | 'movie'
+}
+
 export type DetailsResponse = TMDBResponse<Person>
 
 export type ChangesResponse = TMDBResponse<PersonChanges>
@@ -147,11 +139,6 @@ export type TVCreditsResponse = TMDBResponse<PersonTVCredits>
 export type CombinedCreditsResponse = TMDBResponse<PersonCombinedCredits>
 
 export type ExternalIdsResponse = TMDBResponse<ExternalId>
-
-type TaggedImage = Image & {
-  media: MovieItem | TVShowItem
-  media_type: 'tv' | 'movie'
-}
 
 export type ImagesResponse = WithId<TMDBResponseList<Image>>
 

@@ -9,7 +9,6 @@ import {
   Country,
   Language,
   Video,
-  AppendToResponse,
   WithId,
   ExternalId,
   GenericResponse,
@@ -22,6 +21,7 @@ import { CertificationCode } from '../certifications/types'
 import { ListItem } from '../lists/types'
 import { ReviewItem } from '../reviews/types'
 import { WatchProvider } from '../watch-providers/types'
+import { Filters } from 'src/types/filters'
 
 export type Movie = {
   id: number
@@ -169,49 +169,42 @@ export type MovieWatchProviders = {
 }
 
 // Filters
-type AppendToResponseFilters = { append_to_response: AppendToResponse[] }
-type RegionFilter = { region?: CountryCode }
-type CountryFilter = { country?: CountryCode }
-type LanguageFilter = { language?: LanguageCode }
-type IncludeImageLanguageFilter = { include_image_language?: LanguageCode[] }
-type PageFilter = { page?: number }
-type SessionFilters = { session_id: string; guest_session_id?: string }
-type OptionalSessionFilters = { session_id?: string; guest_session_id?: string }
-type DateRangeFilters = { start_date?: string; end_date?: string }
+type SessionFilters = Pick<Filters, 'guest_session_id'> &
+  Required<Pick<Filters, 'session_id'>>
 
-export type DetailsFilters = AppendToResponseFilters & LanguageFilter
+export type DetailsFilters = Pick<Filters, 'append_to_response' | 'language'>
 
 export type AccountStatesFilters = SessionFilters
 
-export type AlternativeTitlesFilters = CountryFilter
+export type AlternativeTitlesFilters = Pick<Filters, 'country'>
 
-export type ChangesFilters = DateRangeFilters & PageFilter
+export type ChangesFilters = Pick<Filters, 'page' | 'start_date' | 'end_date'>
 
-export type CreditsFilters = LanguageFilter
+export type CreditsFilters = Pick<Filters, 'language'>
 
-export type ImagesFilters = LanguageFilter & IncludeImageLanguageFilter
+export type ImagesFilters = Pick<Filters, 'language' | 'include_image_language'>
 
-export type ListsFilters = LanguageFilter & PageFilter
+export type ListsFilters = Pick<Filters, 'language' | 'page'>
 
-export type RecommendationsFilters = LanguageFilter & PageFilter
+export type RecommendationsFilters = Pick<Filters, 'language' | 'page'>
 
-export type ReviewsFilters = LanguageFilter & PageFilter
+export type ReviewsFilters = Pick<Filters, 'language' | 'page'>
 
-export type SimilarFilters = LanguageFilter & PageFilter
+export type SimilarFilters = Pick<Filters, 'language' | 'page'>
 
-export type VideosFilters = LanguageFilter & IncludeImageLanguageFilter
+export type VideosFilters = Pick<Filters, 'language' | 'include_image_language'>
 
-export type LatestFilters = LanguageFilter
+export type LatestFilters = Pick<Filters, 'language'>
 
-export type RateFilters = OptionalSessionFilters
+export type RateFilters = Pick<Filters, 'session_id' | 'guest_session_id'>
 
-export type NowPlayingFilters = LanguageFilter & RegionFilter & PageFilter
+export type NowPlayingFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
-export type PopularFilters = LanguageFilter & RegionFilter & PageFilter
+export type PopularFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
-export type TopRatedFilters = LanguageFilter & RegionFilter & PageFilter
+export type TopRatedFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
-export type UpcomingFilters = LanguageFilter & RegionFilter & PageFilter
+export type UpcomingFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
 // Body
 export type RateBody = {

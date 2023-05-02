@@ -1,46 +1,34 @@
-import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
+import { TMDBResponseList } from 'src/types'
 import { CompanyItem } from '../companies/types'
 import { CollectionItem } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
 import { PersonItem } from '../people/types'
+import { Filters } from 'src/types/filters'
 
-export type SearchFilters = {
-  query: string
-  page?: number
-}
+// Filters
+export type SearchFilters = Required<Pick<Filters, 'query'>> &
+  Pick<Filters, 'page'>
 
-export type CollectionsFilters = SearchFilters & {
-  language?: LanguageCode
-}
+export type CollectionsFilters = SearchFilters & Pick<Filters, 'language'>
 
-export type MoviesFilters = SearchFilters & {
-  language?: LanguageCode
-  include_adult?: boolean
-  region?: CountryCode
-  year?: number
-  primary_release_year?: number
-}
+export type MoviesFilters = SearchFilters &
+  Pick<
+    Filters,
+    'language' | 'include_adult' | 'region' | 'year' | 'primary_release_year'
+  >
 
-export type MultiSearchFilters = SearchFilters & {
-  language?: LanguageCode
-  include_adult?: boolean
-  region?: CountryCode
-}
+export type MultiSearchFilters = SearchFilters &
+  Pick<Filters, 'language' | 'include_adult' | 'region'>
 
-export type PeopleFilters = SearchFilters & {
-  language?: LanguageCode
-  include_adult?: boolean
-  region?: CountryCode
-}
+export type PeopleFilters = SearchFilters &
+  Pick<Filters, 'language' | 'include_adult' | 'region'>
 
-export type TVShowsFilters = SearchFilters & {
-  language?: LanguageCode
-  include_adult?: boolean
-  first_air_date_year?: number
-}
+export type TVShowsFilters = SearchFilters &
+  Pick<Filters, 'language' | 'include_adult' | 'first_air_date_year'>
 
+// Responses
 type MultiSearch = MovieItem | TVShowItem | PersonItem
 
 export type CompaniesResponse = TMDBResponseList<CompanyItem[]>
