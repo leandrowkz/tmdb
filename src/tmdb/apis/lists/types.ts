@@ -6,6 +6,7 @@ import {
 } from 'src/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
+import { Filters } from 'src/types/filters'
 
 export type List = {
   id: number
@@ -32,13 +33,12 @@ export type ListItem = Pick<
 >
 
 // Filters
-type LanguageFilter = { language?: LanguageCode }
-type MediaIdFilter = { media_id: number }
-type SessionIdFilter = { session_id: string }
+type MediaIdFilter = Required<Pick<Filters, 'media_id'>>
+type SessionIdFilter = Required<Pick<Filters, 'session_id'>>
 
-export type DetailsFilters = LanguageFilter
+export type DetailsFilters = Pick<Filters, 'language'>
 
-export type ItemStatusFilters = { movie_id: number }
+export type ItemStatusFilters = Pick<Filters, 'movie_id'>
 
 export type CreateListFilters = SessionIdFilter
 
@@ -46,12 +46,11 @@ export type AddItemFilters = SessionIdFilter
 
 export type RemoveItemFilters = SessionIdFilter
 
-export type ClearListFilters = SessionIdFilter & {
-  confirm: boolean
-}
+export type ClearListFilters = SessionIdFilter & Pick<Filters, 'confirm'>
 
 export type DeleteListFilters = SessionIdFilter
 
+// Body
 export type CreateListBody = {
   name: string
   description: string

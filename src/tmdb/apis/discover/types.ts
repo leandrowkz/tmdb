@@ -1,96 +1,80 @@
-import { CountryCode, LanguageCode, TMDBResponseList } from 'src/types'
-import { CertificationCode } from '../certifications/types'
+import { TMDBResponseList } from 'src/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
+import { Filters } from 'src/types/filters'
 
-type SortBy =
-  | 'popularity.asc'
-  | 'popularity.desc'
-  | 'release_date.asc'
-  | 'release_date.desc'
-  | 'revenue.asc'
-  | 'revenue.desc'
-  | 'primary_release_date.asc'
-  | 'primary_release_date.desc'
-  | 'original_title.asc'
-  | 'original_title.desc'
-  | 'vote_average.asc'
-  | 'vote_average.desc'
-  | 'vote_count.asc'
-  | 'vote_count.desc'
+export type MovieFilters = Pick<
+  Filters,
+  | 'page'
+  | 'sort_by'
+  | 'language'
+  | 'region'
+  | 'certification_country'
+  | 'certification'
+  | 'include_adult'
+  | 'include_video'
+  | 'year'
+  | 'primary_release_year'
+  | 'with_release_type'
+  | 'with_cast'
+  | 'with_crew'
+  | 'with_people'
+  | 'with_companies'
+  | 'without_companies'
+  | 'with_genres'
+  | 'without_genres'
+  | 'with_keywords'
+  | 'without_keyword'
+  | 'with_original_language'
+  | 'watch_region'
+  | 'with_watch_providers'
+  | 'with_watch_monetization_types'
+  | 'screened_theatrically'
+  | 'with_runtime.gte'
+  | 'with_runtime.lte'
+  | 'primaty_release_date.gte'
+  | 'primaty_release_date.lte'
+  | 'release_date.gte'
+  | 'release_date.lte'
+  | 'certification.lte'
+  | 'certification.gte'
+  | 'vote_count.gte'
+  | 'vote_count.lte'
+  | 'vote_average.gte'
+  | 'vote_average.lte'
+>
 
-type MonetizationTypes = 'flatrate' | 'free' | 'ads' | 'rent' | 'buy'
-
-export type MovieFilters = {
-  page?: number
-  sort_by?: SortBy
-  language?: LanguageCode
-  region?: CountryCode
-  certification_country?: CountryCode
-  certification?: CertificationCode
-  include_adult?: boolean
-  include_video?: boolean
-  year?: number
-  primary_release_year?: number
-  with_release_type?: number
-  with_cast?: string[]
-  with_crew?: string[]
-  with_people?: string[]
-  with_companies?: string[]
-  without_companies?: string[]
-  with_genres?: string[]
-  without_genres?: string[]
-  with_keywords?: string[]
-  without_keyword?: string[]
-  with_original_language?: LanguageCode
-  watch_region?: CountryCode
-  with_watch_providers?: string[]
-  with_watch_monetization_types?: MonetizationTypes
-  screened_theatrically?: boolean
-  'with_runtime.gte'?: number
-  'with_runtime.lte'?: number
-  'primaty_release_date.gte'?: string
-  'primaty_release_date.lte'?: string
-  'release_date.gte'?: string
-  'release_date.lte'?: string
-  'certification.lte'?: string
-  'certification.gte'?: string
-  'vote_count.gte'?: number
-  'vote_count.lte'?: number
-  'vote_average.gte'?: number
-  'vote_average.lte'?: number
-}
-
-export type TVShowFilters = {
-  language?: LanguageCode
-  sort_by?: SortBy
-  'air_date.gte'?: string
-  'air_date.lte'?: string
-  'first_air_date.gte'?: string
-  'first_air_date.lte'?: string
-  first_air_date_year?: number
-  page?: number
-  timezone?: string
-  'vote_average.gte'?: number
-  'vote_count.gte'?: number
-  with_genres?: string[]
-  with_networks?: string[]
-  without_genres?: string[]
-  'with_runtime.gte'?: number
-  'with_runtime.lte'?: number
-  include_null_first_air_dates?: boolean
-  with_original_language?: LanguageCode
-  without_keywords?: string[]
-  screened_theatrically?: boolean
-  with_companies?: string[]
-  with_keywords?: string[]
-  with_watch_providers?: string[]
-  watch_region?: CountryCode
-  with_watch_monetization_types?: MonetizationTypes
-  with_status?: ('0' | '1' | '2' | '3' | '4' | '5')[]
-  with_type?: ('0' | '1' | '2' | '3' | '4' | '5' | '6')[]
-  without_companies?: string[]
-}
+export type TVShowFilters = Pick<
+  Filters,
+  | 'language'
+  | 'sort_by'
+  | 'air_date.gte'
+  | 'air_date.lte'
+  | 'first_air_date.gte'
+  | 'first_air_date.lte'
+  | 'first_air_date_year'
+  | 'page'
+  | 'timezone'
+  | 'vote_average.gte'
+  | 'vote_count.gte'
+  | 'with_genres'
+  | 'with_networks'
+  | 'without_genres'
+  | 'with_runtime.gte'
+  | 'with_runtime.lte'
+  | 'include_null_first_air_dates'
+  | 'with_original_language'
+  | 'without_keywords'
+  | 'screened_theatrically'
+  | 'with_companies'
+  | 'with_keywords'
+  | 'with_watch_providers'
+  | 'watch_region'
+  | 'with_watch_monetization_types'
+  | 'with_status'
+  | 'with_type'
+  | 'without_companies'
+>
 
 // Responses
 export type MovieResponse = TMDBResponseList<MovieItem[]>

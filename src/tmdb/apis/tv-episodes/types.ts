@@ -1,5 +1,4 @@
 import {
-  AppendToResponse,
   Department,
   ExternalId,
   GenericResponse,
@@ -12,6 +11,7 @@ import {
 } from 'src/types'
 import { PersonCast, PersonCrew } from '../people/types'
 import { TVShowChanges } from '../tv/types'
+import { Filters } from 'src/types/filters'
 
 export type TVEpisode = {
   id: number
@@ -107,39 +107,22 @@ export type TVEpisodeVideos = {
 }
 
 // Filters
-export type DetailsFilters = {
-  language?: LanguageCode
-  append_to_response?: AppendToResponse[]
-}
+export type DetailsFilters = Pick<Filters, 'language' | 'append_to_response'>
 
-export type AccountStatesFilters = {
-  guest_session_id?: string
-  session_id?: string
-}
+export type AccountStatesFilters = Pick<
+  Filters,
+  'guest_session_id' | 'session_id'
+>
 
-export type ChangesFilters = {
-  start_date?: string
-  end_date?: string
-  page?: number
-}
+export type ChangesFilters = Pick<Filters, 'page' | 'end_date' | 'start_date'>
 
-export type CreditsFilters = {
-  language?: LanguageCode
-  append_to_response?: AppendToResponse[]
-}
+export type CreditsFilters = Pick<Filters, 'language' | 'append_to_response'>
 
-export type ImagesFilters = {
-  language?: LanguageCode
-}
+export type ImagesFilters = Pick<Filters, 'language'>
 
-export type RateFilters = {
-  guest_session_id?: string
-  session_id?: string
-}
+export type RateFilters = Pick<Filters, 'guest_session_id' | 'session_id'>
 
-export type VideosFilters = {
-  language?: LanguageCode
-}
+export type VideosFilters = Pick<Filters, 'language'>
 
 // Body
 export type RateBody = {

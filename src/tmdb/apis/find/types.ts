@@ -1,14 +1,13 @@
-import { TMDBResponse, LanguageCode, ExternalId } from 'src/types'
+import { TMDBResponse } from 'src/types'
 import { PersonItem } from '../people/types'
 import { TVShowItem } from '../tv/types'
 import { TVEpisodeItem } from '../tv-episodes/types'
 import { TVSeasonItem } from '../tv-seasons/types'
 import { MovieItem } from '../movies/types'
+import { Filters } from 'src/types/filters'
 
-export type FindFilters = {
-  language?: LanguageCode
-  external_source: keyof ExternalId
-}
+export type FindFilters = Pick<Filters, 'language'> &
+  Required<Pick<Filters, 'external_source'>>
 
 export type FindResponse = TMDBResponse<{
   movie_results: MovieItem[]

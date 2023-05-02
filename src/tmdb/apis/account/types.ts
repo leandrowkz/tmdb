@@ -9,6 +9,7 @@ import { ListItem } from '../lists/types'
 import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv/types'
 import { TVEpisodeItem } from '../tv-episodes/types'
+import { Filters } from 'src/types/filters'
 
 export type Account = {
   id: number
@@ -24,17 +25,7 @@ export type Account = {
   }
 }
 
-type MediaFilters = {
-  session_id: string
-  page?: number
-  language?: LanguageCode
-  sort_by?: 'created_at.asc' | 'created_at.desc'
-}
-
-export type DetailsFilters = {
-  session_id: string
-}
-
+// Body
 export type MarkAsFavoriteBody = {
   media_type: 'movie' | 'tv'
   media_id: number
@@ -48,6 +39,14 @@ export type AddToWatchlistBody = {
 }
 
 // Filters
+type SortByFilter = { sort_by?: 'created_at.asc' | 'created_at.desc' }
+type SessionIdFilter = Required<Pick<Filters, 'session_id'>>
+
+type MediaFilters = SessionIdFilter &
+  SortByFilter &
+  Pick<Filters, 'page' | 'language'>
+
+export type DetailsFilters = SessionIdFilter
 export type CreatedListsFilters = Omit<MediaFilters, 'sort_by'>
 export type FavoriteMoviesFilters = MediaFilters
 export type FavoriteTVShowsFilters = MediaFilters
@@ -56,8 +55,8 @@ export type RatedTVShowsFilters = MediaFilters
 export type RatedTVEpisodesFilters = MediaFilters
 export type MovieWatchlistFilters = MediaFilters
 export type TVShowWatchlistFilters = MediaFilters
-export type MarkAsFavoriteFilters = Pick<MediaFilters, 'session_id'>
-export type AddToWatchlistFilters = Pick<MediaFilters, 'session_id'>
+export type MarkAsFavoriteFilters = SessionIdFilter
+export type AddToWatchlistFilters = SessionIdFilter
 
 // Responses
 type ListsResponse = TMDBResponseList<ListItem[]>

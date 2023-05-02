@@ -1,11 +1,6 @@
-import {
-  Image,
-  Nullable,
-  LanguageCode,
-  Translation,
-  TMDBResponse,
-} from 'src/types'
+import { Image, Nullable, Translation, TMDBResponse } from 'src/types'
 import { MovieItem } from '../movies/types'
+import { Filters } from 'src/types/filters'
 
 export type Collection = {
   id: number
@@ -37,9 +32,7 @@ export type CollectionTranslations = {
 }
 
 // Filters
-export type CollectionsFilters = {
-  language?: LanguageCode
-}
+export type CollectionsFilters = Pick<Filters, 'language'>
 
 // Responses
 export type CollectionDetailsResponse = TMDBResponse<Collection>
