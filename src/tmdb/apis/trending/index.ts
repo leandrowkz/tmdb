@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { TrendingResponse } from './types'
 
 export class Trending extends BaseAPI {

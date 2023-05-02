@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { MovieResponse, TVResponse } from './types'
 
 export class Certifications extends BaseAPI {

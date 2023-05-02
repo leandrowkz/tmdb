@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { DetailsFilters, DetailsResponse } from './types'
 
 export class TVEpisodeGroups extends BaseAPI {

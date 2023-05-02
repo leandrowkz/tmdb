@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { DetailsResponse } from './types'
 
 export class Reviews extends BaseAPI {
