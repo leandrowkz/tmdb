@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { FindFilters, FindResponse } from './types'
 
 export class Find extends BaseAPI {

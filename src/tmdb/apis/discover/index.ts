@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import {
   MovieFilters,
   MovieResponse,

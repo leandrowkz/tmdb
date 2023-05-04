@@ -1,11 +1,16 @@
-import { BaseAPI } from './BaseAPI'
+import { BaseAPI } from '.'
+import { Fetcher } from 'src/core/Fetcher'
+import { TMDBOptions } from 'src/types'
+
+jest.mock('src/core/Fetcher')
 
 describe('BaseAPI', () => {
-  test('should throw error if url is not provided', async () => {
-    const action = () => new BaseAPI({ apiKey: 'API_KEY' })
+  test('should set API url with default value', async () => {
+    const options: TMDBOptions = { apiKey: 'API_KEY' }
 
-    expect(action).toThrowError()
-    expect(action).toThrow('Missing URL')
+    new BaseAPI(options)
+
+    expect(Fetcher).toHaveBeenCalledWith(BaseAPI.API_URL_V3)
   })
 
   test('getPath should return properly', async () => {

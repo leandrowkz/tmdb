@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import {
   AccountStatesFilters,
   AccountStatesResponse,
@@ -197,7 +197,7 @@ export class TVEpisodes extends BaseAPI {
    *
    * A valid session or guest session ID is required. You can read more about how this works .
    *
-   * @see https://developers.themoviedb.org/3/tv/delete-tv-show-rating
+   * @see https://developers.themoviedb.org/3/tv-episodes/delete-tv-episode-rating
    */
   public async deleteTVEpisodeRate(
     tvShowId: number,

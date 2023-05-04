@@ -2,14 +2,13 @@ import { Fetcher } from 'src/core/Fetcher'
 import { TMDBOptions } from '../../types'
 
 export class BaseAPI extends Fetcher {
+  static API_URL_V3 = 'https://api.themoviedb.org/3'
   private apiKey: string
 
   constructor({ url, apiKey }: TMDBOptions) {
-    if (!url) {
-      throw Error('Missing URL')
-    }
+    const baseURL = !url ? BaseAPI.API_URL_V3 : url
 
-    super(url)
+    super(baseURL)
 
     this.apiKey = apiKey
   }

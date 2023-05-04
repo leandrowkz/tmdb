@@ -1,4 +1,4 @@
-import { BaseAPI } from '../BaseAPI'
+import { BaseAPI } from '../../base-api'
 import { ChangesFilters, ChangesResponse } from './types'
 
 export class Changes extends BaseAPI {
