@@ -3,9 +3,11 @@ import { RequestBody, RequestPayload } from '../types'
 export abstract class Fetcher {
   private headers: Headers
   private url: string
+  private debug: boolean
 
-  constructor(url: string) {
+  constructor(url: string, debug = false) {
     this.url = url
+    this.debug = debug
     this.headers = new Headers({
       'Content-Type': 'application/json',
     })
@@ -55,6 +57,7 @@ export abstract class Fetcher {
   }
 
   private async request<T>({ path, method, body }: RequestPayload) {
+    let debugKey = ''
     const url = `${this.url}/${path}`.replace('//', '/')
     const options: RequestInit = {
       method,
@@ -62,7 +65,18 @@ export abstract class Fetcher {
       body: body ? JSON.stringify(body) : null,
     }
 
+    if (this.debug) {
+      debugKey = `\n🍿 TMDB DEBUGGER: ${url} with params ${JSON.stringify(
+        options
+      )}`
+      console.time(debugKey)
+    }
+
     const response = await fetch(url, options)
+
+    if (this.debug) {
+      console.timeEnd(debugKey)
+    }
 
     return this.toJSON<T>(response)
   }
