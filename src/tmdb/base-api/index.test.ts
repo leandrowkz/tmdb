@@ -10,7 +10,19 @@ describe('BaseAPI', () => {
 
     new BaseAPI(options)
 
-    expect(Fetcher).toHaveBeenCalledWith(BaseAPI.API_URL_V3)
+    expect(Fetcher).toHaveBeenCalledWith(BaseAPI.API_URL_V3, false)
+  })
+
+  test('should pass down to Fetcher correct params', async () => {
+    const options: TMDBOptions = {
+      apiKey: 'API_KEY',
+      url: 'CUSTOM_URL',
+      debug: true,
+    }
+
+    new BaseAPI(options)
+
+    expect(Fetcher).toHaveBeenCalledWith('CUSTOM_URL', true)
   })
 
   test('getPath should return properly', async () => {

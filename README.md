@@ -60,6 +60,27 @@ console.log(fightClub)
 }
 ```
 
+## Debugging
+You can check how long each API call is taking to complete along with the URL called and the options.
+Just set the property `debug: true` on constructor payload. It works both on wrapper mode or using isolared APIs.
+```ts
+import { TMDB } from '@leandrowkz/tmdb'
+
+const tmdb = new TMDB({ apiKey: 'CREATED_ON_TMDB', debug: true })
+
+await tmdb.movies.details(550)
+await tmdb.list.details(440)
+await tmdb.search.keyword()
+```
+Your terminal should print debug lines similar to this:
+```
+🍿 TMDB DEBUGGER: https:/api.themoviedb.org/3/movie/popular?api_key=TMDB_APIKEY with params {"method":"GET","headers":{},"body":null}: 159.737ms
+
+🍿 TMDB DEBUGGER: https:/api.themoviedb.org/3/discover/movie?with_genres=10751&api_key=TMDB_APIKEY with params {"method":"GET","headers":{},"body":null}: 201.322ms
+
+🍿 TMDB DEBUGGER: https:/api.themoviedb.org/3/movie/now_playing?api_key=TMDB_APIKEY with params {"method":"GET","headers":{},"body":null}: 258.441ms
+```
+
 ## Available APIs
 This library provides classes to access all [TMDB APIs on version 3](https://developers.themoviedb.org/3). The
 following list shows all library APIs, how to use them and the available methods. Click on the API
@@ -67,35 +88,35 @@ you want to see to check the API documentation.
 
 Since this package is written on TS you will get autocomplete out of the box.
 
-| API               | TMDB Docs                                             | Access                  | Status |
-|-------------------|-------------------------------------------------------|-------------------------|--------|
-| Account           | https://developers.themoviedb.org/3/account           | `tmdb.account.*`        | ✅     |
-| Authentication    | https://developers.themoviedb.org/3/authentication    | `tmdb.authentication.*` | ✅     |
-| Certifications    | https://developers.themoviedb.org/3/certifications    | `tmdb.certifications.*` | ✅     |
-| Changes           | https://developers.themoviedb.org/3/changes           | `tmdb.changes.*`        | ✅     |
-| Collections       | https://developers.themoviedb.org/3/collections       | `tmdb.collections.*`    | ✅     |
-| Companies         | https://developers.themoviedb.org/3/companies         | `tmdb.certifications.*` | ✅     |
-| Configuration     | https://developers.themoviedb.org/3/configuration     | `tmdb.configuration.*`  | ✅     |
-| Credits           | https://developers.themoviedb.org/3/credits           | `tmdb.credits.*`        | ✅     |
-| Discover          | https://developers.themoviedb.org/3/discover          | `tmdb.discover.*`       | ✅     |
-| Find              | https://developers.themoviedb.org/3/find              | `tmdb.find.*`           | ✅     |
-| Genres            | https://developers.themoviedb.org/3/genres            | `tmdb.genres.*`         | ✅     |
-| Guest Sessions    | https://developers.themoviedb.org/3/guest-sessions    | `tmdb.guestSessions.*`  | ✅     |
-| Keywords          | https://developers.themoviedb.org/3/keywords          | `tmdb.keywords.*`       | ✅     |
-| Lists             | https://developers.themoviedb.org/3/lists             | `tmdb.lists.*`          | ✅     |
-| Movies            | https://developers.themoviedb.org/3/movies            | `tmdb.movies.*`         | ✅     |
-| Networks          | https://developers.themoviedb.org/3/networks          | `tmdb.networks.*`       | ✅     |
-| Trending          | https://developers.themoviedb.org/3/trending          | `tmdb.trending.*`       | ✅     |
-| People            | https://developers.themoviedb.org/3/people            | `tmdb.people.*`         | ✅     |
-| Reviews           | https://developers.themoviedb.org/3/reviews           | `tmdb.reviews.*`        | ✅     |
-| Search            | https://developers.themoviedb.org/3/search            | `tmdb.search.*`         | ✅     |
-| TV                | https://developers.themoviedb.org/3/tv                | `tmdb.tv.*`             | ✅     |
-| TV Episodes       | https://developers.themoviedb.org/3/tv-episodes       | `tmdb.tvEpisodes.*`     | ✅     |
-| TV Seasons        | https://developers.themoviedb.org/3/tv-seasons        | `tmdb.tvSeasons.*`      | ✅     |
-| TV Episode Groups | https://developers.themoviedb.org/3/tv-episode-groups | `tmdb.tvEpisodeGroups.*`| ✅     |
-| Watch Providers   | https://developers.themoviedb.org/3/watch-providers   | `tmdb.watchProviders.*` | ✅     |
+| API                                         | Access using wrapper    | Status |
+|---------------------------------------------|-------------------------|--------|
+| [Account](#account-api)                     | `tmdb.account.*`        | ✅     |
+| [Authentication](#authentication-api)       | `tmdb.authentication.*` | ✅     |
+| [Certifications](#certifications-api)       | `tmdb.certifications.*` | ✅     |
+| [Changes](#changes-api)                     | `tmdb.changes.*`        | ✅     |
+| [Collections](#collections-api)             | `tmdb.collections.*`    | ✅     |
+| [Companies](#companies-api)                 | `tmdb.certifications.*` | ✅     |
+| [Configuration](#configuration-api)         | `tmdb.configuration.*`  | ✅     |
+| [Credits](#credits-api)                     | `tmdb.credits.*`        | ✅     |
+| [Discover](#discover-api)                   | `tmdb.discover.*`       | ✅     |
+| [Find](#find-api)                           | `tmdb.find.*`           | ✅     |
+| [Genres](#genres-api)                       | `tmdb.genres.*`         | ✅     |
+| [Guest Sessions](#guest-sessions-api)       | `tmdb.guestSessions.*`  | ✅     |
+| [Keywords](#keywords-api)                   | `tmdb.keywords.*`       | ✅     |
+| [Lists](#lists-api)                         | `tmdb.lists.*`          | ✅     |
+| [Movies](#movies-api)                       | `tmdb.movies.*`         | ✅     |
+| [Networks](#networks-api)                   | `tmdb.networks.*`       | ✅     |
+| [Trending](#trending-api)                   | `tmdb.trending.*`       | ✅     |
+| [People](#people-api)                       | `tmdb.people.*`         | ✅     |
+| [Reviews](#reviews-api)                     | `tmdb.reviews.*`        | ✅     |
+| [Search](#search-api)                       | `tmdb.search.*`         | ✅     |
+| [TV](#tv-api)                               | `tmdb.tv.*`             | ✅     |
+| [TV Episodes](#tv-episodes-api)             | `tmdb.tvEpisodes.*`     | ✅     |
+| [TV Seasons](#tv-seasons-api)               | `tmdb.tvSeasons.*`      | ✅     |
+| [TV Episode Groups](#tv-episode-groups-api) | `tmdb.tvEpisodeGroups.*`| ✅     |
+| [Watch Providers](#watch-providers-api)     | `tmdb.watchProviders.*` | ✅     |
 
-### Account
+### Account API
 TMDB documentation: https://developers.themoviedb.org/3/account
 
 ```ts
@@ -121,7 +142,7 @@ account.*
 | **`addToWatchlist`**  | `accountId: number`<br /> `data: AddToWatchlistBody`<br /> `filters: AddToWatchlistFilters` | https://developers.themoviedb.org/3/account/add-to-watchlist      |
 
 
-### Authentication
+### Authentication API
 TMDB documentation: https://developers.themoviedb.org/3/authentication
 
 ```ts
@@ -141,7 +162,7 @@ auth.*
 | **`createSessionConvertV4`** | `data: CreateSessionConvertV4Body` | https://developers.themoviedb.org/3/authentication/create-session-from-v4-access-token |
 | **`deleteSession`**          | `data: DeleteSessionBody`          | https://developers.themoviedb.org/3/authentication/delete-session |
 
-### Certifications
+### Certifications API
 TMDB documentation: https://developers.themoviedb.org/3/certifications
 
 ```ts
@@ -157,7 +178,7 @@ certifications.*
 | **`movie`** | `-`        | https://developers.themoviedb.org/3/certifications/get-movie-certifications |
 | **`tv`**    | `-`        | https://developers.themoviedb.org/3/certifications/get-tv-certifications    |
 
-### Changes
+### Changes API
 TMDB documentation: https://developers.themoviedb.org/3/changes
 
 ```ts
@@ -174,7 +195,7 @@ changes.*
 | **`tv`**     | `filters?: ChangesFilters` | https://developers.themoviedb.org/3/changes/get-tv-change-list |
 | **`person`** | `filters?: ChangesFilters` | https://developers.themoviedb.org/3/changes/get-person-change-list |
 
-### Collections
+### Collections API
 TMDB documentation: https://developers.themoviedb.org/3/collections
 
 ```ts
@@ -191,7 +212,7 @@ collections.*
 | **`images`**       | `collectionId: number`<br />`filters?: CollectionsFilters` | https://developers.themoviedb.org/3/collections/get-collection-images |
 | **`translations`** | `collectionId: number`<br />`filters?: CollectionsFilters` | https://developers.themoviedb.org/3/collections/get-collection-translations |
 
-### Companies
+### Companies API
 TMDB documentation: https://developers.themoviedb.org/3/companies
 
 ```ts
@@ -208,7 +229,7 @@ companies.*
 | **`alternativeNames`** | `companyId: number` | https://developers.themoviedb.org/3/companies/get-company-alternative-names |
 | **`images`**           | `companyId: number` | https://developers.themoviedb.org/3/companies/get-company-images |
 
-### Configuration
+### Configuration API
 TMDB documentation: https://developers.themoviedb.org/3/configuration
 
 ```ts
@@ -228,7 +249,7 @@ configs.*
 | **`primaryTranslations`** | `-`        | https://developers.themoviedb.org/3/configuration/get-primary-translations |
 | **`timezones`**           | `-`        | https://developers.themoviedb.org/3/configuration/get-timezones |
 
-### Credits
+### Credits API
 TMDB documentation: https://developers.themoviedb.org/3/credits
 
 ```ts
@@ -244,7 +265,7 @@ credits.*
 | **`details`** | `creditId: number` | https://developers.themoviedb.org/3/credits/get-details |
 
 
-### Discover
+### Discover API
 TMDB documentation: https://developers.themoviedb.org/3/discover
 
 ```ts
@@ -260,7 +281,7 @@ discover.*
 | **`movies`**       | `filters?: MovieFilters`  | https://developers.themoviedb.org/3/discover/movie-discover |
 | **`tv`**           | `filters?: TVShowFilters` | https://developers.themoviedb.org/3/discover/tv-discover |
 
-### Find
+### Find API
 TMDB documentation: https://developers.themoviedb.org/3/find
 
 ```ts
@@ -275,7 +296,7 @@ find.*
 |------------|-------------------------------------------------|-----------------------------------------------------|
 | **`find`** | `externalId: string`<br/>`filters: FindFilters` | https://developers.themoviedb.org/3/find/find-by-id |
 
-### Genres
+### Genres API
 TMDB documentation: https://developers.themoviedb.org/3/genres
 
 ```ts
@@ -291,7 +312,7 @@ genres.*
 | **`movie`** | `filters?: GenresFilters`  | https://developers.themoviedb.org/3/genres/get-movie-list |
 | **`tv`**    | `filters?: GenresFilters`  | https://developers.themoviedb.org/3/genres/get-tv-list    |
 
-### Guest Sessions
+### Guest Sessions API
 TMDB documentation: https://developers.themoviedb.org/3/guest-sessions
 
 ```ts
@@ -308,7 +329,7 @@ guestSessions.*
 | **`ratedTVShows`**    | `guestSessionId: string`<br/>`filters?: RatedFilters` | https://developers.themoviedb.org/3/guest-sessions/get-guest-session-rated-tv-shows |
 | **`ratedTVEpisodes`** | `guestSessionId: string`<br/>`filters?: RatedFilters` | https://developers.themoviedb.org/3/guest-sessions/get-guest-session-rated-tv-episodes |
 
-### Keywords
+### Keywords API
 TMDB documentation: https://developers.themoviedb.org/3/keywords
 
 ```ts
@@ -324,7 +345,7 @@ keywords.*
 | **`details`** | `keywordId: string`                                | https://developers.themoviedb.org/3/keywords/get-keyword-details |
 | **`movies`**  | `keywordId: string`<br/>`filters?: MoviesFilters`  | https://developers.themoviedb.org/3/keywords/get-movies-by-keyword |
 
-### Lists
+### Lists API
 TMDB documentation: https://developers.themoviedb.org/3/lists
 
 ```ts
@@ -345,7 +366,7 @@ lists.*
 | **`clear`**      | `listId: string | number`<br/>`filters: ClearListFilters`                             | https://developers.themoviedb.org/3/lists/clear-list |
 | **`remove`**     | `listId: string | number`<br/>`filters: DeleteListFilters`                            | https://developers.themoviedb.org/3/lists/delete-list |
 
-### Movies
+### Movies API
 TMDB documentation: https://developers.themoviedb.org/3/movies
 
 ```ts
@@ -382,7 +403,7 @@ movies.*
 | **`topRated`**          | `filters?: TopRatedFilters`                                        | https://developers.themoviedb.org/3/movies/get-top-rated-movies |
 | **`upcoming`**          | `filters?: UpcomingFilters`                                        | https://developers.themoviedb.org/3/movies/get-upcoming |
 
-### Networks
+### Networks API
 TMDB documentation: https://developers.themoviedb.org/3/networks
 
 ```ts
@@ -399,7 +420,7 @@ networks.*
 | **`alternativeNames`** | `networkId: number` | https://developers.themoviedb.org/3/networks/get-network-alternative-names |
 | **`images`**           | `networkId: number` | https://developers.themoviedb.org/3/networks/get-network-images |
 
-### People
+### People API
 TMDB documentation: https://developers.themoviedb.org/3/people
 
 ```ts
@@ -424,7 +445,7 @@ people.*
 | **`latest`**          | `filters?: LanguageFilters`                               | https://developers.themoviedb.org/3/people/get-latest-person |
 | **`popular`**         | `filters?: PopularFilters`                                | https://developers.themoviedb.org/3/people/get-popular-people |
 
-### Reviews
+### Reviews API
 TMDB documentation: https://developers.themoviedb.org/3/reviews
 
 ```ts
@@ -439,7 +460,7 @@ reviews.*
 |---------|------------|-----------|
 | **`details`** | `reviewId: string` | https://developers.themoviedb.org/3/reviews/get-review-details |
 
-### Search
+### Search API
 TMDB documentation: https://developers.themoviedb.org/3/search
 
 ```ts
@@ -460,7 +481,7 @@ search.*
 | **`people`**      | `filters: PeopleFilters`      | https://developers.themoviedb.org/3/search/search-people |
 | **`tvShows`**     | `filters: TVShowsFilters`     | https://developers.themoviedb.org/3/search/search-tv-shows |
 
-### Trending
+### Trending API
 TMDB documentation: https://developers.themoviedb.org/3/trending
 
 ```ts
@@ -475,7 +496,7 @@ trending.*
 |---------|------------|-----------|
 | **`getTrending`** | `mediaType: 'all' | 'movie' | 'tv' | 'person'`<br/>`timeWindow: 'day' | 'week'` | https://developers.themoviedb.org/3/trending/get-trending |
 
-### TV
+### TV API
 TMDB documentation: https://developers.themoviedb.org/3/tv
 
 ```ts
@@ -514,7 +535,7 @@ tv.*
 | **`popular`**              | `filters?: PopularFilters`                                          | https://developers.themoviedb.org/3/tv/get-popular-tv-shows |
 | **`topRated`**             | `filters?: TopRatedFilters`                                         | https://developers.themoviedb.org/3/tv/get-top-rated-tv |
 
-### TV Episode Groups
+### TV Episode Groups API
 TMDB documentation: https://developers.themoviedb.org/3/tv-episode-groups/
 
 ```ts
@@ -529,7 +550,7 @@ tvEpisodeGroups.*
 |---------|------------|-----------|
 | **`details`** | `episodeGroupId: number`<br/>`filters?: DetailsFilters` | https://developers.themoviedb.org/3/tv-episode-groups/get-tv-episode-group-details |
 
-### TV Episodes
+### TV Episodes API
 TMDB documentation: https://developers.themoviedb.org/3/tv-episodes
 
 ```ts
@@ -553,7 +574,7 @@ tvEpisodes.*
 | **`rateTVEpisode`**       | `tvShowId: number`<br/>`season: number`<br/>`episode: number`<br/>`body: RateBody`<br/>`filters?: RateFilters` | https://developers.themoviedb.org/3/tv-episodes/rate-tv-episode |
 | **`deleteTVEpisodeRate`** | `tvShowId: number`<br/>`season: number`<br/>`episode: number`<br/>`filters?: RateFilters`                      | https://developers.themoviedb.org/3/tv-episodes/delete-tv-episode-rating |
 
-### TV Seasons
+### TV Seasons API
 TMDB documentation: https://developers.themoviedb.org/3/tv-seasons
 
 ```ts
@@ -576,7 +597,7 @@ tvSeasons.*
 | **`translations`**     | `tvShowId: number`<br/>`seasonNumber: number`<br/>`filters?: TranslationFilters`      | https://developers.themoviedb.org/3/tv-seasons/get-tv-season-translations |
 | **`videos`**           | `tvShowId: number`<br/>`seasonNumber: number`<br/>`filters?: VideosFilters`           | https://developers.themoviedb.org/3/tv-seasons/get-tv-season-videos |
 
-### Watch Providers
+### Watch Providers API
 TMDB documentation: https://developers.themoviedb.org/3/watch-providers
 
 ```ts

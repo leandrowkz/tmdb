@@ -615,6 +615,7 @@ export type GenericResponse = {
 export interface TMDBOptions {
   apiKey: string
   url?: string
+  debug?: boolean
 }
 
 export type TMDBResponseError = GenericResponse
