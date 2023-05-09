@@ -1,58 +1,58 @@
-import { Certifications } from '../apis/certifications'
-import { Changes } from '../apis/changes'
-import { Collections } from '../apis/collections'
-import { Companies } from '../apis/companies'
-import { Configuration } from '../apis/configuration'
-import { Credits } from '../apis/credits'
-import { Discover } from '../apis/discover'
-import { Genres } from '../apis/genres'
-import { Movies } from '../apis/movies'
-import { Trending } from '../apis/trending'
-import { Find } from '../apis/find'
-import { GuestSessions } from '../apis/guest-sessions'
-import { Keywords } from '../apis/keywords'
-import { Account } from '../apis/account'
-import { Authentication } from '../apis/authentication'
-import { Lists } from '../apis/lists'
-import { Networks } from '../apis/networks'
-import { People } from '../apis/people'
-import { Reviews } from '../apis/reviews'
-import { WatchProviders } from '../apis/watch-providers'
-import { Search } from '../apis/search'
-import { TV } from '../apis/tv-shows'
-import { TVEpisodes } from '../apis/tv-episodes'
-import { TVEpisodeGroups } from '../apis/tv-episode-groups'
-import { TVSeasons } from '../apis/tv-seasons'
+import { CertificationsAPI } from '../apis/certifications'
+import { ChangesAPI } from '../apis/changes'
+import { CollectionsAPI } from '../apis/collections'
+import { CompaniesAPI } from '../apis/companies'
+import { ConfigurationAPI } from '../apis/configuration'
+import { CreditsAPI } from '../apis/credits'
+import { DiscoverAPI } from '../apis/discover'
+import { GenresAPI } from '../apis/genres'
+import { MoviesAPI } from '../apis/movies'
+import { TrendingAPI } from '../apis/trending'
+import { FindAPI } from '../apis/find'
+import { GuestSessionsAPI } from '../apis/guest-sessions'
+import { KeywordsAPI } from '../apis/keywords'
+import { AccountAPI } from '../apis/account'
+import { AuthenticationAPI } from '../apis/authentication'
+import { ListsAPI } from '../apis/lists'
+import { NetworksAPI } from '../apis/networks'
+import { PeopleAPI } from '../apis/people'
+import { ReviewsAPI } from '../apis/reviews'
+import { WatchProvidersAPI } from '../apis/watch-providers'
+import { SearchAPI } from '../apis/search'
+import { TVShowsAPI } from '../apis/tv-shows'
+import { TVEpisodesAPI } from '../apis/tv-episodes'
+import { TVEpisodeGroupsAPI } from '../apis/tv-episode-groups'
+import { TVSeasonsAPI } from '../apis/tv-seasons'
 import { Wrapper } from '.'
 
 describe('TMDB wrapper/client', () => {
   test('should has all namespaces properly', async () => {
     const tmdb = new Wrapper({ apiKey: 'API_KEY' })
 
-    expect(tmdb.account).toBeInstanceOf(Account)
-    expect(tmdb.authentication).toBeInstanceOf(Authentication)
-    expect(tmdb.certifications).toBeInstanceOf(Certifications)
-    expect(tmdb.changes).toBeInstanceOf(Changes)
-    expect(tmdb.collections).toBeInstanceOf(Collections)
-    expect(tmdb.companies).toBeInstanceOf(Companies)
-    expect(tmdb.configuration).toBeInstanceOf(Configuration)
-    expect(tmdb.credits).toBeInstanceOf(Credits)
-    expect(tmdb.discover).toBeInstanceOf(Discover)
-    expect(tmdb.find).toBeInstanceOf(Find)
-    expect(tmdb.genres).toBeInstanceOf(Genres)
-    expect(tmdb.guestSessions).toBeInstanceOf(GuestSessions)
-    expect(tmdb.keywords).toBeInstanceOf(Keywords)
-    expect(tmdb.lists).toBeInstanceOf(Lists)
-    expect(tmdb.movies).toBeInstanceOf(Movies)
-    expect(tmdb.networks).toBeInstanceOf(Networks)
-    expect(tmdb.people).toBeInstanceOf(People)
-    expect(tmdb.reviews).toBeInstanceOf(Reviews)
-    expect(tmdb.search).toBeInstanceOf(Search)
-    expect(tmdb.trending).toBeInstanceOf(Trending)
-    expect(tmdb.tv).toBeInstanceOf(TV)
-    expect(tmdb.tvEpisodes).toBeInstanceOf(TVEpisodes)
-    expect(tmdb.tvSeasons).toBeInstanceOf(TVSeasons)
-    expect(tmdb.tvEpisodeGroups).toBeInstanceOf(TVEpisodeGroups)
-    expect(tmdb.watchProviders).toBeInstanceOf(WatchProviders)
+    expect(tmdb.account).toBeInstanceOf(AccountAPI)
+    expect(tmdb.authentication).toBeInstanceOf(AuthenticationAPI)
+    expect(tmdb.certifications).toBeInstanceOf(CertificationsAPI)
+    expect(tmdb.changes).toBeInstanceOf(ChangesAPI)
+    expect(tmdb.collections).toBeInstanceOf(CollectionsAPI)
+    expect(tmdb.companies).toBeInstanceOf(CompaniesAPI)
+    expect(tmdb.configuration).toBeInstanceOf(ConfigurationAPI)
+    expect(tmdb.credits).toBeInstanceOf(CreditsAPI)
+    expect(tmdb.discover).toBeInstanceOf(DiscoverAPI)
+    expect(tmdb.find).toBeInstanceOf(FindAPI)
+    expect(tmdb.genres).toBeInstanceOf(GenresAPI)
+    expect(tmdb.guestSessions).toBeInstanceOf(GuestSessionsAPI)
+    expect(tmdb.keywords).toBeInstanceOf(KeywordsAPI)
+    expect(tmdb.lists).toBeInstanceOf(ListsAPI)
+    expect(tmdb.movies).toBeInstanceOf(MoviesAPI)
+    expect(tmdb.networks).toBeInstanceOf(NetworksAPI)
+    expect(tmdb.people).toBeInstanceOf(PeopleAPI)
+    expect(tmdb.reviews).toBeInstanceOf(ReviewsAPI)
+    expect(tmdb.search).toBeInstanceOf(SearchAPI)
+    expect(tmdb.trending).toBeInstanceOf(TrendingAPI)
+    expect(tmdb.tvShows).toBeInstanceOf(TVShowsAPI)
+    expect(tmdb.tvEpisodes).toBeInstanceOf(TVEpisodesAPI)
+    expect(tmdb.tvSeasons).toBeInstanceOf(TVSeasonsAPI)
+    expect(tmdb.tvEpisodeGroups).toBeInstanceOf(TVEpisodeGroupsAPI)
+    expect(tmdb.watchProviders).toBeInstanceOf(WatchProvidersAPI)
   })
 })
