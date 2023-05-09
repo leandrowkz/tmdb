@@ -1,4 +1,4 @@
-import { Account } from '.'
+import { AccountAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -26,7 +26,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new Account({
+  const api = new AccountAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

@@ -1,4 +1,4 @@
-import { TVEpisodeGroups } from '.'
+import { TVEpisodeGroupsAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -7,7 +7,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new TVEpisodeGroups({
+  const api = new TVEpisodeGroupsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

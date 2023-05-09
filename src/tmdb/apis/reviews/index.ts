@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { DetailsResponse } from './types'
 
-export class Reviews extends BaseAPI {
+export class ReviewsAPI extends BaseAPI {
   /**
    * Retrieve the details of a movie or TV show review.
    *

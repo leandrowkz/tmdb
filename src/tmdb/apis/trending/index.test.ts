@@ -1,7 +1,7 @@
-import { Trending } from '.'
+import { TrendingAPI } from '.'
 
 const makeSUT = () => {
-  const api = new Trending({
+  const api = new TrendingAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

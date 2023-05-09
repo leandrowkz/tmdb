@@ -1,6 +1,6 @@
 import { TMDBResponse } from 'src/types'
 import { PersonItem } from '../people/types'
-import { TVShowItem } from '../tv/types'
+import { TVShowItem } from '../tv-shows/types'
 import { TVEpisodeItem } from '../tv-episodes/types'
 import { TVSeasonItem } from '../tv-seasons/types'
 import { MovieItem } from '../movies/types'

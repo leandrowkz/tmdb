@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { DetailsResponse } from './types'
 
-export class Credits extends BaseAPI {
+export class CreditsAPI extends BaseAPI {
   /**
    * Get a movie or TV credit details by id.
    *

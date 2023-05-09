@@ -9,7 +9,7 @@ import {
   WithId,
 } from 'src/types'
 import { MovieItem } from '../movies/types'
-import { TVShowItem } from '../tv/types'
+import { TVShowItem } from '../tv-shows/types'
 import { Filters } from 'src/types/filters'
 
 export type Person = {

@@ -6,7 +6,7 @@ import {
   RatedTVShowsResponse,
 } from './types'
 
-export class GuestSessions extends BaseAPI {
+export class GuestSessionsAPI extends BaseAPI {
   /**
    * Get the rated movies for a guest session.
    *

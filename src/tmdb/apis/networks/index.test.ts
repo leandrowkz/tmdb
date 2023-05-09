@@ -1,7 +1,7 @@
-import { Networks } from '.'
+import { NetworksAPI } from '.'
 
 const makeSUT = () => {
-  const api = new Networks({
+  const api = new NetworksAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { GenresFilters, GenresResponse } from './types'
 
-export class Genres extends BaseAPI {
+export class GenresAPI extends BaseAPI {
   /**
    * Get the list of official genres for movies.
    *

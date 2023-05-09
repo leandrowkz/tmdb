@@ -8,7 +8,7 @@ import {
   TimezonesResponse,
 } from './types'
 
-export class Configuration extends BaseAPI {
+export class ConfigurationAPI extends BaseAPI {
   /**
    * Get the system wide configuration information. Some elements of the API require some knowledge
    * of this configuration data. The purpose of this is to try and keep the actual API responses as

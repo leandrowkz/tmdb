@@ -11,7 +11,7 @@ import {
   DeleteSessionResponse,
 } from './types'
 
-export class Authentication extends BaseAPI {
+export class AuthenticationAPI extends BaseAPI {
   /**
    * This method will let you create a new guest session. Guest sessions are a type of session
    * that will let a user rate movies and TV shows but not require them to have a TMDB user

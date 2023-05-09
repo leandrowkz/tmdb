@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { ChangesFilters, ChangesResponse } from './types'
 
-export class Changes extends BaseAPI {
+export class ChangesAPI extends BaseAPI {
   /**
    * Get a list of all of the movie ids that have been changed in the past 24 hours. You can query
    * it for up to 14 days worth of changed IDs at a time with the start_date and end_date query

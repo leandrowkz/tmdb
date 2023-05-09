@@ -3,7 +3,7 @@ import { CompanyItem } from '../companies/types'
 import { CollectionItem } from '../collections/types'
 import { Keyword } from '../keywords/types'
 import { MovieItem } from '../movies/types'
-import { TVShowItem } from '../tv/types'
+import { TVShowItem } from '../tv-shows/types'
 import { PersonItem } from '../people/types'
 import { Filters } from 'src/types/filters'
 

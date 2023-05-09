@@ -26,7 +26,7 @@ import {
   TVShowWatchlistResponse,
 } from './types'
 
-export class Account extends BaseAPI {
+export class AccountAPI extends BaseAPI {
   /**
    * Get your account details.
    *

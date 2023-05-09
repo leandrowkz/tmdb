@@ -1,4 +1,4 @@
-import { Search } from '.'
+import { SearchAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -43,7 +43,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new Search({
+  const api = new SearchAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

@@ -9,7 +9,7 @@ import {
 } from 'src/types'
 import { TVEpisode } from '../tv-episodes/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { TVShowPersonCast, TVShowPersonCrew } from '../tv/types'
+import { TVShowPersonCast, TVShowPersonCrew } from '../tv-shows/types'
 import { Filters } from 'src/types/filters'
 
 export type TVSeason = {

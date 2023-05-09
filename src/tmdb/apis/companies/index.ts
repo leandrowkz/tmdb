@@ -5,7 +5,7 @@ import {
   AlternativeNamesResponse,
 } from './types'
 
-export class Companies extends BaseAPI {
+export class CompaniesAPI extends BaseAPI {
   /**
    * Get company details by id.
    *

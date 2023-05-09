@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { DetailsFilters, DetailsResponse } from './types'
 
-export class TVEpisodeGroups extends BaseAPI {
+export class TVEpisodeGroupsAPI extends BaseAPI {
   /**
    * Get the details of a TV episode group. Groups support 7 different types which are enumerated
    * as the following:

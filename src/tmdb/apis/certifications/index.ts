@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { MovieResponse, TVResponse } from './types'
 
-export class Certifications extends BaseAPI {
+export class CertificationsAPI extends BaseAPI {
   /**
    * Get an up to date list of the officially supported movie certifications on TMDB.
    *

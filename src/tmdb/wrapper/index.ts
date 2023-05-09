@@ -1,82 +1,82 @@
 import { TMDBOptions } from '../../types'
-import { Certifications } from '../apis/certifications'
-import { Changes } from '../apis/changes'
-import { Collections } from '../apis/collections'
-import { Companies } from '../apis/companies'
-import { Configuration } from '../apis/configuration'
-import { Credits } from '../apis/credits'
-import { Discover } from '../apis/discover'
-import { Genres } from '../apis/genres'
-import { Movies } from '../apis/movies'
-import { Trending } from '../apis/trending'
-import { Find } from '../apis/find'
-import { GuestSessions } from '../apis/guest-sessions'
-import { Keywords } from '../apis/keywords'
-import { Account } from '../apis/account'
-import { Authentication } from '../apis/authentication'
-import { Lists } from '../apis/lists'
-import { Networks } from '../apis/networks'
-import { People } from '../apis/people'
-import { Reviews } from '../apis/reviews'
-import { Search } from '../apis/search'
-import { TV } from '../apis/tv'
-import { WatchProviders } from '../apis/watch-providers'
-import { TVEpisodes } from '../apis/tv-episodes'
-import { TVSeasons } from '../apis/tv-seasons'
-import { TVEpisodeGroups } from '../apis/tv-episode-groups'
+import { CertificationsAPI } from '../apis/certifications'
+import { ChangesAPI } from '../apis/changes'
+import { CollectionsAPI } from '../apis/collections'
+import { CompaniesAPI } from '../apis/companies'
+import { ConfigurationAPI } from '../apis/configuration'
+import { CreditsAPI } from '../apis/credits'
+import { DiscoverAPI } from '../apis/discover'
+import { GenresAPI } from '../apis/genres'
+import { MoviesAPI } from '../apis/movies'
+import { TrendingAPI } from '../apis/trending'
+import { FindAPI } from '../apis/find'
+import { GuestSessionsAPI } from '../apis/guest-sessions'
+import { KeywordsAPI } from '../apis/keywords'
+import { AccountAPI } from '../apis/account'
+import { AuthenticationAPI } from '../apis/authentication'
+import { ListsAPI } from '../apis/lists'
+import { NetworksAPI } from '../apis/networks'
+import { PeopleAPI } from '../apis/people'
+import { ReviewsAPI } from '../apis/reviews'
+import { SearchAPI } from '../apis/search'
+import { TVShowsAPI } from '../apis/tv-shows'
+import { WatchProvidersAPI } from '../apis/watch-providers'
+import { TVEpisodesAPI } from '../apis/tv-episodes'
+import { TVSeasonsAPI } from '../apis/tv-seasons'
+import { TVEpisodeGroupsAPI } from '../apis/tv-episode-groups'
 
 export class Wrapper {
-  public account: Account
-  public authentication: Authentication
-  public certifications: Certifications
-  public changes: Changes
-  public collections: Collections
-  public companies: Companies
-  public configuration: Configuration
-  public credits: Credits
-  public discover: Discover
-  public find: Find
-  public genres: Genres
-  public guestSessions: GuestSessions
-  public keywords: Keywords
-  public lists: Lists
-  public movies: Movies
-  public networks: Networks
-  public people: People
-  public reviews: Reviews
-  public search: Search
-  public trending: Trending
-  public tv: TV
-  public tvEpisodes: TVEpisodes
-  public tvSeasons: TVSeasons
-  public tvEpisodeGroups: TVEpisodeGroups
-  public watchProviders: WatchProviders
+  public account: AccountAPI
+  public authentication: AuthenticationAPI
+  public certifications: CertificationsAPI
+  public changes: ChangesAPI
+  public collections: CollectionsAPI
+  public companies: CompaniesAPI
+  public configuration: ConfigurationAPI
+  public credits: CreditsAPI
+  public discover: DiscoverAPI
+  public find: FindAPI
+  public genres: GenresAPI
+  public guestSessions: GuestSessionsAPI
+  public keywords: KeywordsAPI
+  public lists: ListsAPI
+  public movies: MoviesAPI
+  public networks: NetworksAPI
+  public people: PeopleAPI
+  public reviews: ReviewsAPI
+  public search: SearchAPI
+  public trending: TrendingAPI
+  public tvShows: TVShowsAPI
+  public tvEpisodes: TVEpisodesAPI
+  public tvSeasons: TVSeasonsAPI
+  public tvEpisodeGroups: TVEpisodeGroupsAPI
+  public watchProviders: WatchProvidersAPI
 
   constructor(options: TMDBOptions) {
-    this.account = new Account(options)
-    this.authentication = new Authentication(options)
-    this.certifications = new Certifications(options)
-    this.changes = new Changes(options)
-    this.collections = new Collections(options)
-    this.companies = new Companies(options)
-    this.configuration = new Configuration(options)
-    this.credits = new Credits(options)
-    this.discover = new Discover(options)
-    this.find = new Find(options)
-    this.genres = new Genres(options)
-    this.guestSessions = new GuestSessions(options)
-    this.keywords = new Keywords(options)
-    this.lists = new Lists(options)
-    this.movies = new Movies(options)
-    this.networks = new Networks(options)
-    this.people = new People(options)
-    this.reviews = new Reviews(options)
-    this.search = new Search(options)
-    this.trending = new Trending(options)
-    this.tv = new TV(options)
-    this.tvEpisodes = new TVEpisodes(options)
-    this.tvSeasons = new TVSeasons(options)
-    this.tvEpisodeGroups = new TVEpisodeGroups(options)
-    this.watchProviders = new WatchProviders(options)
+    this.account = new AccountAPI(options)
+    this.authentication = new AuthenticationAPI(options)
+    this.certifications = new CertificationsAPI(options)
+    this.changes = new ChangesAPI(options)
+    this.collections = new CollectionsAPI(options)
+    this.companies = new CompaniesAPI(options)
+    this.configuration = new ConfigurationAPI(options)
+    this.credits = new CreditsAPI(options)
+    this.discover = new DiscoverAPI(options)
+    this.find = new FindAPI(options)
+    this.genres = new GenresAPI(options)
+    this.guestSessions = new GuestSessionsAPI(options)
+    this.keywords = new KeywordsAPI(options)
+    this.lists = new ListsAPI(options)
+    this.movies = new MoviesAPI(options)
+    this.networks = new NetworksAPI(options)
+    this.people = new PeopleAPI(options)
+    this.reviews = new ReviewsAPI(options)
+    this.search = new SearchAPI(options)
+    this.trending = new TrendingAPI(options)
+    this.tvShows = new TVShowsAPI(options)
+    this.tvEpisodes = new TVEpisodesAPI(options)
+    this.tvSeasons = new TVSeasonsAPI(options)
+    this.tvEpisodeGroups = new TVEpisodeGroupsAPI(options)
+    this.watchProviders = new WatchProvidersAPI(options)
   }
 }

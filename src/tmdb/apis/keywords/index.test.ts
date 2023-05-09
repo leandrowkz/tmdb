@@ -1,4 +1,4 @@
-import { Keywords } from '.'
+import { KeywordsAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -6,7 +6,7 @@ const makeSUT = () => {
     include_adult: true,
   }
 
-  const api = new Keywords({
+  const api = new KeywordsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

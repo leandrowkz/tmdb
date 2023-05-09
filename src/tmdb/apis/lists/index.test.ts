@@ -1,4 +1,4 @@
-import { Lists } from '.'
+import { ListsAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -28,7 +28,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new Lists({
+  const api = new ListsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

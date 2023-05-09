@@ -7,7 +7,7 @@ import {
   WatchProvidersFilters,
 } from './types'
 
-export class WatchProviders extends BaseAPI {
+export class WatchProvidersAPI extends BaseAPI {
   /**
    * Returns a list of all of the countries we have watch provider (OTT/streaming) data for.
    *

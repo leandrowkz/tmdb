@@ -5,7 +5,7 @@ import {
   ImagesResponse,
 } from './types'
 
-export class Networks extends BaseAPI {
+export class NetworksAPI extends BaseAPI {
   /**
    * Get the details of a network.
    *

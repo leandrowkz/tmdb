@@ -6,7 +6,7 @@ import {
   CollectionTranslationsResponse,
 } from './types'
 
-export class Collections extends BaseAPI {
+export class CollectionsAPI extends BaseAPI {
   /**
    * Get collection details by id.
    *

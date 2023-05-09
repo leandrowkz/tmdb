@@ -6,7 +6,7 @@ import {
   TVShowResponse,
 } from './types'
 
-export class Discover extends BaseAPI {
+export class DiscoverAPI extends BaseAPI {
   /**
    * Discover movies by different types of data like average rating, number of votes, genres and
    * certifications. You can get a valid list of certifications from the https://developers.themoviedb.org/3/certifications/get-movie-certifications

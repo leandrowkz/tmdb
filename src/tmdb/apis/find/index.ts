@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { FindFilters, FindResponse } from './types'
 
-export class Find extends BaseAPI {
+export class FindAPI extends BaseAPI {
   /**
    * The find method makes it easy to search for objects in our database by an external id.
    * This method will search all objects (movies, TV shows and people) and return the results in a

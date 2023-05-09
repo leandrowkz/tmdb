@@ -15,7 +15,7 @@ import {
   TVShowsResponse,
 } from './types'
 
-export class Search extends BaseAPI {
+export class SearchAPI extends BaseAPI {
   /**
    * Search for companies.
    *

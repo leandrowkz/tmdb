@@ -1,7 +1,7 @@
-import { Reviews } from '.'
+import { ReviewsAPI } from '.'
 
 const makeSUT = () => {
-  const api = new Reviews({
+  const api = new ReviewsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

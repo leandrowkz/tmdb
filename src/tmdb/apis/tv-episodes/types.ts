@@ -10,7 +10,7 @@ import {
   Video,
 } from 'src/types'
 import { PersonCast, PersonCrew } from '../people/types'
-import { TVShowChanges } from '../tv/types'
+import { TVShowChanges } from '../tv-shows/types'
 import { Filters } from 'src/types/filters'
 
 export type TVEpisode = {

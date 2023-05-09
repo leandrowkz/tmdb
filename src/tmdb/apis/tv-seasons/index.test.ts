@@ -1,4 +1,4 @@
-import { TVSeasons } from '.'
+import { TVSeasonsAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -20,7 +20,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new TVSeasons({
+  const api = new TVSeasonsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

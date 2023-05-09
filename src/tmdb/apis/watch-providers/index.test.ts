@@ -1,4 +1,4 @@
-import { WatchProviders } from '.'
+import { WatchProvidersAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -11,7 +11,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new WatchProviders({
+  const api = new WatchProvidersAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

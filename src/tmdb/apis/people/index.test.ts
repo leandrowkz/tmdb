@@ -1,4 +1,4 @@
-import { People } from '.'
+import { PeopleAPI } from '.'
 
 const makeSUT = () => {
   const filters = {
@@ -20,7 +20,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new People({
+  const api = new PeopleAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

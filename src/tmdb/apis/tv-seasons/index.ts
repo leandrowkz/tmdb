@@ -20,7 +20,7 @@ import {
   VideosResponse,
 } from './types'
 
-export class TVSeasons extends BaseAPI {
+export class TVSeasonsAPI extends BaseAPI {
   /**
    * Get the TV season details by id. Supports append_to_response.
    *

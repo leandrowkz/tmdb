@@ -18,7 +18,7 @@ import {
   TranslationsResponse,
 } from './types'
 
-export class People extends BaseAPI {
+export class PeopleAPI extends BaseAPI {
   /**
    * Get the primary person details by id.
    *

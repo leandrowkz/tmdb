@@ -42,7 +42,7 @@ import {
   LatestResponse,
 } from './types'
 
-export class Movies extends BaseAPI {
+export class MoviesAPI extends BaseAPI {
   /**
    * Fetch movie details.
    *

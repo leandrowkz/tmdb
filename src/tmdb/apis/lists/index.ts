@@ -19,7 +19,7 @@ import {
   RemoveItemResponse,
 } from './types'
 
-export class Lists extends BaseAPI {
+export class ListsAPI extends BaseAPI {
   /**
    * Get the details of a list.
    *

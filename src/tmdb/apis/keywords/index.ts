@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../base-api'
 import { DetailsResponse, MoviesFilters, MoviesResponse } from './types'
 
-export class Keywords extends BaseAPI {
+export class KeywordsAPI extends BaseAPI {
   /**
    * Get the keyword details.
    *

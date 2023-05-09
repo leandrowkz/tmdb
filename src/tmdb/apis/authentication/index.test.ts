@@ -1,4 +1,4 @@
-import { Authentication } from '.'
+import { AuthenticationAPI } from '.'
 
 const makeSUT = () => {
   const bodies = {
@@ -18,7 +18,7 @@ const makeSUT = () => {
     },
   }
 
-  const api = new Authentication({
+  const api = new AuthenticationAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })

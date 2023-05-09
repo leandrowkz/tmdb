@@ -1,4 +1,4 @@
-import { GuestSessions } from '.'
+import { GuestSessionsAPI } from '.'
 import { RatedFilters } from './types'
 
 const makeSUT = () => {
@@ -7,7 +7,7 @@ const makeSUT = () => {
     sort_by: 'created_at.asc',
   }
 
-  const api = new GuestSessions({
+  const api = new GuestSessionsAPI({
     url: 'URL',
     apiKey: 'API_KEY',
   })
