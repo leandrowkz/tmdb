@@ -1,4 +1,4 @@
-import { CertificationCode } from 'src/tmdb/apis/certifications/types'
+import { CertificationCode } from 'src/apis/certifications/types'
 import { AppendToResponse, CountryCode, ExternalId, LanguageCode } from '.'
 
 type SortBy =
