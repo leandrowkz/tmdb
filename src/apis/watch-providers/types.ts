@@ -1,11 +1,5 @@
-import { CountryCode, TMDBResponse } from 'src/types'
+import { AvailableRegion, TMDBResponse } from 'src/types'
 import { Filters } from 'src/types/filters'
-
-export type AvailableRegion = {
-  iso_3166_1: CountryCode
-  english_name: string
-  native_name: string
-}
 
 export type WatchProvider = {
   provider_id: number
@@ -15,19 +9,19 @@ export type WatchProvider = {
 }
 
 // Filters
-export type AvailableRegionsFilters = Pick<Filters, 'language'>
+export type WatchProviderAvailableRegionsFilters = Pick<Filters, 'language'>
 
-export type WatchProvidersFilters = Pick<Filters, 'language' | 'watch_region'>
+export type WatchProviderFilters = Pick<Filters, 'language' | 'watch_region'>
 
 // Responses
-export type AvailableRegionsResponse = TMDBResponse<{
+export type WatchProviderAvailableRegionsResponse = TMDBResponse<{
   results: AvailableRegion[]
 }>
 
-export type MovieProvidersResponse = TMDBResponse<{
+export type WatchProviderMovieProvidersResponse = TMDBResponse<{
   results: WatchProvider[]
 }>
 
-export type TVProvidersResponse = TMDBResponse<{
+export type WatchProviderTVProvidersResponse = TMDBResponse<{
   results: WatchProvider[]
 }>

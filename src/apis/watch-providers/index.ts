@@ -1,10 +1,10 @@
 import { BaseAPI } from '../base'
 import {
-  AvailableRegionsFilters,
-  AvailableRegionsResponse,
-  MovieProvidersResponse,
-  TVProvidersResponse,
-  WatchProvidersFilters,
+  WatchProviderAvailableRegionsFilters,
+  WatchProviderAvailableRegionsResponse,
+  WatchProviderMovieProvidersResponse,
+  WatchProviderTVProvidersResponse,
+  WatchProviderFilters,
 } from './types'
 
 export class WatchProvidersAPI extends BaseAPI {
@@ -14,11 +14,11 @@ export class WatchProvidersAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/watch-providers/get-available-regions
    */
   public async availableRegions(
-    filters?: AvailableRegionsFilters
-  ): Promise<AvailableRegionsResponse> {
+    filters?: WatchProviderAvailableRegionsFilters
+  ): Promise<WatchProviderAvailableRegionsResponse> {
     const path = this.getPath('/watch/providers/regions', filters)
 
-    return this.get<AvailableRegionsResponse>(path)
+    return this.get<WatchProviderAvailableRegionsResponse>(path)
   }
 
   /**
@@ -28,11 +28,11 @@ export class WatchProvidersAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/watch-providers/get-movie-providers
    */
   public async movieProviders(
-    filters?: WatchProvidersFilters
-  ): Promise<MovieProvidersResponse> {
+    filters?: WatchProviderFilters
+  ): Promise<WatchProviderMovieProvidersResponse> {
     const path = this.getPath('/watch/providers/movie', filters)
 
-    return this.get<MovieProvidersResponse>(path)
+    return this.get<WatchProviderMovieProvidersResponse>(path)
   }
 
   /**
@@ -42,10 +42,10 @@ export class WatchProvidersAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/watch-providers/get-tv-providers
    */
   public async tvProviders(
-    filters?: WatchProvidersFilters
-  ): Promise<TVProvidersResponse> {
+    filters?: WatchProviderFilters
+  ): Promise<WatchProviderTVProvidersResponse> {
     const path = this.getPath('/watch/providers/tv', filters)
 
-    return this.get<TVProvidersResponse>(path)
+    return this.get<WatchProviderTVProvidersResponse>(path)
   }
 }
