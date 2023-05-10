@@ -26,13 +26,13 @@ export type Account = {
 }
 
 // Body
-export type MarkAsFavoriteBody = {
+export type AccountMarkAsFavoriteBody = {
   media_type: 'movie' | 'tv'
   media_id: number
   favorite: boolean
 }
 
-export type AddToWatchlistBody = {
+export type AccountAddToWatchlistBody = {
   media_type: 'movie' | 'tv'
   media_id: number
   watchlist: boolean
@@ -46,17 +46,17 @@ type MediaFilters = SessionIdFilter &
   SortByFilter &
   Pick<Filters, 'page' | 'language'>
 
-export type DetailsFilters = SessionIdFilter
-export type CreatedListsFilters = Omit<MediaFilters, 'sort_by'>
-export type FavoriteMoviesFilters = MediaFilters
-export type FavoriteTVShowsFilters = MediaFilters
-export type RatedMoviesFilters = MediaFilters
-export type RatedTVShowsFilters = MediaFilters
-export type RatedTVEpisodesFilters = MediaFilters
-export type MovieWatchlistFilters = MediaFilters
-export type TVShowWatchlistFilters = MediaFilters
-export type MarkAsFavoriteFilters = SessionIdFilter
-export type AddToWatchlistFilters = SessionIdFilter
+export type AccountDetailsFilters = SessionIdFilter
+export type AccountCreatedListsFilters = Omit<MediaFilters, 'sort_by'>
+export type AccountFavoriteMoviesFilters = MediaFilters
+export type AccountFavoriteTVShowsFilters = MediaFilters
+export type AccountRatedMoviesFilters = MediaFilters
+export type AccountRatedTVShowsFilters = MediaFilters
+export type AccountRatedTVEpisodesFilters = MediaFilters
+export type AccountMovieWatchlistFilters = MediaFilters
+export type AccountTVShowWatchlistFilters = MediaFilters
+export type AccountMarkAsFavoriteFilters = SessionIdFilter
+export type AccountAddToWatchlistFilters = SessionIdFilter
 
 // Responses
 type ListsResponse = TMDBResponseList<ListItem[]>
@@ -64,24 +64,24 @@ type MoviesResponse = TMDBResponseList<MovieItem[]>
 type TVShowsResponse = TMDBResponseList<TVShowItem[]>
 type TVEpisodesResponse = TMDBResponseList<TVEpisodeItem[]>
 
-export type DetailsResponse = TMDBResponse<Account>
+export type AccountDetailsResponse = TMDBResponse<Account>
 
-export type CreatedListsResponse = ListsResponse
+export type AccountCreatedListsResponse = ListsResponse
 
-export type FavoriteMoviesResponse = MoviesResponse
+export type AccountFavoriteMoviesResponse = MoviesResponse
 
-export type FavoriteTVShowsResponse = TVShowsResponse
+export type AccountFavoriteTVShowsResponse = TVShowsResponse
 
-export type RatedMoviesResponse = MoviesResponse
+export type AccountRatedMoviesResponse = MoviesResponse
 
-export type RatedTVShowsResponse = TVShowsResponse
+export type AccountRatedTVShowsResponse = TVShowsResponse
 
-export type RatedTVEpisodesResponse = TVEpisodesResponse
+export type AccountRatedTVEpisodesResponse = TVEpisodesResponse
 
-export type MovieWatchlistResponse = MoviesResponse
+export type AccountMovieWatchlistResponse = MoviesResponse
 
-export type TVShowWatchlistResponse = TVShowsResponse
+export type AccountTVShowWatchlistResponse = TVShowsResponse
 
-export type MarkAsFavoriteResponse = TMDBResponse<GenericResponse>
+export type AccountMarkAsFavoriteResponse = TMDBResponse<GenericResponse>
 
-export type AddToWatchlistResponse = TMDBResponse<GenericResponse>
+export type AccountAddToWatchlistResponse = TMDBResponse<GenericResponse>

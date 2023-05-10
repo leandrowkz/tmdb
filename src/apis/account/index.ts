@@ -1,29 +1,29 @@
 import { BaseAPI } from '../base'
 import {
-  AddToWatchlistBody,
-  AddToWatchlistFilters,
-  AddToWatchlistResponse,
-  CreatedListsFilters,
-  CreatedListsResponse,
-  DetailsFilters,
-  DetailsResponse,
-  FavoriteMoviesFilters,
-  FavoriteMoviesResponse,
-  FavoriteTVShowsFilters,
-  FavoriteTVShowsResponse,
-  MarkAsFavoriteBody,
-  MarkAsFavoriteFilters,
-  MarkAsFavoriteResponse,
-  MovieWatchlistFilters,
-  MovieWatchlistResponse,
-  RatedMoviesFilters,
-  RatedMoviesResponse,
-  RatedTVEpisodesFilters,
-  RatedTVEpisodesResponse,
-  RatedTVShowsFilters,
-  RatedTVShowsResponse,
-  TVShowWatchlistFilters,
-  TVShowWatchlistResponse,
+  AccountAddToWatchlistBody,
+  AccountAddToWatchlistFilters,
+  AccountAddToWatchlistResponse,
+  AccountCreatedListsFilters,
+  AccountCreatedListsResponse,
+  AccountDetailsFilters,
+  AccountDetailsResponse,
+  AccountFavoriteMoviesFilters,
+  AccountFavoriteMoviesResponse,
+  AccountFavoriteTVShowsFilters,
+  AccountFavoriteTVShowsResponse,
+  AccountMarkAsFavoriteBody,
+  AccountMarkAsFavoriteFilters,
+  AccountMarkAsFavoriteResponse,
+  AccountMovieWatchlistFilters,
+  AccountMovieWatchlistResponse,
+  AccountRatedMoviesFilters,
+  AccountRatedMoviesResponse,
+  AccountRatedTVEpisodesFilters,
+  AccountRatedTVEpisodesResponse,
+  AccountRatedTVShowsFilters,
+  AccountRatedTVShowsResponse,
+  AccountTVShowWatchlistFilters,
+  AccountTVShowWatchlistResponse,
 } from './types'
 
 export class AccountAPI extends BaseAPI {
@@ -32,10 +32,12 @@ export class AccountAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/account/get-account-details
    */
-  public async details(filters: DetailsFilters): Promise<DetailsResponse> {
+  public async details(
+    filters: AccountDetailsFilters
+  ): Promise<AccountDetailsResponse> {
     const path = this.getPath('/account', filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<AccountDetailsResponse>(path)
   }
 
   /**
@@ -45,11 +47,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async createdLists(
     accountId: number,
-    filters: CreatedListsFilters
-  ): Promise<CreatedListsResponse> {
+    filters: AccountCreatedListsFilters
+  ): Promise<AccountCreatedListsResponse> {
     const path = this.getPath(`/account/${accountId}/lists`, filters)
 
-    return this.get<CreatedListsResponse>(path)
+    return this.get<AccountCreatedListsResponse>(path)
   }
 
   /**
@@ -59,11 +61,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async favoriteMovies(
     accountId: number,
-    filters: FavoriteMoviesFilters
-  ): Promise<FavoriteMoviesResponse> {
+    filters: AccountFavoriteMoviesFilters
+  ): Promise<AccountFavoriteMoviesResponse> {
     const path = this.getPath(`/account/${accountId}/favorite/movies`, filters)
 
-    return this.get<FavoriteMoviesResponse>(path)
+    return this.get<AccountFavoriteMoviesResponse>(path)
   }
 
   /**
@@ -73,11 +75,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async favoriteTVShows(
     accountId: number,
-    filters: FavoriteTVShowsFilters
-  ): Promise<FavoriteTVShowsResponse> {
+    filters: AccountFavoriteTVShowsFilters
+  ): Promise<AccountFavoriteTVShowsResponse> {
     const path = this.getPath(`/account/${accountId}/favorite/tv`, filters)
 
-    return this.get<FavoriteTVShowsResponse>(path)
+    return this.get<AccountFavoriteTVShowsResponse>(path)
   }
 
   /**
@@ -87,12 +89,12 @@ export class AccountAPI extends BaseAPI {
    */
   public async markAsFavorite(
     accountId: number,
-    data: MarkAsFavoriteBody,
-    filters: MarkAsFavoriteFilters
-  ): Promise<MarkAsFavoriteResponse> {
+    data: AccountMarkAsFavoriteBody,
+    filters: AccountMarkAsFavoriteFilters
+  ): Promise<AccountMarkAsFavoriteResponse> {
     const path = this.getPath(`/account/${accountId}/favorite`, filters)
 
-    return this.post<MarkAsFavoriteResponse>(path, data)
+    return this.post<AccountMarkAsFavoriteResponse>(path, data)
   }
 
   /**
@@ -102,11 +104,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async ratedMovies(
     accountId: number,
-    filters: RatedMoviesFilters
-  ): Promise<RatedMoviesResponse> {
+    filters: AccountRatedMoviesFilters
+  ): Promise<AccountRatedMoviesResponse> {
     const path = this.getPath(`/account/${accountId}/rated/movies`, filters)
 
-    return this.get<RatedMoviesResponse>(path)
+    return this.get<AccountRatedMoviesResponse>(path)
   }
 
   /**
@@ -116,11 +118,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async ratedTVShows(
     accountId: number,
-    filters: RatedTVShowsFilters
-  ): Promise<RatedTVShowsResponse> {
+    filters: AccountRatedTVShowsFilters
+  ): Promise<AccountRatedTVShowsResponse> {
     const path = this.getPath(`/account/${accountId}/rated/tv`, filters)
 
-    return this.get<RatedTVShowsResponse>(path)
+    return this.get<AccountRatedTVShowsResponse>(path)
   }
 
   /**
@@ -130,14 +132,14 @@ export class AccountAPI extends BaseAPI {
    */
   public async ratedTVEpisodes(
     accountId: number,
-    filters: RatedTVEpisodesFilters
-  ): Promise<RatedTVEpisodesResponse> {
+    filters: AccountRatedTVEpisodesFilters
+  ): Promise<AccountRatedTVEpisodesResponse> {
     const path = this.getPath(
       `/account/${accountId}/rated/tv/episodes`,
       filters
     )
 
-    return this.get<RatedTVEpisodesResponse>(path)
+    return this.get<AccountRatedTVEpisodesResponse>(path)
   }
 
   /**
@@ -147,11 +149,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async movieWatchlist(
     accountId: number,
-    filters: MovieWatchlistFilters
-  ): Promise<MovieWatchlistResponse> {
+    filters: AccountMovieWatchlistFilters
+  ): Promise<AccountMovieWatchlistResponse> {
     const path = this.getPath(`/account/${accountId}/watchlist/movies`, filters)
 
-    return this.get<MovieWatchlistResponse>(path)
+    return this.get<AccountMovieWatchlistResponse>(path)
   }
 
   /**
@@ -161,11 +163,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async tvShowWatchlist(
     accountId: number,
-    filters: TVShowWatchlistFilters
-  ): Promise<TVShowWatchlistResponse> {
+    filters: AccountTVShowWatchlistFilters
+  ): Promise<AccountTVShowWatchlistResponse> {
     const path = this.getPath(`/account/${accountId}/watchlist/tv`, filters)
 
-    return this.get<TVShowWatchlistResponse>(path)
+    return this.get<AccountTVShowWatchlistResponse>(path)
   }
 
   /**
@@ -175,11 +177,11 @@ export class AccountAPI extends BaseAPI {
    */
   public async addToWatchlist(
     accountId: number,
-    data: AddToWatchlistBody,
-    filters: AddToWatchlistFilters
-  ): Promise<AddToWatchlistResponse> {
+    data: AccountAddToWatchlistBody,
+    filters: AccountAddToWatchlistFilters
+  ): Promise<AccountAddToWatchlistResponse> {
     const path = this.getPath(`/account/${accountId}/watchlist`, filters)
 
-    return this.post<AddToWatchlistResponse>(path, data)
+    return this.post<AccountAddToWatchlistResponse>(path, data)
   }
 }
