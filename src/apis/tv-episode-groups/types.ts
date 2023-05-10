@@ -20,7 +20,7 @@ export type TVEpisodeGroup = {
 }
 
 // Filters
-export type DetailsFilters = Pick<Filters, 'language'>
+export type TVEpisodeGroupDetailsFilters = Pick<Filters, 'language'>
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVEpisodeGroup>
+export type TVEpisodeGroupDetailsResponse = TMDBResponse<TVEpisodeGroup>

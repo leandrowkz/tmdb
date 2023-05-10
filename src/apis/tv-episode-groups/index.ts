@@ -1,5 +1,8 @@
 import { BaseAPI } from '../base'
-import { DetailsFilters, DetailsResponse } from './types'
+import {
+  TVEpisodeGroupDetailsFilters,
+  TVEpisodeGroupDetailsResponse,
+} from './types'
 
 export class TVEpisodeGroupsAPI extends BaseAPI {
   /**
@@ -18,10 +21,10 @@ export class TVEpisodeGroupsAPI extends BaseAPI {
    */
   public async details(
     episodeGroupId: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: TVEpisodeGroupDetailsFilters
+  ): Promise<TVEpisodeGroupDetailsResponse> {
     const path = this.getPath(`/tv/episode_group/${episodeGroupId}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<TVEpisodeGroupDetailsResponse>(path)
   }
 }
