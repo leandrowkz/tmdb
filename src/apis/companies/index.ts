@@ -1,8 +1,8 @@
 import { BaseAPI } from '../base'
 import {
-  DetailsResponse,
-  ImagesResponse,
-  AlternativeNamesResponse,
+  CompanyDetailsResponse,
+  CompanyImagesResponse,
+  CompanyAlternativeNamesResponse,
 } from './types'
 
 export class CompaniesAPI extends BaseAPI {
@@ -11,10 +11,10 @@ export class CompaniesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/collections/get-company-details
    */
-  public async details(companyId: number): Promise<DetailsResponse> {
+  public async details(companyId: number): Promise<CompanyDetailsResponse> {
     const path = this.getPath(`/company/${companyId}`)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<CompanyDetailsResponse>(path)
   }
 
   /**
@@ -24,10 +24,10 @@ export class CompaniesAPI extends BaseAPI {
    */
   public async alternativeNames(
     companyId: number
-  ): Promise<AlternativeNamesResponse> {
+  ): Promise<CompanyAlternativeNamesResponse> {
     const path = this.getPath(`/company/${companyId}/alternative_names`)
 
-    return this.get<AlternativeNamesResponse>(path)
+    return this.get<CompanyAlternativeNamesResponse>(path)
   }
 
   /**
@@ -43,9 +43,9 @@ export class CompaniesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/companies/get-company-images
    */
-  public async images(companyId: number): Promise<ImagesResponse> {
+  public async images(companyId: number): Promise<CompanyImagesResponse> {
     const path = this.getPath(`/company/${companyId}/images`)
 
-    return this.get<ImagesResponse>(path)
+    return this.get<CompanyImagesResponse>(path)
   }
 }

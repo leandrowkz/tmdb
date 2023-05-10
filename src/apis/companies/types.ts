@@ -30,8 +30,9 @@ export type CompanyAlternativeNames = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<Company>
+export type CompanyDetailsResponse = TMDBResponse<Company>
 
-export type AlternativeNamesResponse = TMDBResponse<CompanyAlternativeNames>
+export type CompanyAlternativeNamesResponse =
+  TMDBResponse<CompanyAlternativeNames>
 
-export type ImagesResponse = TMDBResponse<CompanyImages>
+export type CompanyImagesResponse = TMDBResponse<CompanyImages>
