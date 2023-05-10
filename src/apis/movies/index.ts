@@ -1,45 +1,45 @@
 import { BaseAPI } from '../base'
 import {
-  AlternativeTitlesFilters,
-  AlternativeTitlesResponse,
-  AccountStatesResponse,
-  AccountStatesFilters,
-  DetailsFilters,
-  ChangesFilters,
-  ChangesResponse,
-  CreditsFilters,
-  CreditsResponse,
-  ExternalIdsResponse,
-  ImagesFilters,
-  ImagesResponse,
-  KeywordsResponse,
-  ListsFilters,
-  ListsResponse,
-  RecommendationsFilters,
-  RecommendationsResponse,
-  ReleaseDatesResponse,
-  ReviewsFilters,
-  ReviewsResponse,
-  SimilarFilters,
-  SimilarResponse,
-  TranslationsResponse,
-  VideosFilters,
-  VideosResponse,
-  WatchProvidersResponse,
-  RateBody,
-  RateFilters,
-  RateResponse,
-  LatestFilters,
-  NowPlayingFilters,
-  NowPlayingResponse,
-  PopularFilters,
-  PopularResponse,
-  TopRatedFilters,
-  TopRatedResponse,
-  UpcomingFilters,
-  UpcomingResponse,
-  DetailsResponse,
-  LatestResponse,
+  MovieAlternativeTitlesFilters,
+  MovieAlternativeTitlesResponse,
+  MovieAccountStatesResponse,
+  MovieAccountStatesFilters,
+  MovieDetailsFilters,
+  MovieChangesFilters,
+  MovieChangesResponse,
+  MovieCreditsFilters,
+  MovieCreditsResponse,
+  MovieExternalIdsResponse,
+  MovieImagesFilters,
+  MovieImagesResponse,
+  MovieKeywordsResponse,
+  MovieListsFilters,
+  MovieListsResponse,
+  MovieRecommendationsFilters,
+  MovieRecommendationsResponse,
+  MovieReleaseDatesResponse,
+  MovieReviewsFilters,
+  MovieReviewsResponse,
+  MovieSimilarFilters,
+  MovieSimilarResponse,
+  MovieTranslationsResponse,
+  MovieVideosFilters,
+  MovieVideosResponse,
+  MovieWatchProvidersResponse,
+  MovieRateBody,
+  MovieRateFilters,
+  MovieRateResponse,
+  MovieLatestFilters,
+  MovieNowPlayingFilters,
+  MovieNowPlayingResponse,
+  MoviePopularFilters,
+  MoviePopularResponse,
+  MovieTopRatedFilters,
+  MovieTopRatedResponse,
+  MovieUpcomingFilters,
+  MovieUpcomingResponse,
+  MovieDetailsResponse,
+  MovieLatestResponse,
 } from './types'
 
 export class MoviesAPI extends BaseAPI {
@@ -50,11 +50,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async details(
     movieId: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: MovieDetailsFilters
+  ): Promise<MovieDetailsResponse> {
     const path = this.getPath(`/movie/${movieId}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<MovieDetailsResponse>(path)
   }
 
   /**
@@ -68,11 +68,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async accountStates(
     movieId: number,
-    filters?: AccountStatesFilters
-  ): Promise<AccountStatesResponse> {
+    filters?: MovieAccountStatesFilters
+  ): Promise<MovieAccountStatesResponse> {
     const path = this.getPath(`/movie/${movieId}/account_states`, filters)
 
-    return this.get<AccountStatesResponse>(path)
+    return this.get<MovieAccountStatesResponse>(path)
   }
 
   /**
@@ -82,11 +82,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async alternativeTitles(
     movieId: number,
-    filters?: AlternativeTitlesFilters
-  ): Promise<AlternativeTitlesResponse> {
+    filters?: MovieAlternativeTitlesFilters
+  ): Promise<MovieAlternativeTitlesResponse> {
     const path = this.getPath(`/movie/${movieId}/alternative_titles`, filters)
 
-    return this.get<AlternativeTitlesResponse>(path)
+    return this.get<MovieAlternativeTitlesResponse>(path)
   }
 
   /**
@@ -99,11 +99,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async changes(
     movieId: number,
-    filters?: ChangesFilters
-  ): Promise<ChangesResponse> {
+    filters?: MovieChangesFilters
+  ): Promise<MovieChangesResponse> {
     const path = this.getPath(`/movie/${movieId}/changes`, filters)
 
-    return this.get<ChangesResponse>(path)
+    return this.get<MovieChangesResponse>(path)
   }
 
   /**
@@ -113,11 +113,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async credits(
     movieId: number,
-    filters?: CreditsFilters
-  ): Promise<CreditsResponse> {
+    filters?: MovieCreditsFilters
+  ): Promise<MovieCreditsResponse> {
     const path = this.getPath(`/movie/${movieId}/credits`, filters)
 
-    return this.get<CreditsResponse>(path)
+    return this.get<MovieCreditsResponse>(path)
   }
 
   /**
@@ -125,10 +125,10 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-movie-external-ids
    */
-  public async externalIds(movieId: number): Promise<ExternalIdsResponse> {
+  public async externalIds(movieId: number): Promise<MovieExternalIdsResponse> {
     const path = this.getPath(`/movie/${movieId}/external_ids`)
 
-    return this.get<ExternalIdsResponse>(path)
+    return this.get<MovieExternalIdsResponse>(path)
   }
 
   /**
@@ -142,11 +142,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async images(
     movieId: number,
-    filters?: ImagesFilters
-  ): Promise<ImagesResponse> {
+    filters?: MovieImagesFilters
+  ): Promise<MovieImagesResponse> {
     const path = this.getPath(`/movie/${movieId}/images`, filters)
 
-    return this.get<ImagesResponse>(path)
+    return this.get<MovieImagesResponse>(path)
   }
 
   /**
@@ -154,10 +154,10 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-movie-keywords
    */
-  public async keywords(movieId: number): Promise<KeywordsResponse> {
+  public async keywords(movieId: number): Promise<MovieKeywordsResponse> {
     const path = this.getPath(`/movie/${movieId}/keywords`)
 
-    return this.get<KeywordsResponse>(path)
+    return this.get<MovieKeywordsResponse>(path)
   }
 
   /**
@@ -167,11 +167,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async lists(
     movieId: number,
-    filters?: ListsFilters
-  ): Promise<ListsResponse> {
+    filters?: MovieListsFilters
+  ): Promise<MovieListsResponse> {
     const path = this.getPath(`/movie/${movieId}/lists`, filters)
 
-    return this.get<ListsResponse>(path)
+    return this.get<MovieListsResponse>(path)
   }
 
   /**
@@ -181,11 +181,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async recommendations(
     movieId: number,
-    filters?: RecommendationsFilters
-  ): Promise<RecommendationsResponse> {
+    filters?: MovieRecommendationsFilters
+  ): Promise<MovieRecommendationsResponse> {
     const path = this.getPath(`/movie/${movieId}/recommendations`, filters)
 
-    return this.get<RecommendationsResponse>(path)
+    return this.get<MovieRecommendationsResponse>(path)
   }
 
   /**
@@ -201,10 +201,12 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-movie-release-dates
    */
-  public async releaseDates(movieId: number): Promise<ReleaseDatesResponse> {
+  public async releaseDates(
+    movieId: number
+  ): Promise<MovieReleaseDatesResponse> {
     const path = this.getPath(`/movie/${movieId}/release_dates`)
 
-    return this.get<ReleaseDatesResponse>(path)
+    return this.get<MovieReleaseDatesResponse>(path)
   }
 
   /**
@@ -214,11 +216,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async reviews(
     movieId: number,
-    filters?: ReviewsFilters
-  ): Promise<ReviewsResponse> {
+    filters?: MovieReviewsFilters
+  ): Promise<MovieReviewsResponse> {
     const path = this.getPath(`/movie/${movieId}/reviews`, filters)
 
-    return this.get<ReviewsResponse>(path)
+    return this.get<MovieReviewsResponse>(path)
   }
 
   /**
@@ -231,11 +233,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async similar(
     movieId: number,
-    filters?: SimilarFilters
-  ): Promise<SimilarResponse> {
+    filters?: MovieSimilarFilters
+  ): Promise<MovieSimilarResponse> {
     const path = this.getPath(`/movie/${movieId}/similar`, filters)
 
-    return this.get<SimilarResponse>(path)
+    return this.get<MovieSimilarResponse>(path)
   }
 
   /**
@@ -243,10 +245,12 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-movie-translations
    */
-  public async translations(movieId: number): Promise<TranslationsResponse> {
+  public async translations(
+    movieId: number
+  ): Promise<MovieTranslationsResponse> {
     const path = this.getPath(`/movie/${movieId}/translations`)
 
-    return this.get<TranslationsResponse>(path)
+    return this.get<MovieTranslationsResponse>(path)
   }
 
   /**
@@ -256,11 +260,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async videos(
     movieId: number,
-    filters?: VideosFilters
-  ): Promise<VideosResponse> {
+    filters?: MovieVideosFilters
+  ): Promise<MovieVideosResponse> {
     const path = this.getPath(`/movie/${movieId}/videos`, filters)
 
-    return this.get<VideosResponse>(path)
+    return this.get<MovieVideosResponse>(path)
   }
 
   /**
@@ -280,10 +284,10 @@ export class MoviesAPI extends BaseAPI {
    */
   public async watchProviders(
     movieId: number
-  ): Promise<WatchProvidersResponse> {
+  ): Promise<MovieWatchProvidersResponse> {
     const path = this.getPath(`/movie/${movieId}/watch/providers`)
 
-    return this.get<WatchProvidersResponse>(path)
+    return this.get<MovieWatchProvidersResponse>(path)
   }
 
   /**
@@ -296,12 +300,12 @@ export class MoviesAPI extends BaseAPI {
    */
   public async rate(
     movieId: number,
-    body: RateBody,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    body: MovieRateBody,
+    filters?: MovieRateFilters
+  ): Promise<MovieRateResponse> {
     const path = this.getPath(`/movie/${movieId}/rating`, filters)
 
-    return this.post<RateResponse>(path, body)
+    return this.post<MovieRateResponse>(path, body)
   }
 
   /**
@@ -314,11 +318,11 @@ export class MoviesAPI extends BaseAPI {
    */
   public async deleteRate(
     movieId: number,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    filters?: MovieRateFilters
+  ): Promise<MovieRateResponse> {
     const path = this.getPath(`/movie/${movieId}/rating`, filters)
 
-    return this.delete<RateResponse>(path)
+    return this.delete<MovieRateResponse>(path)
   }
 
   /**
@@ -326,10 +330,12 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-latest-movie
    */
-  public async latest(filters?: LatestFilters): Promise<LatestResponse> {
+  public async latest(
+    filters?: MovieLatestFilters
+  ): Promise<MovieLatestResponse> {
     const path = this.getPath('/movie/latest', filters)
 
-    return this.get<LatestResponse>(path)
+    return this.get<MovieLatestResponse>(path)
   }
 
   /**
@@ -343,11 +349,11 @@ export class MoviesAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/movies/get-now-playing
    */
   public async nowPlaying(
-    filters?: NowPlayingFilters
-  ): Promise<NowPlayingResponse> {
+    filters?: MovieNowPlayingFilters
+  ): Promise<MovieNowPlayingResponse> {
     const path = this.getPath('/movie/now_playing', filters)
 
-    return this.get<NowPlayingResponse>(path)
+    return this.get<MovieNowPlayingResponse>(path)
   }
 
   /**
@@ -355,10 +361,12 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-popular-movies
    */
-  public async popular(filters?: PopularFilters): Promise<PopularResponse> {
+  public async popular(
+    filters?: MoviePopularFilters
+  ): Promise<MoviePopularResponse> {
     const path = this.getPath('/movie/popular', filters)
 
-    return this.get<PopularResponse>(path)
+    return this.get<MoviePopularResponse>(path)
   }
 
   /**
@@ -366,10 +374,12 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-top-rated-movies
    */
-  public async topRated(filters?: TopRatedFilters): Promise<TopRatedResponse> {
+  public async topRated(
+    filters?: MovieTopRatedFilters
+  ): Promise<MovieTopRatedResponse> {
     const path = this.getPath('/movie/top_rated', filters)
 
-    return this.get<TopRatedResponse>(path)
+    return this.get<MovieTopRatedResponse>(path)
   }
 
   /**
@@ -382,9 +392,11 @@ export class MoviesAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/movies/get-upcoming
    */
-  public async upcoming(filters?: UpcomingFilters): Promise<UpcomingResponse> {
+  public async upcoming(
+    filters?: MovieUpcomingFilters
+  ): Promise<MovieUpcomingResponse> {
     const path = this.getPath('/movie/upcoming', filters)
 
-    return this.get<UpcomingResponse>(path)
+    return this.get<MovieUpcomingResponse>(path)
   }
 }

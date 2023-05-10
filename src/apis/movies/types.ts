@@ -172,42 +172,57 @@ export type MovieWatchProviders = {
 type SessionFilters = Pick<Filters, 'guest_session_id'> &
   Required<Pick<Filters, 'session_id'>>
 
-export type DetailsFilters = Pick<Filters, 'append_to_response' | 'language'>
+export type MovieDetailsFilters = Pick<
+  Filters,
+  'append_to_response' | 'language'
+>
 
-export type AccountStatesFilters = SessionFilters
+export type MovieAccountStatesFilters = SessionFilters
 
-export type AlternativeTitlesFilters = Pick<Filters, 'country'>
+export type MovieAlternativeTitlesFilters = Pick<Filters, 'country'>
 
-export type ChangesFilters = Pick<Filters, 'page' | 'start_date' | 'end_date'>
+export type MovieChangesFilters = Pick<
+  Filters,
+  'page' | 'start_date' | 'end_date'
+>
 
-export type CreditsFilters = Pick<Filters, 'language'>
+export type MovieCreditsFilters = Pick<Filters, 'language'>
 
-export type ImagesFilters = Pick<Filters, 'language' | 'include_image_language'>
+export type MovieImagesFilters = Pick<
+  Filters,
+  'language' | 'include_image_language'
+>
 
-export type ListsFilters = Pick<Filters, 'language' | 'page'>
+export type MovieListsFilters = Pick<Filters, 'language' | 'page'>
 
-export type RecommendationsFilters = Pick<Filters, 'language' | 'page'>
+export type MovieRecommendationsFilters = Pick<Filters, 'language' | 'page'>
 
-export type ReviewsFilters = Pick<Filters, 'language' | 'page'>
+export type MovieReviewsFilters = Pick<Filters, 'language' | 'page'>
 
-export type SimilarFilters = Pick<Filters, 'language' | 'page'>
+export type MovieSimilarFilters = Pick<Filters, 'language' | 'page'>
 
-export type VideosFilters = Pick<Filters, 'language' | 'include_image_language'>
+export type MovieVideosFilters = Pick<
+  Filters,
+  'language' | 'include_image_language'
+>
 
-export type LatestFilters = Pick<Filters, 'language'>
+export type MovieLatestFilters = Pick<Filters, 'language'>
 
-export type RateFilters = Pick<Filters, 'session_id' | 'guest_session_id'>
+export type MovieRateFilters = Pick<Filters, 'session_id' | 'guest_session_id'>
 
-export type NowPlayingFilters = Pick<Filters, 'language' | 'page' | 'region'>
+export type MovieNowPlayingFilters = Pick<
+  Filters,
+  'language' | 'page' | 'region'
+>
 
-export type PopularFilters = Pick<Filters, 'language' | 'page' | 'region'>
+export type MoviePopularFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
-export type TopRatedFilters = Pick<Filters, 'language' | 'page' | 'region'>
+export type MovieTopRatedFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
-export type UpcomingFilters = Pick<Filters, 'language' | 'page' | 'region'>
+export type MovieUpcomingFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
 // Body
-export type RateBody = {
+export type MovieRateBody = {
   value: number
 }
 
@@ -219,46 +234,47 @@ type WithDates<T> = T & {
   }
 }
 
-export type DetailsResponse = TMDBResponse<Movie>
+export type MovieDetailsResponse = TMDBResponse<Movie>
 
-export type AccountStatesResponse = TMDBResponse<MovieAccountStates>
+export type MovieAccountStatesResponse = TMDBResponse<MovieAccountStates>
 
-export type AlternativeTitlesResponse = TMDBResponse<MovieAlternativeTitles>
+export type MovieAlternativeTitlesResponse =
+  TMDBResponse<MovieAlternativeTitles>
 
-export type ChangesResponse = TMDBResponse<MovieChanges>
+export type MovieChangesResponse = TMDBResponse<MovieChanges>
 
-export type CreditsResponse = TMDBResponse<MovieCredits>
+export type MovieCreditsResponse = TMDBResponse<MovieCredits>
 
-export type ExternalIdsResponse = TMDBResponse<ExternalId>
+export type MovieExternalIdsResponse = TMDBResponse<ExternalId>
 
-export type ImagesResponse = TMDBResponse<MovieImages>
+export type MovieImagesResponse = TMDBResponse<MovieImages>
 
-export type KeywordsResponse = TMDBResponse<MovieKeyworks>
+export type MovieKeywordsResponse = TMDBResponse<MovieKeyworks>
 
-export type LatestResponse = TMDBResponse<Movie>
+export type MovieLatestResponse = TMDBResponse<Movie>
 
-export type ListsResponse = WithId<TMDBResponseList<ListItem[]>>
+export type MovieListsResponse = WithId<TMDBResponseList<ListItem[]>>
 
-export type RecommendationsResponse = TMDBResponseList<Movie[]>
+export type MovieRecommendationsResponse = TMDBResponseList<Movie[]>
 
-export type ReleaseDatesResponse = TMDBResponse<MovieReleaseDates>
+export type MovieReleaseDatesResponse = TMDBResponse<MovieReleaseDates>
 
-export type ReviewsResponse = WithId<TMDBResponseList<ReviewItem[]>>
+export type MovieReviewsResponse = WithId<TMDBResponseList<ReviewItem[]>>
 
-export type SimilarResponse = TMDBResponseList<MovieItem[]>
+export type MovieSimilarResponse = TMDBResponseList<MovieItem[]>
 
-export type TranslationsResponse = TMDBResponse<MovieTranslations>
+export type MovieTranslationsResponse = TMDBResponse<MovieTranslations>
 
-export type VideosResponse = TMDBResponse<MovieVideos>
+export type MovieVideosResponse = TMDBResponse<MovieVideos>
 
-export type WatchProvidersResponse = TMDBResponse<MovieWatchProviders>
+export type MovieWatchProvidersResponse = TMDBResponse<MovieWatchProviders>
 
-export type RateResponse = TMDBResponse<GenericResponse>
+export type MovieRateResponse = TMDBResponse<GenericResponse>
 
-export type NowPlayingResponse = WithDates<TMDBResponseList<Movie[]>>
+export type MovieNowPlayingResponse = WithDates<TMDBResponseList<Movie[]>>
 
-export type UpcomingResponse = WithDates<TMDBResponseList<Movie[]>>
+export type MovieUpcomingResponse = WithDates<TMDBResponseList<Movie[]>>
 
-export type PopularResponse = TMDBResponseList<MovieItem[]>
+export type MoviePopularResponse = TMDBResponseList<MovieItem[]>
 
-export type TopRatedResponse = TMDBResponseList<MovieItem[]>
+export type MovieTopRatedResponse = TMDBResponseList<MovieItem[]>
