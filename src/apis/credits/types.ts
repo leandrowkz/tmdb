@@ -25,4 +25,4 @@ export type Credit = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<Credit>
+export type CreditDetailsResponse = TMDBResponse<Credit>
