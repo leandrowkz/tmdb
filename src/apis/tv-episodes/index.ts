@@ -1,22 +1,22 @@
 import { BaseAPI } from '../base'
 import {
-  AccountStatesFilters,
-  AccountStatesResponse,
-  ChangesFilters,
-  ChangesResponse,
-  CreditsFilters,
-  CreditsResponse,
-  DetailsFilters,
-  DetailsResponse,
-  ExternalIdsResponse,
-  ImagesFilters,
-  ImagesResponse,
-  RateBody,
-  RateFilters,
-  RateResponse,
-  TranslationsResponse,
-  VideosFilters,
-  VideosResponse,
+  TVEpisodeAccountStatesFilters,
+  TVEpisodeAccountStatesResponse,
+  TVEpisodeChangesFilters,
+  TVEpisodeChangesResponse,
+  TVEpisodeCreditsFilters,
+  TVEpisodeCreditsResponse,
+  TVEpisodeDetailsFilters,
+  TVEpisodeDetailsResponse,
+  TVEpisodeExternalIdsResponse,
+  TVEpisodeImagesFilters,
+  TVEpisodeImagesResponse,
+  TVEpisodeRateBody,
+  TVEpisodeRateFilters,
+  TVEpisodeRateResponse,
+  TVEpisodeTranslationsResponse,
+  TVEpisodeVideosFilters,
+  TVEpisodeVideosResponse,
 } from './types'
 
 export class TVEpisodesAPI extends BaseAPI {
@@ -29,14 +29,14 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: TVEpisodeDetailsFilters
+  ): Promise<TVEpisodeDetailsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}`,
       filters
     )
 
-    return this.get<DetailsResponse>(path)
+    return this.get<TVEpisodeDetailsResponse>(path)
   }
 
   /**
@@ -48,14 +48,14 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: AccountStatesFilters
-  ): Promise<AccountStatesResponse> {
+    filters?: TVEpisodeAccountStatesFilters
+  ): Promise<TVEpisodeAccountStatesResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/account_states`,
       filters
     )
 
-    return this.get<AccountStatesResponse>(path)
+    return this.get<TVEpisodeAccountStatesResponse>(path)
   }
 
   /**
@@ -68,11 +68,11 @@ export class TVEpisodesAPI extends BaseAPI {
    */
   public async changes(
     episodeId: number,
-    filters?: ChangesFilters
-  ): Promise<ChangesResponse> {
+    filters?: TVEpisodeChangesFilters
+  ): Promise<TVEpisodeChangesResponse> {
     const path = this.getPath(`/tv/episode/${episodeId}/changes`, filters)
 
-    return this.get<ChangesResponse>(path)
+    return this.get<TVEpisodeChangesResponse>(path)
   }
 
   /**
@@ -84,14 +84,14 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: CreditsFilters
-  ): Promise<CreditsResponse> {
+    filters?: TVEpisodeCreditsFilters
+  ): Promise<TVEpisodeCreditsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/credits`,
       filters
     )
 
-    return this.get<CreditsResponse>(path)
+    return this.get<TVEpisodeCreditsResponse>(path)
   }
 
   /**
@@ -103,12 +103,12 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number
-  ): Promise<ExternalIdsResponse> {
+  ): Promise<TVEpisodeExternalIdsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/external_ids`
     )
 
-    return this.get<ExternalIdsResponse>(path)
+    return this.get<TVEpisodeExternalIdsResponse>(path)
   }
 
   /**
@@ -124,14 +124,14 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: ImagesFilters
-  ): Promise<ImagesResponse> {
+    filters?: TVEpisodeImagesFilters
+  ): Promise<TVEpisodeImagesResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/images`,
       filters
     )
 
-    return this.get<ImagesResponse>(path)
+    return this.get<TVEpisodeImagesResponse>(path)
   }
 
   /**
@@ -143,12 +143,12 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number
-  ): Promise<TranslationsResponse> {
+  ): Promise<TVEpisodeTranslationsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/translations`
     )
 
-    return this.get<TranslationsResponse>(path)
+    return this.get<TVEpisodeTranslationsResponse>(path)
   }
 
   /**
@@ -160,14 +160,14 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: VideosFilters
-  ): Promise<VideosResponse> {
+    filters?: TVEpisodeVideosFilters
+  ): Promise<TVEpisodeVideosResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/videos`,
       filters
     )
 
-    return this.get<VideosResponse>(path)
+    return this.get<TVEpisodeVideosResponse>(path)
   }
 
   /**
@@ -181,15 +181,15 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    body: RateBody,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    body: TVEpisodeRateBody,
+    filters?: TVEpisodeRateFilters
+  ): Promise<TVEpisodeRateResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/rating`,
       filters
     )
 
-    return this.post<RateResponse>(path, body)
+    return this.post<TVEpisodeRateResponse>(path, body)
   }
 
   /**
@@ -203,13 +203,13 @@ export class TVEpisodesAPI extends BaseAPI {
     tvShowId: number,
     season: number,
     episode: number,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    filters?: TVEpisodeRateFilters
+  ): Promise<TVEpisodeRateResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${season}/episode/${episode}/rating`,
       filters
     )
 
-    return this.delete<RateResponse>(path)
+    return this.delete<TVEpisodeRateResponse>(path)
   }
 }
