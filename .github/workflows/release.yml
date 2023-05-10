@@ -28,7 +28,7 @@ jobs:
         run: npm run test
 
       - name: Remove unecessary files for build
-        run: rm -f \
+        run: rm -rf ./src \
           .commitlintrc.js \
           .editorconfig \
           .eslintrc.js \
