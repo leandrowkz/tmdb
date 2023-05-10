@@ -48,5 +48,6 @@ jobs:
       - name: Run release
         run: npm run release
         env:
+          CI: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
