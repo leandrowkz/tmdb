@@ -11,10 +11,19 @@ type TVShowItemRating = TVShowItem & Rating
 type TVEpisodeItemRating = TVEpisodeItem & Rating
 
 // Filters
-export type SortByFilter = { sort_by?: 'created_at.asc' | 'created_at.desc' }
-export type RatedFilters = Pick<Filters, 'language'> & SortByFilter
+export type GuestSessionsSortByFilter = {
+  sort_by?: 'created_at.asc' | 'created_at.desc'
+}
+export type GuestSessionsRatedFilters = Pick<Filters, 'language'> &
+  GuestSessionsSortByFilter
 
 // Responses
-export type RatedMoviesResponse = TMDBResponseList<MovieItemRating[]>
-export type RatedTVShowsResponse = TMDBResponseList<TVShowItemRating[]>
-export type RatedTVEpisodesResponse = TMDBResponseList<TVEpisodeItemRating[]>
+export type GuestSessionsRatedMoviesResponse = TMDBResponseList<
+  MovieItemRating[]
+>
+export type GuestSessionsRatedTVShowsResponse = TMDBResponseList<
+  TVShowItemRating[]
+>
+export type GuestSessionsRatedTVEpisodesResponse = TMDBResponseList<
+  TVEpisodeItemRating[]
+>

@@ -1,9 +1,9 @@
 import { BaseAPI } from '../base'
 import {
-  RatedFilters,
-  RatedMoviesResponse,
-  RatedTVEpisodesResponse,
-  RatedTVShowsResponse,
+  GuestSessionsRatedFilters,
+  GuestSessionsRatedMoviesResponse,
+  GuestSessionsRatedTVEpisodesResponse,
+  GuestSessionsRatedTVShowsResponse,
 } from './types'
 
 export class GuestSessionsAPI extends BaseAPI {
@@ -14,14 +14,14 @@ export class GuestSessionsAPI extends BaseAPI {
    */
   public async ratedMovies(
     guestSessionId: string,
-    filters?: RatedFilters
-  ): Promise<RatedMoviesResponse> {
+    filters?: GuestSessionsRatedFilters
+  ): Promise<GuestSessionsRatedMoviesResponse> {
     const path = this.getPath(
       `/guest_session/${guestSessionId}/rated/movies`,
       filters
     )
 
-    return this.get<RatedMoviesResponse>(path)
+    return this.get<GuestSessionsRatedMoviesResponse>(path)
   }
 
   /**
@@ -31,14 +31,14 @@ export class GuestSessionsAPI extends BaseAPI {
    */
   public async ratedTVShows(
     guestSessionId: string,
-    filters?: RatedFilters
-  ): Promise<RatedTVShowsResponse> {
+    filters?: GuestSessionsRatedFilters
+  ): Promise<GuestSessionsRatedTVShowsResponse> {
     const path = this.getPath(
       `/guest_session/${guestSessionId}/rated/tv`,
       filters
     )
 
-    return this.get<RatedTVShowsResponse>(path)
+    return this.get<GuestSessionsRatedTVShowsResponse>(path)
   }
 
   /**
@@ -48,13 +48,13 @@ export class GuestSessionsAPI extends BaseAPI {
    */
   public async ratedTVEpisodes(
     guestSessionId: string,
-    filters?: RatedFilters
-  ): Promise<RatedTVEpisodesResponse> {
+    filters?: GuestSessionsRatedFilters
+  ): Promise<GuestSessionsRatedTVEpisodesResponse> {
     const path = this.getPath(
       `/guest_session/${guestSessionId}/rated/tv/episodes`,
       filters
     )
 
-    return this.get<RatedTVEpisodesResponse>(path)
+    return this.get<GuestSessionsRatedTVEpisodesResponse>(path)
   }
 }
