@@ -3,7 +3,7 @@ import { MovieItem } from '../movies/types'
 import { TVShowItem } from '../tv-shows/types'
 import { Filters } from 'src/types/filters'
 
-export type MovieFilters = Pick<
+export type DiscoverMovieFilters = Pick<
   Filters,
   | 'page'
   | 'sort_by'
@@ -44,7 +44,7 @@ export type MovieFilters = Pick<
   | 'vote_average.lte'
 >
 
-export type TVShowFilters = Pick<
+export type DiscoverTVShowFilters = Pick<
   Filters,
   | 'language'
   | 'sort_by'
@@ -77,6 +77,6 @@ export type TVShowFilters = Pick<
 >
 
 // Responses
-export type MovieResponse = TMDBResponseList<MovieItem[]>
+export type DiscoverMovieResponse = TMDBResponseList<MovieItem[]>
 
-export type TVShowResponse = TMDBResponseList<TVShowItem[]>
+export type DiscoverTVShowResponse = TMDBResponseList<TVShowItem[]>

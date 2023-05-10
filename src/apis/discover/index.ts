@@ -1,9 +1,9 @@
 import { BaseAPI } from '../base'
 import {
-  MovieFilters,
-  MovieResponse,
-  TVShowFilters,
-  TVShowResponse,
+  DiscoverMovieFilters,
+  DiscoverMovieResponse,
+  DiscoverTVShowFilters,
+  DiscoverTVShowResponse,
 } from './types'
 
 export class DiscoverAPI extends BaseAPI {
@@ -31,10 +31,12 @@ export class DiscoverAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/discover/movie-discover
    */
-  public async movies(filters?: MovieFilters): Promise<MovieResponse> {
+  public async movies(
+    filters?: DiscoverMovieFilters
+  ): Promise<DiscoverMovieResponse> {
     const path = this.getPath('/discover/movie', filters)
 
-    return this.get<MovieResponse>(path)
+    return this.get<DiscoverMovieResponse>(path)
   }
 
   /**
@@ -50,9 +52,11 @@ export class DiscoverAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/discover/tv-discover
    */
-  public async tv(filters?: TVShowFilters): Promise<TVShowResponse> {
+  public async tv(
+    filters?: DiscoverTVShowFilters
+  ): Promise<DiscoverTVShowResponse> {
     const path = this.getPath('/discover/tv', filters)
 
-    return this.get<TVShowResponse>(path)
+    return this.get<DiscoverTVShowResponse>(path)
   }
 }
