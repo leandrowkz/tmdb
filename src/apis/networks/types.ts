@@ -28,8 +28,9 @@ export type NetworkImages = {
 }
 
 // Responses
-export type DetailsResponse = TMDBResponse<Network>
+export type NetworkDetailsResponse = TMDBResponse<Network>
 
-export type AlternativeNamesResponse = TMDBResponse<NetworkAlternativeNames>
+export type NetworkAlternativeNamesResponse =
+  TMDBResponse<NetworkAlternativeNames>
 
-export type ImagesResponse = TMDBResponse<NetworkImages>
+export type NetworkImagesResponse = TMDBResponse<NetworkImages>

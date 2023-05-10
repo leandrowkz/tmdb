@@ -1,8 +1,8 @@
 import { BaseAPI } from '../base'
 import {
-  AlternativeNamesResponse,
-  DetailsResponse,
-  ImagesResponse,
+  NetworkAlternativeNamesResponse,
+  NetworkDetailsResponse,
+  NetworkImagesResponse,
 } from './types'
 
 export class NetworksAPI extends BaseAPI {
@@ -11,10 +11,10 @@ export class NetworksAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/networks/get-network-details
    */
-  public async details(networkId: number): Promise<DetailsResponse> {
+  public async details(networkId: number): Promise<NetworkDetailsResponse> {
     const path = this.getPath(`/network/${networkId}`)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<NetworkDetailsResponse>(path)
   }
 
   /**
@@ -24,10 +24,10 @@ export class NetworksAPI extends BaseAPI {
    */
   public async alternativeNames(
     networkId: number
-  ): Promise<AlternativeNamesResponse> {
+  ): Promise<NetworkAlternativeNamesResponse> {
     const path = this.getPath(`/network/${networkId}/alternative_names`)
 
-    return this.get<AlternativeNamesResponse>(path)
+    return this.get<NetworkAlternativeNamesResponse>(path)
   }
 
   /**
@@ -43,9 +43,9 @@ export class NetworksAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/networks/get-network-images
    */
-  public async images(networkId: number): Promise<ImagesResponse> {
+  public async images(networkId: number): Promise<NetworkImagesResponse> {
     const path = this.getPath(`/network/${networkId}/images`)
 
-    return this.get<ImagesResponse>(path)
+    return this.get<NetworkImagesResponse>(path)
   }
 }
