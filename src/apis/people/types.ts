@@ -114,13 +114,21 @@ export type PersonTranslations = {
 }
 
 // Filters
-export type DetailsFilters = Pick<Filters, 'language' | 'append_to_response'>
+export type PeopleDetailsFilters = Pick<
+  Filters,
+  'language' | 'append_to_response'
+>
 
-export type ChangesFilters = Pick<Filters, 'page' | 'start_date' | 'end_date'>
+export type PeopleChangesFilters = Pick<
+  Filters,
+  'page' | 'start_date' | 'end_date'
+>
 
-export type LanguageFilters = Pick<Filters, 'language'>
+export type PeopleLanguageFilters = Pick<Filters, 'language'>
 
-export type LanguageAndPageFilters = Pick<Filters, 'page' | 'language'>
+export type PeopleLanguageAndPageFilters = Pick<Filters, 'page' | 'language'>
+
+export type PeoplePopularFilters = Pick<Filters, 'language' | 'page' | 'region'>
 
 // Responses
 type TaggedImage = Image & {
@@ -128,24 +136,24 @@ type TaggedImage = Image & {
   media_type: 'tv' | 'movie'
 }
 
-export type DetailsResponse = TMDBResponse<Person>
+export type PeopleDetailsResponse = TMDBResponse<Person>
 
-export type ChangesResponse = TMDBResponse<PersonChanges>
+export type PeopleChangesResponse = TMDBResponse<PersonChanges>
 
-export type MovieCreditsResponse = TMDBResponse<PersonMovieCredits>
+export type PeopleMovieCreditsResponse = TMDBResponse<PersonMovieCredits>
 
-export type TVCreditsResponse = TMDBResponse<PersonTVCredits>
+export type PeopleTVCreditsResponse = TMDBResponse<PersonTVCredits>
 
-export type CombinedCreditsResponse = TMDBResponse<PersonCombinedCredits>
+export type PeopleCombinedCreditsResponse = TMDBResponse<PersonCombinedCredits>
 
-export type ExternalIdsResponse = TMDBResponse<ExternalId>
+export type PeopleExternalIdsResponse = TMDBResponse<ExternalId>
 
-export type ImagesResponse = WithId<TMDBResponseList<Image>>
+export type PeopleImagesResponse = WithId<TMDBResponseList<Image>>
 
-export type TaggedImagesResponse = WithId<TMDBResponseList<TaggedImage>>
+export type PeopleTaggedImagesResponse = WithId<TMDBResponseList<TaggedImage>>
 
-export type TranslationsResponse = TMDBResponse<PersonTranslations>
+export type PeopleTranslationsResponse = TMDBResponse<PersonTranslations>
 
-export type LatestResponse = TMDBResponse<Person>
+export type PeopleLatestResponse = TMDBResponse<Person>
 
-export type PopularResponse = TMDBResponseList<Person>
+export type PeoplePopularResponse = TMDBResponseList<Person>

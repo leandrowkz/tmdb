@@ -30,4 +30,4 @@ export type ReviewItem = Pick<
   | 'author_details'
 >
 
-export type DetailsResponse = TMDBResponse<Review>
+export type RewviewDetailsResponse = TMDBResponse<Review>

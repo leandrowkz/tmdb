@@ -1,21 +1,21 @@
 import { BaseAPI } from '../base'
-import { PopularFilters } from '../movies/types'
 import {
-  ChangesFilters,
-  ChangesResponse,
-  CombinedCreditsResponse,
-  DetailsFilters,
-  DetailsResponse,
-  ExternalIdsResponse,
-  ImagesResponse,
-  LanguageAndPageFilters,
-  LanguageFilters,
-  LatestResponse,
-  MovieCreditsResponse,
-  PopularResponse,
-  TVCreditsResponse,
-  TaggedImagesResponse,
-  TranslationsResponse,
+  PeopleChangesFilters,
+  PeopleChangesResponse,
+  PeopleCombinedCreditsResponse,
+  PeopleDetailsFilters,
+  PeopleDetailsResponse,
+  PeopleExternalIdsResponse,
+  PeopleImagesResponse,
+  PeopleLanguageAndPageFilters,
+  PeopleLanguageFilters,
+  PeopleLatestResponse,
+  PeopleMovieCreditsResponse,
+  PeoplePopularFilters,
+  PeoplePopularResponse,
+  PeopleTVCreditsResponse,
+  PeopleTaggedImagesResponse,
+  PeopleTranslationsResponse,
 } from './types'
 
 export class PeopleAPI extends BaseAPI {
@@ -28,11 +28,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async details(
     personId: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: PeopleDetailsFilters
+  ): Promise<PeopleDetailsResponse> {
     const path = this.getPath(`/person/${personId}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<PeopleDetailsResponse>(path)
   }
 
   /**
@@ -45,11 +45,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async changes(
     personId: number,
-    filters?: ChangesFilters
-  ): Promise<ChangesResponse> {
+    filters?: PeopleChangesFilters
+  ): Promise<PeopleChangesResponse> {
     const path = this.getPath(`/person/${personId}/changes`, filters)
 
-    return this.get<ChangesResponse>(path)
+    return this.get<PeopleChangesResponse>(path)
   }
 
   /**
@@ -59,11 +59,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async movieCredits(
     personId: number,
-    filters?: LanguageFilters
-  ): Promise<MovieCreditsResponse> {
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleMovieCreditsResponse> {
     const path = this.getPath(`/person/${personId}/movie_credits`, filters)
 
-    return this.get<MovieCreditsResponse>(path)
+    return this.get<PeopleMovieCreditsResponse>(path)
   }
 
   /**
@@ -75,11 +75,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async tvCredits(
     personId: number,
-    filters?: LanguageFilters
-  ): Promise<TVCreditsResponse> {
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleTVCreditsResponse> {
     const path = this.getPath(`/person/${personId}/tv_credits`, filters)
 
-    return this.get<TVCreditsResponse>(path)
+    return this.get<PeopleTVCreditsResponse>(path)
   }
 
   /**
@@ -89,11 +89,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async combinedCredits(
     personId: number,
-    filters?: LanguageFilters
-  ): Promise<CombinedCreditsResponse> {
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleCombinedCreditsResponse> {
     const path = this.getPath(`/person/${personId}/combined_credits`, filters)
 
-    return this.get<CombinedCreditsResponse>(path)
+    return this.get<PeopleCombinedCreditsResponse>(path)
   }
 
   /**
@@ -103,11 +103,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async externalIds(
     personId: number,
-    filters?: LanguageFilters
-  ): Promise<ExternalIdsResponse> {
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleExternalIdsResponse> {
     const path = this.getPath(`/person/${personId}/external_ids`, filters)
 
-    return this.get<ExternalIdsResponse>(path)
+    return this.get<PeopleExternalIdsResponse>(path)
   }
 
   /**
@@ -115,10 +115,10 @@ export class PeopleAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/people/get-person-images
    */
-  public async images(personId: number): Promise<ImagesResponse> {
+  public async images(personId: number): Promise<PeopleImagesResponse> {
     const path = this.getPath(`/person/${personId}/images`)
 
-    return this.get<ImagesResponse>(path)
+    return this.get<PeopleImagesResponse>(path)
   }
 
   /**
@@ -128,11 +128,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async taggedImages(
     personId: number,
-    filters?: LanguageAndPageFilters
-  ): Promise<TaggedImagesResponse> {
+    filters?: PeopleLanguageAndPageFilters
+  ): Promise<PeopleTaggedImagesResponse> {
     const path = this.getPath(`/person/${personId}/tagged_images`, filters)
 
-    return this.get<TaggedImagesResponse>(path)
+    return this.get<PeopleTaggedImagesResponse>(path)
   }
 
   /**
@@ -142,11 +142,11 @@ export class PeopleAPI extends BaseAPI {
    */
   public async translations(
     personId: number,
-    filters?: LanguageFilters
-  ): Promise<TranslationsResponse> {
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleTranslationsResponse> {
     const path = this.getPath(`/person/${personId}/translations`, filters)
 
-    return this.get<TranslationsResponse>(path)
+    return this.get<PeopleTranslationsResponse>(path)
   }
 
   /**
@@ -154,10 +154,12 @@ export class PeopleAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/people/get-latest-person
    */
-  public async latest(filters?: LanguageFilters): Promise<LatestResponse> {
+  public async latest(
+    filters?: PeopleLanguageFilters
+  ): Promise<PeopleLatestResponse> {
     const path = this.getPath('/person/latest', filters)
 
-    return this.get<LatestResponse>(path)
+    return this.get<PeopleLatestResponse>(path)
   }
 
   /**
@@ -165,9 +167,11 @@ export class PeopleAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/people/get-popular-people
    */
-  public async popular(filters?: PopularFilters): Promise<PopularResponse> {
+  public async popular(
+    filters?: PeoplePopularFilters
+  ): Promise<PeoplePopularResponse> {
     const path = this.getPath('/person/popular', filters)
 
-    return this.get<PopularResponse>(path)
+    return this.get<PeoplePopularResponse>(path)
   }
 }
