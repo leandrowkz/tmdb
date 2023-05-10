@@ -40,9 +40,9 @@ console.log(fightClub)
 
 ### Using isolated APIs
 ```ts
-import { Movies } from '@leandrowkz/tmdb'
+import { MoviesAPI } from '@leandrowkz/tmdb'
 
-const movies = new Movies({ apiKey: 'CREATED_ON_TMDB' })
+const movies = new MoviesAPI({ apiKey: 'CREATED_ON_TMDB' })
 
 const fightClub = await movies.details(550)
 
@@ -120,9 +120,9 @@ Since this package is written on TS you will get autocomplete out of the box.
 TMDB documentation: https://developers.themoviedb.org/3/account
 
 ```ts
-import { Account } from '@leandrowkz/tmdb'
+import { AccountAPI } from '@leandrowkz/tmdb'
 
-const account = new Account({ apiKey: 'TMDB_APIKEY' })
+const account = new AccountAPI({ apiKey: 'TMDB_APIKEY' })
 
 account.*
 ```
@@ -146,9 +146,9 @@ account.*
 TMDB documentation: https://developers.themoviedb.org/3/authentication
 
 ```ts
-import { Authentication } from '@leandrowkz/tmdb'
+import { AuthenticationAPI } from '@leandrowkz/tmdb'
 
-const auth = new Authentication({ apiKey: 'TMDB_APIKEY' })
+const auth = new AuthenticationAPI({ apiKey: 'TMDB_APIKEY' })
 
 auth.*
 ```
@@ -166,9 +166,9 @@ auth.*
 TMDB documentation: https://developers.themoviedb.org/3/certifications
 
 ```ts
-import { Certifications } from '@leandrowkz/tmdb'
+import { CertificationsAPI } from '@leandrowkz/tmdb'
 
-const certifications = new Certifications({ apiKey: 'TMDB_APIKEY' })
+const certifications = new CertificationsAPI({ apiKey: 'TMDB_APIKEY' })
 
 certifications.*
 ```
@@ -182,9 +182,9 @@ certifications.*
 TMDB documentation: https://developers.themoviedb.org/3/changes
 
 ```ts
-import { Changes } from '@leandrowkz/tmdb'
+import { ChangesAPI } from '@leandrowkz/tmdb'
 
-const changes = new Changes({ apiKey: 'TMDB_APIKEY' })
+const changes = new ChangesAPI({ apiKey: 'TMDB_APIKEY' })
 
 changes.*
 ```
@@ -199,9 +199,9 @@ changes.*
 TMDB documentation: https://developers.themoviedb.org/3/collections
 
 ```ts
-import { Collections } from '@leandrowkz/tmdb'
+import { CollectionsAPI } from '@leandrowkz/tmdb'
 
-const collections = new Collections({ apiKey: 'TMDB_APIKEY' })
+const collections = new CollectionsAPI({ apiKey: 'TMDB_APIKEY' })
 
 collections.*
 ```
@@ -216,9 +216,9 @@ collections.*
 TMDB documentation: https://developers.themoviedb.org/3/companies
 
 ```ts
-import { Companies } from '@leandrowkz/tmdb'
+import { CompaniesAPI } from '@leandrowkz/tmdb'
 
-const companies = new Companies({ apiKey: 'TMDB_APIKEY' })
+const companies = new CompaniesAPI({ apiKey: 'TMDB_APIKEY' })
 
 companies.*
 ```
@@ -233,9 +233,9 @@ companies.*
 TMDB documentation: https://developers.themoviedb.org/3/configuration
 
 ```ts
-import { Configuration } from '@leandrowkz/tmdb'
+import { ConfigurationAPI } from '@leandrowkz/tmdb'
 
-const configs = new Configuration({ apiKey: 'TMDB_APIKEY' })
+const configs = new ConfigurationAPI({ apiKey: 'TMDB_APIKEY' })
 
 configs.*
 ```
@@ -253,9 +253,9 @@ configs.*
 TMDB documentation: https://developers.themoviedb.org/3/credits
 
 ```ts
-import { Credits } from '@leandrowkz/tmdb'
+import { CreditsAPI } from '@leandrowkz/tmdb'
 
-const credits = new Credits({ apiKey: 'TMDB_APIKEY' })
+const credits = new CreditsAPI({ apiKey: 'TMDB_APIKEY' })
 
 credits.*
 ```
@@ -269,9 +269,9 @@ credits.*
 TMDB documentation: https://developers.themoviedb.org/3/discover
 
 ```ts
-import { Configuration } from '@leandrowkz/tmdb'
+import { ConfigurationAPI } from '@leandrowkz/tmdb'
 
-const discover = new Discover({ apiKey: 'TMDB_APIKEY' })
+const discover = new DiscoverAPI({ apiKey: 'TMDB_APIKEY' })
 
 discover.*
 ```
@@ -285,9 +285,9 @@ discover.*
 TMDB documentation: https://developers.themoviedb.org/3/find
 
 ```ts
-import { Find } from '@leandrowkz/tmdb'
+import { FindAPI } from '@leandrowkz/tmdb'
 
-const find = new Find({ apiKey: 'TMDB_APIKEY' })
+const find = new FindAPI({ apiKey: 'TMDB_APIKEY' })
 
 find.*
 ```
@@ -300,9 +300,9 @@ find.*
 TMDB documentation: https://developers.themoviedb.org/3/genres
 
 ```ts
-import { Genres } from '@leandrowkz/tmdb'
+import { GenresAPI } from '@leandrowkz/tmdb'
 
-const genres = new Genres({ apiKey: 'TMDB_APIKEY' })
+const genres = new GenresAPI({ apiKey: 'TMDB_APIKEY' })
 
 genres.*
 ```
@@ -316,9 +316,9 @@ genres.*
 TMDB documentation: https://developers.themoviedb.org/3/guest-sessions
 
 ```ts
-import { GuestSessions } from '@leandrowkz/tmdb'
+import { GuestSessionsAPI } from '@leandrowkz/tmdb'
 
-const guestSessions = new GuestSessions({ apiKey: 'TMDB_APIKEY' })
+const guestSessions = new GuestSessionsAPI({ apiKey: 'TMDB_APIKEY' })
 
 guestSessions.*
 ```
@@ -333,9 +333,9 @@ guestSessions.*
 TMDB documentation: https://developers.themoviedb.org/3/keywords
 
 ```ts
-import { Keywords } from '@leandrowkz/tmdb'
+import { KeywordsAPI } from '@leandrowkz/tmdb'
 
-const keywords = new Genres({ apiKey: 'TMDB_APIKEY' })
+const keywords = new GenresAPI({ apiKey: 'TMDB_APIKEY' })
 
 keywords.*
 ```
@@ -349,9 +349,9 @@ keywords.*
 TMDB documentation: https://developers.themoviedb.org/3/lists
 
 ```ts
-import { Lists } from '@leandrowkz/tmdb'
+import { ListsAPI } from '@leandrowkz/tmdb'
 
-const lists = new Lists({ apiKey: 'TMDB_APIKEY' })
+const lists = new ListsAPI({ apiKey: 'TMDB_APIKEY' })
 
 lists.*
 ```
@@ -370,9 +370,9 @@ lists.*
 TMDB documentation: https://developers.themoviedb.org/3/movies
 
 ```ts
-import { Movies } from '@leandrowkz/tmdb'
+import { MoviesAPI } from '@leandrowkz/tmdb'
 
-const movies = new Movies({ apiKey: 'TMDB_APIKEY' })
+const movies = new MoviesAPI({ apiKey: 'TMDB_APIKEY' })
 
 movies.*
 ```
@@ -407,9 +407,9 @@ movies.*
 TMDB documentation: https://developers.themoviedb.org/3/networks
 
 ```ts
-import { Networks } from '@leandrowkz/tmdb'
+import { NetworksAPI } from '@leandrowkz/tmdb'
 
-const networks = new Networks({ apiKey: 'TMDB_APIKEY' })
+const networks = new NetworksAPI({ apiKey: 'TMDB_APIKEY' })
 
 networks.*
 ```
@@ -424,9 +424,9 @@ networks.*
 TMDB documentation: https://developers.themoviedb.org/3/people
 
 ```ts
-import { People } from '@leandrowkz/tmdb'
+import { PeopleAPI } from '@leandrowkz/tmdb'
 
-const people = new People({ apiKey: 'TMDB_APIKEY' })
+const people = new PeopleAPI({ apiKey: 'TMDB_APIKEY' })
 
 people.*
 ```
@@ -449,9 +449,9 @@ people.*
 TMDB documentation: https://developers.themoviedb.org/3/reviews
 
 ```ts
-import { Reviews } from '@leandrowkz/tmdb'
+import { ReviewsAPI } from '@leandrowkz/tmdb'
 
-const reviews = new Reviews({ apiKey: 'TMDB_APIKEY' })
+const reviews = new ReviewsAPI({ apiKey: 'TMDB_APIKEY' })
 
 reviews.*
 ```
@@ -464,9 +464,9 @@ reviews.*
 TMDB documentation: https://developers.themoviedb.org/3/search
 
 ```ts
-import { Search } from '@leandrowkz/tmdb'
+import { SearchAPI } from '@leandrowkz/tmdb'
 
-const search = new Search({ apiKey: 'TMDB_APIKEY' })
+const search = new SearchAPI({ apiKey: 'TMDB_APIKEY' })
 
 search.*
 ```
@@ -485,9 +485,9 @@ search.*
 TMDB documentation: https://developers.themoviedb.org/3/trending
 
 ```ts
-import { Trending } from '@leandrowkz/tmdb'
+import { TrendingAPI } from '@leandrowkz/tmdb'
 
-const trending = new Trending({ apiKey: 'TMDB_APIKEY' })
+const trending = new TrendingAPI({ apiKey: 'TMDB_APIKEY' })
 
 trending.*
 ```
@@ -496,13 +496,13 @@ trending.*
 |---------|------------|-----------|
 | **`getTrending`** | `mediaType: 'all' | 'movie' | 'tv' | 'person'`<br/>`timeWindow: 'day' | 'week'` | https://developers.themoviedb.org/3/trending/get-trending |
 
-### TV API
+### TV Shows API
 TMDB documentation: https://developers.themoviedb.org/3/tv
 
 ```ts
-import { TV } from '@leandrowkz/tmdb'
+import { TVShowsAPI } from '@leandrowkz/tmdb'
 
-const tv = new TV({ apiKey: 'TMDB_APIKEY' })
+const tv = new TVShowsAPI({ apiKey: 'TMDB_APIKEY' })
 
 tv.*
 ```
@@ -539,9 +539,9 @@ tv.*
 TMDB documentation: https://developers.themoviedb.org/3/tv-episode-groups/
 
 ```ts
-import { TVEpisodeGroups } from '@leandrowkz/tmdb'
+import { TVEpisodeGroupsAPI } from '@leandrowkz/tmdb'
 
-const tvEpisodeGroups = new TVEpisodeGroups({ apiKey: 'TMDB_APIKEY' })
+const tvEpisodeGroups = new TVEpisodeGroupsAPI({ apiKey: 'TMDB_APIKEY' })
 
 tvEpisodeGroups.*
 ```
@@ -554,9 +554,9 @@ tvEpisodeGroups.*
 TMDB documentation: https://developers.themoviedb.org/3/tv-episodes
 
 ```ts
-import { TVEpisodes } from '@leandrowkz/tmdb'
+import { TVEpisodesAPI } from '@leandrowkz/tmdb'
 
-const tvEpisodes = new TVEpisodes({ apiKey: 'TMDB_APIKEY' })
+const tvEpisodes = new TVEpisodesAPI({ apiKey: 'TMDB_APIKEY' })
 
 tvEpisodes.*
 ```
@@ -578,9 +578,9 @@ tvEpisodes.*
 TMDB documentation: https://developers.themoviedb.org/3/tv-seasons
 
 ```ts
-import { TVSeasons } from '@leandrowkz/tmdb'
+import { TVSeasonsAPI } from '@leandrowkz/tmdb'
 
-const tvSeasons = new TVSeasons({ apiKey: 'TMDB_APIKEY' })
+const tvSeasons = new TVSeasonsAPI({ apiKey: 'TMDB_APIKEY' })
 
 tvSeasons.*
 ```
@@ -601,9 +601,9 @@ tvSeasons.*
 TMDB documentation: https://developers.themoviedb.org/3/watch-providers
 
 ```ts
-import { WatchProviders } from '@leandrowkz/tmdb'
+import { WatchProvidersAPI } from '@leandrowkz/tmdb'
 
-const wp = new WatchProviders({ apiKey: 'TMDB_APIKEY' })
+const wp = new WatchProvidersAPI({ apiKey: 'TMDB_APIKEY' })
 
 wp.*
 ```

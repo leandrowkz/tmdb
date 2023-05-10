@@ -1,5 +1,5 @@
-import { CertificationCode } from 'src/tmdb/apis/certifications/types'
-import { AppendToResponse, CountryCode, ExternalId, LanguageCode } from '.'
+import type { CertificationCode } from 'src/apis/certifications/types'
+import type { AppendToResponse, CountryCode, ExternalId, LanguageCode } from '.'
 
 type SortBy =
   | 'popularity.asc'

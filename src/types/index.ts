@@ -696,3 +696,9 @@ export type Video = {
   size: number
   type: 'Trailer'
 }
+
+export type AvailableRegion = {
+  iso_3166_1: CountryCode
+  english_name: string
+  native_name: string
+}
