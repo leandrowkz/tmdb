@@ -1,14 +1,14 @@
 import { BaseAPI } from '../base'
 import {
-  CreateGuestSessionResponse,
-  CreateRequestTokenResponse,
-  CreateSessionBody,
-  CreateSessionConvertV4Body,
-  CreateSessionResponse,
-  CreateSessionWithLoginBody,
-  CreateSessionWithLoginResponse,
-  DeleteSessionBody,
-  DeleteSessionResponse,
+  AuthenticationCreateGuestSessionResponse,
+  AuthenticationCreateRequestTokenResponse,
+  AuthenticationCreateSessionBody,
+  AuthenticationCreateSessionConvertV4Body,
+  AuthenticationCreateSessionResponse,
+  AuthenticationCreateSessionWithLoginBody,
+  AuthenticationCreateSessionWithLoginResponse,
+  AuthenticationDeleteSessionBody,
+  AuthenticationDeleteSessionResponse,
 } from './types'
 
 export class AuthenticationAPI extends BaseAPI {
@@ -26,10 +26,10 @@ export class AuthenticationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/authentication/create-guest-session
    */
-  public async createGuestSession(): Promise<CreateGuestSessionResponse> {
+  public async createGuestSession(): Promise<AuthenticationCreateGuestSessionResponse> {
     const path = this.getPath('/authentication/guest_session/new')
 
-    return this.get<CreateGuestSessionResponse>(path)
+    return this.get<AuthenticationCreateGuestSessionResponse>(path)
   }
 
   /**
@@ -38,10 +38,10 @@ export class AuthenticationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/authentication/create-request-token
    */
-  public async createRequestToken(): Promise<CreateRequestTokenResponse> {
+  public async createRequestToken(): Promise<AuthenticationCreateRequestTokenResponse> {
     const path = this.getPath('/authentication/token/new')
 
-    return this.get<CreateRequestTokenResponse>(path)
+    return this.get<AuthenticationCreateRequestTokenResponse>(path)
   }
 
   /**
@@ -51,11 +51,11 @@ export class AuthenticationAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/authentication/create-session
    */
   public async createSession(
-    data: CreateSessionBody
-  ): Promise<CreateSessionResponse> {
+    data: AuthenticationCreateSessionBody
+  ): Promise<AuthenticationCreateSessionResponse> {
     const path = this.getPath('/authentication/session/new')
 
-    return this.post<CreateSessionResponse>(path, data)
+    return this.post<AuthenticationCreateSessionResponse>(path, data)
   }
 
   /**
@@ -72,11 +72,11 @@ export class AuthenticationAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/authentication/validate-request-token
    */
   public async createSessionWithLogin(
-    data: CreateSessionWithLoginBody
-  ): Promise<CreateSessionWithLoginResponse> {
+    data: AuthenticationCreateSessionWithLoginBody
+  ): Promise<AuthenticationCreateSessionWithLoginResponse> {
     const path = this.getPath('/authentication/token/validate_with_login')
 
-    return this.post<CreateSessionWithLoginResponse>(path, data)
+    return this.post<AuthenticationCreateSessionWithLoginResponse>(path, data)
   }
 
   /**
@@ -87,11 +87,11 @@ export class AuthenticationAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/authentication/create-session-from-v4-access-token
    */
   public async createSessionConvertV4(
-    data: CreateSessionConvertV4Body
-  ): Promise<CreateSessionResponse> {
+    data: AuthenticationCreateSessionConvertV4Body
+  ): Promise<AuthenticationCreateSessionResponse> {
     const path = this.getPath('/authentication/session/convert/4')
 
-    return this.post<CreateSessionResponse>(path, data)
+    return this.post<AuthenticationCreateSessionResponse>(path, data)
   }
 
   /**
@@ -101,10 +101,10 @@ export class AuthenticationAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/authentication/delete-session
    */
   public async deleteSession(
-    data: DeleteSessionBody
-  ): Promise<DeleteSessionResponse> {
+    data: AuthenticationDeleteSessionBody
+  ): Promise<AuthenticationDeleteSessionResponse> {
     const path = this.getPath('/authentication/session')
 
-    return this.delete<DeleteSessionResponse>(path, data)
+    return this.delete<AuthenticationDeleteSessionResponse>(path, data)
   }
 }

@@ -1,48 +1,48 @@
 import { TMDBResponse } from 'src/types'
 
 // Body
-export type CreateSessionBody = {
+export type AuthenticationCreateSessionBody = {
   request_token: string
 }
 
-export type CreateSessionWithLoginBody = {
+export type AuthenticationCreateSessionWithLoginBody = {
   username: string
   password: string
   request_token: string
 }
 
-export type CreateSessionConvertV4Body = {
+export type AuthenticationCreateSessionConvertV4Body = {
   access_token: string
 }
 
-export type DeleteSessionBody = {
+export type AuthenticationDeleteSessionBody = {
   session_id: string
 }
 
 // Responses
-export type CreateGuestSessionResponse = TMDBResponse<{
+export type AuthenticationCreateGuestSessionResponse = TMDBResponse<{
   success: boolean
   guest_session_id: string
   expires_at: string
 }>
 
-export type CreateRequestTokenResponse = TMDBResponse<{
+export type AuthenticationCreateRequestTokenResponse = TMDBResponse<{
   success: boolean
   token: string
   expires_at: string
 }>
 
-export type CreateSessionResponse = TMDBResponse<{
+export type AuthenticationCreateSessionResponse = TMDBResponse<{
   success: boolean
   session_id: string
 }>
 
-export type CreateSessionWithLoginResponse = TMDBResponse<{
+export type AuthenticationCreateSessionWithLoginResponse = TMDBResponse<{
   success: boolean
   token: string
   expires_at: string
 }>
 
-export type DeleteSessionResponse = TMDBResponse<{
+export type AuthenticationDeleteSessionResponse = TMDBResponse<{
   success: boolean
 }>
