@@ -1,5 +1,5 @@
 import { BaseAPI } from '../base'
-import { GenresFilters, GenresResponse } from './types'
+import type { GenresFilters, GenresResponse } from './types'
 
 export class GenresAPI extends BaseAPI {
   /**

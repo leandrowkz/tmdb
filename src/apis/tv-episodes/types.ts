@@ -1,4 +1,4 @@
-import {
+import type {
   Department,
   ExternalId,
   GenericResponse,
@@ -9,9 +9,9 @@ import {
   Translation,
   Video,
 } from 'src/types'
-import { PersonCast, PersonCrew } from '../people/types'
-import { TVShowChanges } from '../tv-shows/types'
-import { Filters } from 'src/types/filters'
+import type { PersonCast, PersonCrew } from '../people/types'
+import type { TVShowChanges } from '../tv-shows/types'
+import type { Filters } from 'src/types/filters'
 
 export type TVEpisode = {
   id: number

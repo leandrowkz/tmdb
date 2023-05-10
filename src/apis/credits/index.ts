@@ -1,5 +1,5 @@
 import { BaseAPI } from '../base'
-import { CreditDetailsResponse } from './types'
+import type { CreditDetailsResponse } from './types'
 
 export class CreditsAPI extends BaseAPI {
   /**

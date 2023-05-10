@@ -1,5 +1,5 @@
-import { TMDBResponse } from 'src/types'
-import { Filters } from 'src/types/filters'
+import type { TMDBResponse } from 'src/types'
+import type { Filters } from 'src/types/filters'
 
 export enum GenreCode {
   ACTION = 28,

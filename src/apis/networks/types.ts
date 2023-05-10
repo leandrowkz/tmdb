@@ -1,4 +1,4 @@
-import { Image, Nullable, TMDBResponse } from 'src/types'
+import type { Image, Nullable, TMDBResponse } from 'src/types'
 
 export type Network = {
   id: number

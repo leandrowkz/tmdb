@@ -1,5 +1,5 @@
 import { BaseAPI } from '../base'
-import { FindFilters, FindResponse } from './types'
+import type { FindFilters, FindResponse } from './types'
 
 export class FindAPI extends BaseAPI {
   /**

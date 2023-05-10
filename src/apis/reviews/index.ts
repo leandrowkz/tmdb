@@ -1,5 +1,5 @@
 import { BaseAPI } from '../base'
-import { RewviewDetailsResponse } from './types'
+import type { ReviewDetailsResponse } from './types'
 
 export class ReviewsAPI extends BaseAPI {
   /**
@@ -7,9 +7,9 @@ export class ReviewsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/reviews/get-review-details
    */
-  public async details(reviewId: string): Promise<RewviewDetailsResponse> {
+  public async details(reviewId: string): Promise<ReviewDetailsResponse> {
     const path = this.getPath(`/review/${reviewId}`)
 
-    return this.get<RewviewDetailsResponse>(path)
+    return this.get<ReviewDetailsResponse>(path)
   }
 }

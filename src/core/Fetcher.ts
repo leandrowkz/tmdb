@@ -1,4 +1,4 @@
-import { RequestBody, RequestPayload } from '../types'
+import type { RequestBody, RequestPayload } from '../types'
 
 export abstract class Fetcher {
   private headers: Headers

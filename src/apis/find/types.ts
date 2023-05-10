@@ -1,10 +1,10 @@
-import { TMDBResponse } from 'src/types'
-import { PersonItem } from '../people/types'
-import { TVShowItem } from '../tv-shows/types'
-import { TVEpisodeItem } from '../tv-episodes/types'
-import { TVSeasonItem } from '../tv-seasons/types'
-import { MovieItem } from '../movies/types'
-import { Filters } from 'src/types/filters'
+import type { TMDBResponse } from 'src/types'
+import type { PersonItem } from '../people/types'
+import type { TVShowItem } from '../tv-shows/types'
+import type { TVEpisodeItem } from '../tv-episodes/types'
+import type { TVSeasonItem } from '../tv-seasons/types'
+import type { MovieItem } from '../movies/types'
+import type { Filters } from 'src/types/filters'
 
 export type FindFilters = Pick<Filters, 'language'> &
   Required<Pick<Filters, 'external_source'>>

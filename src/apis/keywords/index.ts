@@ -1,5 +1,5 @@
 import { BaseAPI } from '../base'
-import {
+import type {
   KeywordDetailsResponse,
   KeywordMoviesFilters,
   KeywordMoviesResponse,

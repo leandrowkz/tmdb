@@ -1,6 +1,6 @@
-import { Image, Nullable, Translation, TMDBResponse } from 'src/types'
-import { MovieItem } from '../movies/types'
-import { Filters } from 'src/types/filters'
+import type { Image, Nullable, Translation, TMDBResponse } from 'src/types'
+import type { MovieItem } from '../movies/types'
+import type { Filters } from 'src/types/filters'
 
 export type Collection = {
   id: number

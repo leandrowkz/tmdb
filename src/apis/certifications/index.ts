@@ -1,5 +1,8 @@
 import { BaseAPI } from '../base'
-import { CertificationMovieResponse, CertificationTVResponse } from './types'
+import type {
+  CertificationMovieResponse,
+  CertificationTVResponse,
+} from './types'
 
 export class CertificationsAPI extends BaseAPI {
   /**

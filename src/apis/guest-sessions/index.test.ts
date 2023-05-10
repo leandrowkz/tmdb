@@ -1,8 +1,8 @@
 import { GuestSessionsAPI } from '.'
-import { RatedFilters } from './types'
+import type { GuestSessionsRatedFilters } from './types'
 
 const makeSUT = () => {
-  const filters: RatedFilters = {
+  const filters: GuestSessionsRatedFilters = {
     language: 'en-US',
     sort_by: 'created_at.asc',
   }

@@ -1,4 +1,4 @@
-import {
+import type {
   Department,
   ExternalId,
   Image,
@@ -8,9 +8,9 @@ import {
   Translation,
   WithId,
 } from 'src/types'
-import { MovieItem } from '../movies/types'
-import { TVShowItem } from '../tv-shows/types'
-import { Filters } from 'src/types/filters'
+import type { MovieItem } from '../movies/types'
+import type { TVShowItem } from '../tv-shows/types'
+import type { Filters } from 'src/types/filters'
 
 export type Person = {
   id: number

@@ -1,4 +1,4 @@
-import {
+import type {
   CountryCode,
   Image,
   LanguageCode,
@@ -13,15 +13,15 @@ import {
   ExternalId,
   GenericResponse,
 } from 'src/types'
-import { Collection } from '../collections/types'
-import { Genre, GenreCode } from '../genres/types'
-import { CompanyItem } from '../companies/types'
-import { PersonCast, PersonCrew } from '../people/types'
-import { CertificationCode } from '../certifications/types'
-import { ListItem } from '../lists/types'
-import { ReviewItem } from '../reviews/types'
-import { WatchProvider } from '../watch-providers/types'
-import { Filters } from 'src/types/filters'
+import type { Collection } from '../collections/types'
+import type { Genre, GenreCode } from '../genres/types'
+import type { CompanyItem } from '../companies/types'
+import type { PersonCast, PersonCrew } from '../people/types'
+import type { CertificationCode } from '../certifications/types'
+import type { ListItem } from '../lists/types'
+import type { ReviewItem } from '../reviews/types'
+import type { WatchProvider } from '../watch-providers/types'
+import type { Filters } from 'src/types/filters'
 
 export type Movie = {
   id: number

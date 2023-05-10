@@ -1,4 +1,4 @@
-import {
+import type {
   Country,
   CountryCode,
   Department,
@@ -13,17 +13,17 @@ import {
   Translation,
   Video,
 } from 'src/types'
-import { Genre, GenreCode } from '../genres/types'
-import { TVEpisode } from '../tv-episodes/types'
-import { NetworkItem } from '../networks/types'
-import { CompanyItem } from '../companies/types'
-import { TVSeasonItem } from '../tv-seasons/types'
-import { PersonCast, PersonCrew } from '../people/types'
-import { TVEpisodeGroup } from '../tv-episode-groups/types'
-import { Keyword } from '../keywords/types'
-import { ReviewItem } from '../reviews/types'
-import { WatchProvider } from '../watch-providers/types'
-import { Filters } from 'src/types/filters'
+import type { Genre, GenreCode } from '../genres/types'
+import type { TVEpisode } from '../tv-episodes/types'
+import type { NetworkItem } from '../networks/types'
+import type { CompanyItem } from '../companies/types'
+import type { TVSeasonItem } from '../tv-seasons/types'
+import type { PersonCast, PersonCrew } from '../people/types'
+import type { TVEpisodeGroup } from '../tv-episode-groups/types'
+import type { Keyword } from '../keywords/types'
+import type { ReviewItem } from '../reviews/types'
+import type { WatchProvider } from '../watch-providers/types'
+import type { Filters } from 'src/types/filters'
 
 // Models/Entities
 export type TVShowAuthor = {

@@ -1,5 +1,5 @@
 import { Fetcher } from 'src/core/Fetcher'
-import { TMDBOptions } from '../../types'
+import type { TMDBOptions } from '../../types'
 
 export class BaseAPI extends Fetcher {
   static API_URL_V3 = 'https://api.themoviedb.org/3'
