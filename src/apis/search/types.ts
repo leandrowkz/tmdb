@@ -11,36 +11,36 @@ import { Filters } from 'src/types/filters'
 export type SearchFilters = Required<Pick<Filters, 'query'>> &
   Pick<Filters, 'page'>
 
-export type CollectionsFilters = SearchFilters & Pick<Filters, 'language'>
+export type SearchCollectionsFilters = SearchFilters & Pick<Filters, 'language'>
 
-export type MoviesFilters = SearchFilters &
+export type SearchMoviesFilters = SearchFilters &
   Pick<
     Filters,
     'language' | 'include_adult' | 'region' | 'year' | 'primary_release_year'
   >
 
-export type MultiSearchFilters = SearchFilters &
+export type SearchMultiSearchFilters = SearchFilters &
   Pick<Filters, 'language' | 'include_adult' | 'region'>
 
-export type PeopleFilters = SearchFilters &
+export type SearchPeopleFilters = SearchFilters &
   Pick<Filters, 'language' | 'include_adult' | 'region'>
 
-export type TVShowsFilters = SearchFilters &
+export type SearchTVShowsFilters = SearchFilters &
   Pick<Filters, 'language' | 'include_adult' | 'first_air_date_year'>
 
 // Responses
 type MultiSearch = MovieItem | TVShowItem | PersonItem
 
-export type CompaniesResponse = TMDBResponseList<CompanyItem[]>
+export type SearchCompaniesResponse = TMDBResponseList<CompanyItem[]>
 
-export type CollectionsResponse = TMDBResponseList<CollectionItem[]>
+export type SearchCollectionsResponse = TMDBResponseList<CollectionItem[]>
 
-export type KeywordsResponse = TMDBResponseList<Keyword[]>
+export type SearchKeywordsResponse = TMDBResponseList<Keyword[]>
 
-export type MoviesResponse = TMDBResponseList<MovieItem[]>
+export type SearchMoviesResponse = TMDBResponseList<MovieItem[]>
 
-export type MultiSearchResponse = TMDBResponseList<MultiSearch[]>
+export type SearchMultiSearchResponse = TMDBResponseList<MultiSearch[]>
 
-export type PeopleResponse = TMDBResponseList<PersonItem[]>
+export type SearchPeopleResponse = TMDBResponseList<PersonItem[]>
 
-export type TVShowsResponse = TMDBResponseList<TVShowItem[]>
+export type SearchTVShowsResponse = TMDBResponseList<TVShowItem[]>

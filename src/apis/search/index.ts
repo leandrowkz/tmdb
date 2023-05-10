@@ -1,18 +1,18 @@
 import { BaseAPI } from '../base'
 import {
-  CollectionsFilters,
-  CollectionsResponse,
-  CompaniesResponse,
-  KeywordsResponse,
-  MoviesFilters,
-  MoviesResponse,
-  MultiSearchFilters,
-  MultiSearchResponse,
-  PeopleFilters,
-  PeopleResponse,
+  SearchCollectionsFilters,
+  SearchCollectionsResponse,
+  SearchCompaniesResponse,
+  SearchKeywordsResponse,
+  SearchMoviesFilters,
+  SearchMoviesResponse,
+  SearchMultiSearchFilters,
+  SearchMultiSearchResponse,
+  SearchPeopleFilters,
+  SearchPeopleResponse,
   SearchFilters,
-  TVShowsFilters,
-  TVShowsResponse,
+  SearchTVShowsFilters,
+  SearchTVShowsResponse,
 } from './types'
 
 export class SearchAPI extends BaseAPI {
@@ -21,10 +21,12 @@ export class SearchAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/search/search-companies
    */
-  public async companies(filters: SearchFilters): Promise<CompaniesResponse> {
+  public async companies(
+    filters: SearchFilters
+  ): Promise<SearchCompaniesResponse> {
     const path = this.getPath('/search/company', filters)
 
-    return this.get<CompaniesResponse>(path)
+    return this.get<SearchCompaniesResponse>(path)
   }
 
   /**
@@ -33,11 +35,11 @@ export class SearchAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/search/search-collections
    */
   public async collections(
-    filters: CollectionsFilters
-  ): Promise<CollectionsResponse> {
+    filters: SearchCollectionsFilters
+  ): Promise<SearchCollectionsResponse> {
     const path = this.getPath('/search/collection', filters)
 
-    return this.get<CollectionsResponse>(path)
+    return this.get<SearchCollectionsResponse>(path)
   }
 
   /**
@@ -45,10 +47,12 @@ export class SearchAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/search/search-keywords
    */
-  public async keywords(filters: SearchFilters): Promise<KeywordsResponse> {
+  public async keywords(
+    filters: SearchFilters
+  ): Promise<SearchKeywordsResponse> {
     const path = this.getPath('/search/keyword', filters)
 
-    return this.get<KeywordsResponse>(path)
+    return this.get<SearchKeywordsResponse>(path)
   }
 
   /**
@@ -56,10 +60,12 @@ export class SearchAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/search/search-movies
    */
-  public async movies(filters: MoviesFilters): Promise<MoviesResponse> {
+  public async movies(
+    filters: SearchMoviesFilters
+  ): Promise<SearchMoviesResponse> {
     const path = this.getPath('/search/movie', filters)
 
-    return this.get<MoviesResponse>(path)
+    return this.get<SearchMoviesResponse>(path)
   }
 
   /**
@@ -69,11 +75,11 @@ export class SearchAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/search/multi-search
    */
   public async multiSearch(
-    filters: MultiSearchFilters
-  ): Promise<MultiSearchResponse> {
+    filters: SearchMultiSearchFilters
+  ): Promise<SearchMultiSearchResponse> {
     const path = this.getPath('/search/multi', filters)
 
-    return this.get<MultiSearchResponse>(path)
+    return this.get<SearchMultiSearchResponse>(path)
   }
 
   /**
@@ -81,10 +87,12 @@ export class SearchAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/search/search-people
    */
-  public async people(filters: PeopleFilters): Promise<PeopleResponse> {
+  public async people(
+    filters: SearchPeopleFilters
+  ): Promise<SearchPeopleResponse> {
     const path = this.getPath('/search/person', filters)
 
-    return this.get<PeopleResponse>(path)
+    return this.get<SearchPeopleResponse>(path)
   }
 
   /**
@@ -92,9 +100,11 @@ export class SearchAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/search/search-tv-shows
    */
-  public async tvShows(filters: TVShowsFilters): Promise<TVShowsResponse> {
+  public async tvShows(
+    filters: SearchTVShowsFilters
+  ): Promise<SearchTVShowsResponse> {
     const path = this.getPath('/search/tv', filters)
 
-    return this.get<TVShowsResponse>(path)
+    return this.get<SearchTVShowsResponse>(path)
   }
 }
