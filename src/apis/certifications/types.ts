@@ -54,13 +54,13 @@ export type CertificationCode =
   | 'M/18'
   | 'Públicos'
 
-export interface Certification {
+export type Certification = {
   certification: CertificationCode
   meaning: string
   order: number
 }
 
-export type MovieResponse = TMDBResponse<{
+export type CertificationMovieResponse = TMDBResponse<{
   certifications: {
     US: Certification[]
     CA: Certification[]
@@ -74,7 +74,7 @@ export type MovieResponse = TMDBResponse<{
   }
 }>
 
-export type TVResponse = TMDBResponse<{
+export type CertificationTVResponse = TMDBResponse<{
   certifications: {
     US: Certification[]
     CA: Certification[]
