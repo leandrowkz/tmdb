@@ -8,8 +8,8 @@ export type Keyword = {
 }
 
 // Filters
-export type MoviesFilters = Pick<Filters, 'include_adult' | 'language'>
+export type KeywordMoviesFilters = Pick<Filters, 'include_adult' | 'language'>
 
 // Responses
-export type DetailsResponse = TMDBResponse<Keyword>
-export type MoviesResponse = WithId<TMDBResponseList<MovieItem[]>>
+export type KeywordDetailsResponse = TMDBResponse<Keyword>
+export type KeywordMoviesResponse = WithId<TMDBResponseList<MovieItem[]>>
