@@ -1,22 +1,22 @@
 import { BaseAPI } from '../base'
 import {
-  AddItemBody,
-  AddItemFilters,
-  AddItemResponse,
-  ClearListFilters,
-  ClearListResponse,
-  CreateListBody,
-  CreateListFilters,
-  CreateListResponse,
-  DeleteListFilters,
-  DeleteListResponse,
-  DetailsFilters,
-  DetailsResponse,
-  ItemStatusFilters,
-  ItemStatusResponse,
-  RemoveItemBody,
-  RemoveItemFilters,
-  RemoveItemResponse,
+  ListAddItemBody,
+  ListAddItemFilters,
+  ListAddItemResponse,
+  ListClearListFilters,
+  ListClearListResponse,
+  ListCreateListBody,
+  ListCreateListFilters,
+  ListCreateListResponse,
+  ListDeleteListFilters,
+  ListDeleteListResponse,
+  ListDetailsFilters,
+  ListDetailsResponse,
+  ListItemStatusFilters,
+  ListItemStatusResponse,
+  ListRemoveItemBody,
+  ListRemoveItemFilters,
+  ListRemoveItemResponse,
 } from './types'
 
 export class ListsAPI extends BaseAPI {
@@ -27,11 +27,11 @@ export class ListsAPI extends BaseAPI {
    */
   public async details(
     listId: string | number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: ListDetailsFilters
+  ): Promise<ListDetailsResponse> {
     const path = this.getPath(`/list/${listId}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<ListDetailsResponse>(path)
   }
 
   /**
@@ -41,11 +41,11 @@ export class ListsAPI extends BaseAPI {
    */
   public async itemStatus(
     listId: string | number,
-    filters: ItemStatusFilters
-  ): Promise<ItemStatusResponse> {
+    filters: ListItemStatusFilters
+  ): Promise<ListItemStatusResponse> {
     const path = this.getPath(`/list/${listId}/item_status`, filters)
 
-    return this.get<ItemStatusResponse>(path)
+    return this.get<ListItemStatusResponse>(path)
   }
 
   /**
@@ -54,12 +54,12 @@ export class ListsAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/lists/create-list
    */
   public async create(
-    data: CreateListBody,
-    filters: CreateListFilters
-  ): Promise<CreateListResponse> {
+    data: ListCreateListBody,
+    filters: ListCreateListFilters
+  ): Promise<ListCreateListResponse> {
     const path = this.getPath('/list', filters)
 
-    return this.post<CreateListResponse>(path, data)
+    return this.post<ListCreateListResponse>(path, data)
   }
 
   /**
@@ -69,12 +69,12 @@ export class ListsAPI extends BaseAPI {
    */
   public async addItem(
     listId: string | number,
-    data: AddItemBody,
-    filters: AddItemFilters
-  ): Promise<AddItemResponse> {
+    data: ListAddItemBody,
+    filters: ListAddItemFilters
+  ): Promise<ListAddItemResponse> {
     const path = this.getPath(`/list/${listId}/add_item`, filters)
 
-    return this.post<AddItemResponse>(path, data)
+    return this.post<ListAddItemResponse>(path, data)
   }
 
   /**
@@ -84,12 +84,12 @@ export class ListsAPI extends BaseAPI {
    */
   public async removeItem(
     listId: string | number,
-    data: RemoveItemBody,
-    filters: RemoveItemFilters
-  ): Promise<RemoveItemResponse> {
+    data: ListRemoveItemBody,
+    filters: ListRemoveItemFilters
+  ): Promise<ListRemoveItemResponse> {
     const path = this.getPath(`/list/${listId}/remove_item`, filters)
 
-    return this.post<RemoveItemResponse>(path, data)
+    return this.post<ListRemoveItemResponse>(path, data)
   }
 
   /**
@@ -99,11 +99,11 @@ export class ListsAPI extends BaseAPI {
    */
   public async clear(
     listId: string | number,
-    filters: ClearListFilters
-  ): Promise<ClearListResponse> {
+    filters: ListClearListFilters
+  ): Promise<ListClearListResponse> {
     const path = this.getPath(`/list/${listId}/clear`, filters)
 
-    return this.post<ClearListResponse>(path)
+    return this.post<ListClearListResponse>(path)
   }
 
   /**
@@ -113,10 +113,10 @@ export class ListsAPI extends BaseAPI {
    */
   public async remove(
     listId: string | number,
-    filters: DeleteListFilters
-  ): Promise<DeleteListResponse> {
+    filters: ListDeleteListFilters
+  ): Promise<ListDeleteListResponse> {
     const path = this.getPath(`/list/${listId}`, filters)
 
-    return this.delete<DeleteListResponse>(path)
+    return this.delete<ListDeleteListResponse>(path)
   }
 }

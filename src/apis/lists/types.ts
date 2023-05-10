@@ -36,50 +36,50 @@ export type ListItem = Pick<
 type MediaIdFilter = Required<Pick<Filters, 'media_id'>>
 type SessionIdFilter = Required<Pick<Filters, 'session_id'>>
 
-export type DetailsFilters = Pick<Filters, 'language'>
+export type ListDetailsFilters = Pick<Filters, 'language'>
 
-export type ItemStatusFilters = Pick<Filters, 'movie_id'>
+export type ListItemStatusFilters = Pick<Filters, 'movie_id'>
 
-export type CreateListFilters = SessionIdFilter
+export type ListCreateListFilters = SessionIdFilter
 
-export type AddItemFilters = SessionIdFilter
+export type ListAddItemFilters = SessionIdFilter
 
-export type RemoveItemFilters = SessionIdFilter
+export type ListRemoveItemFilters = SessionIdFilter
 
-export type ClearListFilters = SessionIdFilter & Pick<Filters, 'confirm'>
+export type ListClearListFilters = SessionIdFilter & Pick<Filters, 'confirm'>
 
-export type DeleteListFilters = SessionIdFilter
+export type ListDeleteListFilters = SessionIdFilter
 
 // Body
-export type CreateListBody = {
+export type ListCreateListBody = {
   name: string
   description: string
   language: LanguageCode
 }
 
-export type AddItemBody = MediaIdFilter
+export type ListAddItemBody = MediaIdFilter
 
-export type RemoveItemBody = MediaIdFilter
+export type ListRemoveItemBody = MediaIdFilter
 
 // Responses
-export type DetailsResponse = TMDBResponse<List>
+export type ListDetailsResponse = TMDBResponse<List>
 
-export type ItemStatusResponse = TMDBResponse<{
+export type ListItemStatusResponse = TMDBResponse<{
   id: string
   item_present: boolean
 }>
 
-export type CreateListResponse = TMDBResponse<
+export type ListCreateListResponse = TMDBResponse<
   GenericResponse & {
     list_id: number
     success: boolean
   }
 >
 
-export type AddItemResponse = TMDBResponse<GenericResponse>
+export type ListAddItemResponse = TMDBResponse<GenericResponse>
 
-export type RemoveItemResponse = TMDBResponse<GenericResponse>
+export type ListRemoveItemResponse = TMDBResponse<GenericResponse>
 
-export type ClearListResponse = TMDBResponse<GenericResponse>
+export type ListClearListResponse = TMDBResponse<GenericResponse>
 
-export type DeleteListResponse = TMDBResponse<GenericResponse>
+export type ListDeleteListResponse = TMDBResponse<GenericResponse>
