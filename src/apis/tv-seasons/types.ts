@@ -82,42 +82,49 @@ export type TVSeasonVideos = {
 }
 
 // Filters
-export type DetailsFilters = Pick<Filters, 'language' | 'append_to_response'>
+export type TVSeasonDetailsFilters = Pick<
+  Filters,
+  'language' | 'append_to_response'
+>
 
-export type AccountStatesFilters = Pick<
+export type TVSeasonAccountStatesFilters = Pick<
   Filters,
   'language' | 'guest_session_id' | 'session_id'
 >
 
-export type AggregateCreditsFilters = Pick<Filters, 'language'>
+export type TVSeasonAggregateCreditsFilters = Pick<Filters, 'language'>
 
-export type ChangesFilters = Pick<Filters, 'page' | 'start_date' | 'end_date'>
+export type TVSeasonChangesFilters = Pick<
+  Filters,
+  'page' | 'start_date' | 'end_date'
+>
 
-export type CreditsFilters = Pick<Filters, 'language'>
+export type TVSeasonCreditsFilters = Pick<Filters, 'language'>
 
-export type ExternalIdsFilters = Pick<Filters, 'language'>
+export type TVSeasonExternalIdsFilters = Pick<Filters, 'language'>
 
-export type ImagesFilters = Pick<Filters, 'language'>
+export type TVSeasonImagesFilters = Pick<Filters, 'language'>
 
-export type TranslationFilters = Pick<Filters, 'language'>
+export type TVSeasonTranslationFilters = Pick<Filters, 'language'>
 
-export type VideosFilters = Pick<Filters, 'language'>
+export type TVSeasonVideosFilters = Pick<Filters, 'language'>
 
 // Responses
-export type DetailsResponse = TMDBResponse<TVSeason>
+export type TVSeasonDetailsResponse = TMDBResponse<TVSeason>
 
-export type AccountStatesResponse = TMDBResponse<TVSeasonAccountStates>
+export type TVSeasonAccountStatesResponse = TMDBResponse<TVSeasonAccountStates>
 
-export type AggregateCreditsResponse = TMDBResponse<TVSeasonAggregateCredits>
+export type TVSeasonAggregateCreditsResponse =
+  TMDBResponse<TVSeasonAggregateCredits>
 
-export type ChangesResponse = TMDBResponse<TVSeasonChanges>
+export type TVSeasonChangesResponse = TMDBResponse<TVSeasonChanges>
 
-export type CreditsResponse = TMDBResponse<TVSeasonCredits>
+export type TVSeasonCreditsResponse = TMDBResponse<TVSeasonCredits>
 
-export type ExternalIdsResponse = TMDBResponse<ExternalId>
+export type TVSeasonExternalIdsResponse = TMDBResponse<ExternalId>
 
-export type ImagesResponse = TMDBResponse<TVSeasonImages>
+export type TVSeasonImagesResponse = TMDBResponse<TVSeasonImages>
 
-export type TranslationsResponse = TMDBResponse<TVSeasonTranslations>
+export type TVSeasonTranslationsResponse = TMDBResponse<TVSeasonTranslations>
 
-export type VideosResponse = TMDBResponse<TVSeasonVideos>
+export type TVSeasonVideosResponse = TMDBResponse<TVSeasonVideos>

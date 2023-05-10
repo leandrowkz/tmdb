@@ -1,23 +1,23 @@
 import { BaseAPI } from '../base'
 import {
-  AccountStatesFilters,
-  AccountStatesResponse,
-  AggregateCreditsFilters,
-  AggregateCreditsResponse,
-  ChangesFilters,
-  ChangesResponse,
-  CreditsFilters,
-  CreditsResponse,
-  DetailsFilters,
-  DetailsResponse,
-  ExternalIdsFilters,
-  ExternalIdsResponse,
-  ImagesFilters,
-  ImagesResponse,
-  TranslationFilters,
-  TranslationsResponse,
-  VideosFilters,
-  VideosResponse,
+  TVSeasonAccountStatesFilters,
+  TVSeasonAccountStatesResponse,
+  TVSeasonAggregateCreditsFilters,
+  TVSeasonAggregateCreditsResponse,
+  TVSeasonChangesFilters,
+  TVSeasonChangesResponse,
+  TVSeasonCreditsFilters,
+  TVSeasonCreditsResponse,
+  TVSeasonDetailsFilters,
+  TVSeasonDetailsResponse,
+  TVSeasonExternalIdsFilters,
+  TVSeasonExternalIdsResponse,
+  TVSeasonImagesFilters,
+  TVSeasonImagesResponse,
+  TVSeasonTranslationFilters,
+  TVSeasonTranslationsResponse,
+  TVSeasonVideosFilters,
+  TVSeasonVideosResponse,
 } from './types'
 
 export class TVSeasonsAPI extends BaseAPI {
@@ -29,11 +29,11 @@ export class TVSeasonsAPI extends BaseAPI {
   public async details(
     tvShowId: number,
     seasonNumber: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: TVSeasonDetailsFilters
+  ): Promise<TVSeasonDetailsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/season/${seasonNumber}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<TVSeasonDetailsResponse>(path)
   }
 
   /**
@@ -44,14 +44,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async accountStates(
     tvShowId: number,
     seasonNumber: number,
-    filters?: AccountStatesFilters
-  ): Promise<AccountStatesResponse> {
+    filters?: TVSeasonAccountStatesFilters
+  ): Promise<TVSeasonAccountStatesResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/account_states`,
       filters
     )
 
-    return this.get<AccountStatesResponse>(path)
+    return this.get<TVSeasonAccountStatesResponse>(path)
   }
 
   /**
@@ -66,14 +66,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async aggregateCredits(
     tvShowId: number,
     seasonNumber: number,
-    filters?: AggregateCreditsFilters
-  ): Promise<AggregateCreditsResponse> {
+    filters?: TVSeasonAggregateCreditsFilters
+  ): Promise<TVSeasonAggregateCreditsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/aggregate_credits`,
       filters
     )
 
-    return this.get<AggregateCreditsResponse>(path)
+    return this.get<TVSeasonAggregateCreditsResponse>(path)
   }
 
   /**
@@ -86,11 +86,11 @@ export class TVSeasonsAPI extends BaseAPI {
    */
   public async changes(
     seasonId: number,
-    filters?: ChangesFilters
-  ): Promise<ChangesResponse> {
+    filters?: TVSeasonChangesFilters
+  ): Promise<TVSeasonChangesResponse> {
     const path = this.getPath(`/tv/season/${seasonId}/changes`, filters)
 
-    return this.get<ChangesResponse>(path)
+    return this.get<TVSeasonChangesResponse>(path)
   }
 
   /**
@@ -101,14 +101,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async credits(
     tvShowId: number,
     seasonNumber: number,
-    filters?: CreditsFilters
-  ): Promise<CreditsResponse> {
+    filters?: TVSeasonCreditsFilters
+  ): Promise<TVSeasonCreditsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/credits`,
       filters
     )
 
-    return this.get<CreditsResponse>(path)
+    return this.get<TVSeasonCreditsResponse>(path)
   }
 
   /**
@@ -119,14 +119,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async externalIds(
     tvShowId: number,
     seasonNumber: number,
-    filters?: ExternalIdsFilters
-  ): Promise<ExternalIdsResponse> {
+    filters?: TVSeasonExternalIdsFilters
+  ): Promise<TVSeasonExternalIdsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/external_ids`,
       filters
     )
 
-    return this.get<ExternalIdsResponse>(path)
+    return this.get<TVSeasonExternalIdsResponse>(path)
   }
 
   /**
@@ -141,14 +141,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async images(
     tvShowId: number,
     seasonNumber: number,
-    filters?: ImagesFilters
-  ): Promise<ImagesResponse> {
+    filters?: TVSeasonImagesFilters
+  ): Promise<TVSeasonImagesResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/images`,
       filters
     )
 
-    return this.get<ImagesResponse>(path)
+    return this.get<TVSeasonImagesResponse>(path)
   }
 
   /**
@@ -159,14 +159,14 @@ export class TVSeasonsAPI extends BaseAPI {
   public async translations(
     tvShowId: number,
     seasonNumber: number,
-    filters?: TranslationFilters
-  ): Promise<TranslationsResponse> {
+    filters?: TVSeasonTranslationFilters
+  ): Promise<TVSeasonTranslationsResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/translations`,
       filters
     )
 
-    return this.get<TranslationsResponse>(path)
+    return this.get<TVSeasonTranslationsResponse>(path)
   }
 
   /**
@@ -177,13 +177,13 @@ export class TVSeasonsAPI extends BaseAPI {
   public async videos(
     tvShowId: number,
     seasonNumber: number,
-    filters?: VideosFilters
-  ): Promise<VideosResponse> {
+    filters?: TVSeasonVideosFilters
+  ): Promise<TVSeasonVideosResponse> {
     const path = this.getPath(
       `/tv/${tvShowId}/season/${seasonNumber}/videos`,
       filters
     )
 
-    return this.get<VideosResponse>(path)
+    return this.get<TVSeasonVideosResponse>(path)
   }
 }
