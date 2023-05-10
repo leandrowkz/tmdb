@@ -1,50 +1,50 @@
 import { BaseAPI } from '../base'
 import {
-  AccountStatesFilters,
-  AccountStatesResponse,
-  AggregateCreditsFilters,
-  AggregateCreditsResponse,
-  AiringTodayFilters,
-  AiringTodayResponse,
-  AlternativeTitlesFilters,
-  AlternativeTitlesResponse,
-  ChangesFilters,
-  ChangesResponse,
-  ContentRatingsFilters,
-  ContentRatingsResponse,
-  CreditsFilters,
-  CreditsResponse,
-  DetailsFilters,
-  DetailsResponse,
-  EpisodeGroupsFilters,
-  EpisodeGroupsResponse,
-  ExternalIdsFilters,
-  ExternalIdsResponse,
-  ImagesFilters,
-  ImagesResponse,
-  KeywordsResponse,
-  LatestFilters,
-  LatestResponse,
-  OnTheAirFilters,
-  OnTheAirResponse,
-  PopularFilters,
-  PopularResponse,
-  RateBody,
-  RateFilters,
-  RateResponse,
-  RecommendationsFilters,
-  RecommendationsResponse,
-  ReviewsFilters,
-  ReviewsResponse,
-  ScreenedTheatricallyResponse,
-  SimilarFilters,
-  SimilarResponse,
-  TopRatedFilters,
-  TopRatedResponse,
-  TranslationsResponse,
-  VideosFilters,
-  VideosResponse,
-  WatchProvidersResponse,
+  TVShowAccountStatesFilters,
+  TVShowAccountStatesResponse,
+  TVShowAggregateCreditsFilters,
+  TVShowAggregateCreditsResponse,
+  TVShowAiringTodayFilters,
+  TVShowAiringTodayResponse,
+  TVShowAlternativeTitlesFilters,
+  TVShowAlternativeTitlesResponse,
+  TVShowChangesFilters,
+  TVShowChangesResponse,
+  TVShowContentRatingsFilters,
+  TVShowContentRatingsResponse,
+  TVShowCreditsFilters,
+  TVShowCreditsResponse,
+  TVShowDetailsFilters,
+  TVShowDetailsResponse,
+  TVShowEpisodeGroupsFilters,
+  TVShowEpisodeGroupsResponse,
+  TVShowExternalIdsFilters,
+  TVShowExternalIdsResponse,
+  TVShowImagesFilters,
+  TVShowImagesResponse,
+  TVShowKeywordsResponse,
+  TVShowLatestFilters,
+  TVShowLatestResponse,
+  TVShowOnTheAirFilters,
+  TVShowOnTheAirResponse,
+  TVShowPopularFilters,
+  TVShowPopularResponse,
+  TVShowRateBody,
+  TVShowRateFilters,
+  TVShowRateResponse,
+  TVShowRecommendationsFilters,
+  TVShowRecommendationsResponse,
+  TVShowReviewsFilters,
+  TVShowReviewsResponse,
+  TVShowScreenedTheatricallyResponse,
+  TVShowSimilarFilters,
+  TVShowSimilarResponse,
+  TVShowTopRatedFilters,
+  TVShowTopRatedResponse,
+  TVShowTranslationsResponse,
+  TVShowVideosFilters,
+  TVShowVideosResponse,
+  TVShowWatchProvidersResponse,
 } from './types'
 
 export class TVShowsAPI extends BaseAPI {
@@ -55,11 +55,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async details(
     tvShowId: number,
-    filters?: DetailsFilters
-  ): Promise<DetailsResponse> {
+    filters?: TVShowDetailsFilters
+  ): Promise<TVShowDetailsResponse> {
     const path = this.getPath(`/tv/${tvShowId}`, filters)
 
-    return this.get<DetailsResponse>(path)
+    return this.get<TVShowDetailsResponse>(path)
   }
 
   /**
@@ -72,11 +72,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async accountStates(
     tvShowId: number,
-    filters?: AccountStatesFilters
-  ): Promise<AccountStatesResponse> {
+    filters?: TVShowAccountStatesFilters
+  ): Promise<TVShowAccountStatesResponse> {
     const path = this.getPath(`/tv/${tvShowId}/account_states`, filters)
 
-    return this.get<AccountStatesResponse>(path)
+    return this.get<TVShowAccountStatesResponse>(path)
   }
 
   /**
@@ -89,11 +89,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async aggregateCredits(
     tvShowId: number,
-    filters?: AggregateCreditsFilters
-  ): Promise<AggregateCreditsResponse> {
+    filters?: TVShowAggregateCreditsFilters
+  ): Promise<TVShowAggregateCreditsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/aggregate_credits`, filters)
 
-    return this.get<AggregateCreditsResponse>(path)
+    return this.get<TVShowAggregateCreditsResponse>(path)
   }
 
   /**
@@ -103,11 +103,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async alternativeTitles(
     tvShowId: number,
-    filters?: AlternativeTitlesFilters
-  ): Promise<AlternativeTitlesResponse> {
+    filters?: TVShowAlternativeTitlesFilters
+  ): Promise<TVShowAlternativeTitlesResponse> {
     const path = this.getPath(`/tv/${tvShowId}/alternative_titles`, filters)
 
-    return this.get<AlternativeTitlesResponse>(path)
+    return this.get<TVShowAlternativeTitlesResponse>(path)
   }
 
   /**
@@ -125,11 +125,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async changes(
     tvShowId: number,
-    filters?: ChangesFilters
-  ): Promise<ChangesResponse> {
+    filters?: TVShowChangesFilters
+  ): Promise<TVShowChangesResponse> {
     const path = this.getPath(`/tv/${tvShowId}/changes`, filters)
 
-    return this.get<ChangesResponse>(path)
+    return this.get<TVShowChangesResponse>(path)
   }
 
   /**
@@ -139,11 +139,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async contentRatings(
     tvShowId: number,
-    filters?: ContentRatingsFilters
-  ): Promise<ContentRatingsResponse> {
+    filters?: TVShowContentRatingsFilters
+  ): Promise<TVShowContentRatingsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/content_ratings`, filters)
 
-    return this.get<ContentRatingsResponse>(path)
+    return this.get<TVShowContentRatingsResponse>(path)
   }
 
   /**
@@ -153,11 +153,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async credits(
     tvShowId: number,
-    filters?: CreditsFilters
-  ): Promise<CreditsResponse> {
+    filters?: TVShowCreditsFilters
+  ): Promise<TVShowCreditsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/credits`, filters)
 
-    return this.get<CreditsResponse>(path)
+    return this.get<TVShowCreditsResponse>(path)
   }
 
   /**
@@ -168,11 +168,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async episodeGroups(
     tvShowId: number,
-    filters?: EpisodeGroupsFilters
-  ): Promise<EpisodeGroupsResponse> {
+    filters?: TVShowEpisodeGroupsFilters
+  ): Promise<TVShowEpisodeGroupsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/episode_groups`, filters)
 
-    return this.get<EpisodeGroupsResponse>(path)
+    return this.get<TVShowEpisodeGroupsResponse>(path)
   }
 
   /**
@@ -182,11 +182,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async externalIds(
     tvShowId: number,
-    filters?: ExternalIdsFilters
-  ): Promise<ExternalIdsResponse> {
+    filters?: TVShowExternalIdsFilters
+  ): Promise<TVShowExternalIdsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/external_ids`, filters)
 
-    return this.get<ExternalIdsResponse>(path)
+    return this.get<TVShowExternalIdsResponse>(path)
   }
 
   /**
@@ -200,11 +200,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async images(
     tvShowId: number,
-    filters?: ImagesFilters
-  ): Promise<ImagesResponse> {
+    filters?: TVShowImagesFilters
+  ): Promise<TVShowImagesResponse> {
     const path = this.getPath(`/tv/${tvShowId}/images`, filters)
 
-    return this.get<ImagesResponse>(path)
+    return this.get<TVShowImagesResponse>(path)
   }
 
   /**
@@ -212,10 +212,10 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-tv-keywords
    */
-  public async keywords(tvShowId: number): Promise<KeywordsResponse> {
+  public async keywords(tvShowId: number): Promise<TVShowKeywordsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/keywords`)
 
-    return this.get<KeywordsResponse>(path)
+    return this.get<TVShowKeywordsResponse>(path)
   }
 
   /**
@@ -225,11 +225,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async recommendations(
     tvShowId: number,
-    filters?: RecommendationsFilters
-  ): Promise<RecommendationsResponse> {
+    filters?: TVShowRecommendationsFilters
+  ): Promise<TVShowRecommendationsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/recommendations`, filters)
 
-    return this.get<RecommendationsResponse>(path)
+    return this.get<TVShowRecommendationsResponse>(path)
   }
 
   /**
@@ -239,11 +239,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async reviews(
     tvShowId: number,
-    filters?: ReviewsFilters
-  ): Promise<ReviewsResponse> {
+    filters?: TVShowReviewsFilters
+  ): Promise<TVShowReviewsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/reviews`, filters)
 
-    return this.get<ReviewsResponse>(path)
+    return this.get<TVShowReviewsResponse>(path)
   }
 
   /**
@@ -253,10 +253,10 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async screenedTheatrically(
     tvShowId: number
-  ): Promise<ScreenedTheatricallyResponse> {
+  ): Promise<TVShowScreenedTheatricallyResponse> {
     const path = this.getPath(`/tv/${tvShowId}/screened_theatrically`)
 
-    return this.get<ScreenedTheatricallyResponse>(path)
+    return this.get<TVShowScreenedTheatricallyResponse>(path)
   }
 
   /**
@@ -266,11 +266,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async similar(
     tvShowId: number,
-    filters?: SimilarFilters
-  ): Promise<SimilarResponse> {
+    filters?: TVShowSimilarFilters
+  ): Promise<TVShowSimilarResponse> {
     const path = this.getPath(`/tv/${tvShowId}/similar`, filters)
 
-    return this.get<SimilarResponse>(path)
+    return this.get<TVShowSimilarResponse>(path)
   }
 
   /**
@@ -278,10 +278,12 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-tv-translations
    */
-  public async translations(tvShowId: number): Promise<TranslationsResponse> {
+  public async translations(
+    tvShowId: number
+  ): Promise<TVShowTranslationsResponse> {
     const path = this.getPath(`/tv/${tvShowId}/translations`)
 
-    return this.get<TranslationsResponse>(path)
+    return this.get<TVShowTranslationsResponse>(path)
   }
 
   /**
@@ -291,11 +293,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async videos(
     tvShowId: number,
-    filters?: VideosFilters
-  ): Promise<VideosResponse> {
+    filters?: TVShowVideosFilters
+  ): Promise<TVShowVideosResponse> {
     const path = this.getPath(`/tv/${tvShowId}/videos`, filters)
 
-    return this.get<VideosResponse>(path)
+    return this.get<TVShowVideosResponse>(path)
   }
 
   /**
@@ -315,10 +317,10 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async watchProviders(
     tvShowId: number
-  ): Promise<WatchProvidersResponse> {
+  ): Promise<TVShowWatchProvidersResponse> {
     const path = this.getPath(`/tv/${tvShowId}/watch/providers`)
 
-    return this.get<WatchProvidersResponse>(path)
+    return this.get<TVShowWatchProvidersResponse>(path)
   }
 
   /**
@@ -330,12 +332,12 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async rateTVShow(
     tvShowId: number,
-    body: RateBody,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    data: TVShowRateBody,
+    filters?: TVShowRateFilters
+  ): Promise<TVShowRateResponse> {
     const path = this.getPath(`/tv/${tvShowId}/rating`, filters)
 
-    return this.post<RateResponse>(path, body)
+    return this.post<TVShowRateResponse>(path, data)
   }
 
   /**
@@ -347,11 +349,11 @@ export class TVShowsAPI extends BaseAPI {
    */
   public async deleteTVShowRate(
     tvShowId: number,
-    filters?: RateFilters
-  ): Promise<RateResponse> {
+    filters?: TVShowRateFilters
+  ): Promise<TVShowRateResponse> {
     const path = this.getPath(`/tv/${tvShowId}/rating`, filters)
 
-    return this.delete<RateResponse>(path)
+    return this.delete<TVShowRateResponse>(path)
   }
 
   /**
@@ -359,10 +361,12 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-latest-tv
    */
-  public async latest(filters?: LatestFilters): Promise<LatestResponse> {
+  public async latest(
+    filters?: TVShowLatestFilters
+  ): Promise<TVShowLatestResponse> {
     const path = this.getPath('/tv/latest', filters)
 
-    return this.get<LatestResponse>(path)
+    return this.get<TVShowLatestResponse>(path)
   }
 
   /**
@@ -375,11 +379,11 @@ export class TVShowsAPI extends BaseAPI {
    * @see https://developers.themoviedb.org/3/tv/get-tv-airing-today
    */
   public async airingToday(
-    filters?: AiringTodayFilters
-  ): Promise<AiringTodayResponse> {
+    filters?: TVShowAiringTodayFilters
+  ): Promise<TVShowAiringTodayResponse> {
     const path = this.getPath('/tv/airing_today', filters)
 
-    return this.get<AiringTodayResponse>(path)
+    return this.get<TVShowAiringTodayResponse>(path)
   }
 
   /**
@@ -389,10 +393,12 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-tv-airing-today
    */
-  public async onTheAir(filters?: OnTheAirFilters): Promise<OnTheAirResponse> {
+  public async onTheAir(
+    filters?: TVShowOnTheAirFilters
+  ): Promise<TVShowOnTheAirResponse> {
     const path = this.getPath('/tv/on_the_air', filters)
 
-    return this.get<OnTheAirResponse>(path)
+    return this.get<TVShowOnTheAirResponse>(path)
   }
 
   /**
@@ -400,10 +406,12 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-popular-tv-shows
    */
-  public async popular(filters?: PopularFilters): Promise<PopularResponse> {
+  public async popular(
+    filters?: TVShowPopularFilters
+  ): Promise<TVShowPopularResponse> {
     const path = this.getPath('/tv/popular', filters)
 
-    return this.get<PopularResponse>(path)
+    return this.get<TVShowPopularResponse>(path)
   }
 
   /**
@@ -411,9 +419,11 @@ export class TVShowsAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/tv/get-top-rated-tv
    */
-  public async topRated(filters?: TopRatedFilters): Promise<TopRatedResponse> {
+  public async topRated(
+    filters?: TVShowTopRatedFilters
+  ): Promise<TVShowTopRatedResponse> {
     const path = this.getPath('/tv/top_rated', filters)
 
-    return this.get<TopRatedResponse>(path)
+    return this.get<TVShowTopRatedResponse>(path)
   }
 }
