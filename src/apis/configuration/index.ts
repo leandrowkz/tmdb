@@ -1,11 +1,11 @@
 import { BaseAPI } from '../base'
 import {
-  ConfigurationResponse,
-  CountriesResponse,
-  JobsResponse,
-  LanguagesResponse,
-  PrimaryTranslationsResponse,
-  TimezonesResponse,
+  ConfigurationDetailsResponse,
+  ConfigurationCountriesResponse,
+  ConfigurationJobsResponse,
+  ConfigurationLanguagesResponse,
+  ConfigurationPrimaryTranslationsResponse,
+  ConfigurationTimezonesResponse,
 } from './types'
 
 export class ConfigurationAPI extends BaseAPI {
@@ -28,10 +28,10 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-api-configuration
    */
-  public async configuration(): Promise<ConfigurationResponse> {
+  public async configuration(): Promise<ConfigurationDetailsResponse> {
     const path = this.getPath('/configuration')
 
-    return this.get<ConfigurationResponse>(path)
+    return this.get<ConfigurationDetailsResponse>(path)
   }
 
   /**
@@ -39,10 +39,10 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-countries
    */
-  public async countries(): Promise<CountriesResponse> {
+  public async countries(): Promise<ConfigurationCountriesResponse> {
     const path = this.getPath('/configuration/countries')
 
-    return this.get<CountriesResponse>(path)
+    return this.get<ConfigurationCountriesResponse>(path)
   }
 
   /**
@@ -50,10 +50,10 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-jobs
    */
-  public async jobs(): Promise<JobsResponse> {
+  public async jobs(): Promise<ConfigurationJobsResponse> {
     const path = this.getPath('/configuration/jobs')
 
-    return this.get<JobsResponse>(path)
+    return this.get<ConfigurationJobsResponse>(path)
   }
 
   /**
@@ -61,10 +61,10 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-languages
    */
-  public async languages(): Promise<LanguagesResponse> {
+  public async languages(): Promise<ConfigurationLanguagesResponse> {
     const path = this.getPath('/configuration/languages')
 
-    return this.get<LanguagesResponse>(path)
+    return this.get<ConfigurationLanguagesResponse>(path)
   }
 
   /**
@@ -87,10 +87,10 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-primary-translations
    */
-  public async primaryTranslations(): Promise<PrimaryTranslationsResponse> {
+  public async primaryTranslations(): Promise<ConfigurationPrimaryTranslationsResponse> {
     const path = this.getPath('/configuration/primary_translations')
 
-    return this.get<PrimaryTranslationsResponse>(path)
+    return this.get<ConfigurationPrimaryTranslationsResponse>(path)
   }
 
   /**
@@ -98,9 +98,9 @@ export class ConfigurationAPI extends BaseAPI {
    *
    * @see https://developers.themoviedb.org/3/configuration/get-timezones
    */
-  public async timezones(): Promise<TimezonesResponse> {
+  public async timezones(): Promise<ConfigurationTimezonesResponse> {
     const path = this.getPath('/configuration/timezones')
 
-    return this.get<TimezonesResponse>(path)
+    return this.get<ConfigurationTimezonesResponse>(path)
   }
 }

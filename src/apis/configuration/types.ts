@@ -21,14 +21,16 @@ export type Configuration = {
 }
 
 // Responses
-export type ConfigurationResponse = TMDBResponse<Configuration>
+export type ConfigurationDetailsResponse = TMDBResponse<Configuration>
 
-export type CountriesResponse = TMDBResponse<Country[]>
+export type ConfigurationCountriesResponse = TMDBResponse<Country[]>
 
-export type JobsResponse = TMDBResponse<Job[]>
+export type ConfigurationJobsResponse = TMDBResponse<Job[]>
 
-export type LanguagesResponse = TMDBResponse<Language[]>
+export type ConfigurationLanguagesResponse = TMDBResponse<Language[]>
 
-export type PrimaryTranslationsResponse = TMDBResponse<LanguageCode[]>
+export type ConfigurationPrimaryTranslationsResponse = TMDBResponse<
+  LanguageCode[]
+>
 
-export type TimezonesResponse = TMDBResponse<Timezone[]>
+export type ConfigurationTimezonesResponse = TMDBResponse<Timezone[]>
