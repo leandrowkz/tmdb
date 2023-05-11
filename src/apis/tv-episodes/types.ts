@@ -8,10 +8,10 @@ import type {
   TMDBResponse,
   Translation,
   Video,
-} from 'src/types'
+} from '../../types'
 import type { PersonCast, PersonCrew } from '../people/types'
 import type { TVShowChanges } from '../tv-shows/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type TVEpisode = {
   id: number

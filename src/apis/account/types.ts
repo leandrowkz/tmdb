@@ -4,12 +4,12 @@ import type {
   CountryCode,
   TMDBResponse,
   GenericResponse,
-} from 'src/types'
+} from '../../types'
 import type { ListItem } from '../lists/types'
 import type { MovieItem } from '../movies/types'
 import type { TVShowItem } from '../tv-shows/types'
 import type { TVEpisodeItem } from '../tv-episodes/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type Account = {
   id: number

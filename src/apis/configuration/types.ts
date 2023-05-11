@@ -5,7 +5,7 @@ import type {
   LanguageCode,
   TMDBResponse,
   Timezone,
-} from 'src/types'
+} from '../../types'
 
 export type Configuration = {
   change_keys: string[]

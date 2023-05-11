@@ -1,4 +1,4 @@
-import type { TMDBResponse } from 'src/types'
+import type { TMDBResponse } from '../../types'
 
 // Body
 export type AuthenticationCreateSessionBody = {

@@ -1,4 +1,4 @@
-import { LanguageCode, Nullable, TMDBResponse } from 'src/types'
+import { LanguageCode, Nullable, TMDBResponse } from '../../types'
 
 export type Review = {
   id: string

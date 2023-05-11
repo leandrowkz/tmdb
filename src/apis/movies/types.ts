@@ -12,7 +12,7 @@ import type {
   WithId,
   ExternalId,
   GenericResponse,
-} from 'src/types'
+} from '../../types'
 import type { Collection } from '../collections/types'
 import type { Genre, GenreCode } from '../genres/types'
 import type { CompanyItem } from '../companies/types'
@@ -21,7 +21,7 @@ import type { CertificationCode } from '../certifications/types'
 import type { ListItem } from '../lists/types'
 import type { ReviewItem } from '../reviews/types'
 import type { WatchProvider } from '../watch-providers/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type Movie = {
   id: number

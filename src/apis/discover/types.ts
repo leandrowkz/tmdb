@@ -1,7 +1,7 @@
-import type { TMDBResponseList } from 'src/types'
+import type { TMDBResponseList } from '../../types'
 import type { MovieItem } from '../movies/types'
 import type { TVShowItem } from '../tv-shows/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type DiscoverMovieFilters = Pick<
   Filters,

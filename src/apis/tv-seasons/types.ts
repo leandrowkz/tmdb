@@ -6,11 +6,11 @@ import type {
   TMDBResponse,
   Translation,
   Video,
-} from 'src/types'
+} from '../../types'
 import type { TVEpisode } from '../tv-episodes/types'
 import type { PersonCast, PersonCrew } from '../people/types'
 import type { TVShowPersonCast, TVShowPersonCrew } from '../tv-shows/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type TVSeason = {
   _id: string

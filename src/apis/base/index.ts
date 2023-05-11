@@ -1,4 +1,4 @@
-import { Fetcher } from 'src/core/Fetcher'
+import { Fetcher } from '../../core/Fetcher'
 import type { TMDBOptions } from '../../types'
 
 export class BaseAPI extends Fetcher {

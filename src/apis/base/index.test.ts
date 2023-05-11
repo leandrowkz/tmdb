@@ -1,6 +1,6 @@
 import { BaseAPI } from '.'
-import { Fetcher } from 'src/core/Fetcher'
-import type { TMDBOptions } from 'src/types'
+import { Fetcher } from '../../core/Fetcher'
+import type { TMDBOptions } from '../../types'
 
 jest.mock('src/core/Fetcher')
 

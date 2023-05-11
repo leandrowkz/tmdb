@@ -1,4 +1,4 @@
-import type { CertificationCode } from 'src/apis/certifications/types'
+import type { CertificationCode } from '../apis/certifications/types'
 import type { AppendToResponse, CountryCode, ExternalId, LanguageCode } from '.'
 
 type SortBy =
