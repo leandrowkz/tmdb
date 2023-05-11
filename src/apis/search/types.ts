@@ -1,11 +1,11 @@
-import type { TMDBResponseList } from 'src/types'
+import type { TMDBResponseList } from '../../types'
 import type { CompanyItem } from '../companies/types'
 import type { CollectionItem } from '../collections/types'
 import type { Keyword } from '../keywords/types'
 import type { MovieItem } from '../movies/types'
 import type { TVShowItem } from '../tv-shows/types'
 import type { PersonItem } from '../people/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 // Filters
 export type SearchFilters = Required<Pick<Filters, 'query'>> &

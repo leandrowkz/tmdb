@@ -66,7 +66,7 @@ Just set the property `debug: true` on constructor payload. It works both on wra
 ```ts
 import { TMDB } from '@leandrowkz/tmdb'
 
-const tmdb = new TMDB({ apiKey: 'CREATED_ON_TMDB', debug: true })
+const tmdb = new TMDB({ apiKey: 'TMDB_APIKEY', debug: true })
 
 await tmdb.movies.details(550)
 await tmdb.list.details(440)
@@ -79,6 +79,25 @@ Your terminal should print debug lines similar to this:
 🍿 TMDB DEBUGGER: https:/api.themoviedb.org/3/discover/movie?with_genres=10751&api_key=TMDB_APIKEY with params {"method":"GET","headers":{},"body":null}: 201.322ms
 
 🍿 TMDB DEBUGGER: https:/api.themoviedb.org/3/movie/now_playing?api_key=TMDB_APIKEY with params {"method":"GET","headers":{},"body":null}: 258.441ms
+```
+
+## Handling errors
+You can handle TMDB API errors like **not found** or **unauthorized** by wrapping calls under a `try/catch`, like:
+```ts
+import { MoviesAPI, TMDBResponseError } from '@leandrowkz/tmdb'
+
+try {
+  await api.details(1)
+} catch (e) {
+  if (e instanceof TMDBResponseError) {
+    console.log(e.getResponse())
+    // {
+    //   status: 'Not Found',
+    //   status_code: 34,
+    //   status_message: 'The resource you requested could not be found.'
+    // }
+  }
+}
 ```
 
 ## Available APIs

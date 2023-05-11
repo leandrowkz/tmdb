@@ -1,5 +1,5 @@
-import type { AvailableRegion, TMDBResponse } from 'src/types'
-import type { Filters } from 'src/types/filters'
+import type { AvailableRegion, TMDBResponse } from '../../types'
+import type { Filters } from '../../types/filters'
 
 export type WatchProvider = {
   provider_id: number

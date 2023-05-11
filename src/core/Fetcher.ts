@@ -1,3 +1,4 @@
+import { TMDBResponseError } from '../exceptions'
 import type { RequestBody, RequestPayload } from '../types'
 
 export abstract class Fetcher {
@@ -81,11 +82,17 @@ export abstract class Fetcher {
     return this.toJSON<T>(response)
   }
 
-  private toJSON<T>(response: Response) {
+  private async toJSON<T>(response: Response) {
     if (response.ok) {
       return response.json() as unknown as T
     }
 
-    throw Error(response.statusText)
+    const error = await response.json()
+
+    throw new TMDBResponseError(
+      response.statusText,
+      error.status_message || response.statusText,
+      error.status_code || response.status
+    )
   }
 }

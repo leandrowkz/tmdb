@@ -1,7 +1,7 @@
-import type { Nullable, TMDBResponse } from 'src/types'
+import type { Nullable, TMDBResponse } from '../../types'
 import type { NetworkItem } from '../networks/types'
 import type { TVEpisode } from '../tv-episodes/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type TVEpisodeGroup = {
   id: string

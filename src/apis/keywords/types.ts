@@ -1,6 +1,6 @@
-import type { TMDBResponse, TMDBResponseList, WithId } from 'src/types'
+import type { TMDBResponse, TMDBResponseList, WithId } from '../../types'
 import type { MovieItem } from '../movies/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 export type Keyword = {
   id: number

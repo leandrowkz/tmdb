@@ -12,7 +12,7 @@ import type {
   TMDBResponseList,
   Translation,
   Video,
-} from 'src/types'
+} from '../../types'
 import type { Genre, GenreCode } from '../genres/types'
 import type { TVEpisode } from '../tv-episodes/types'
 import type { NetworkItem } from '../networks/types'
@@ -23,7 +23,7 @@ import type { TVEpisodeGroup } from '../tv-episode-groups/types'
 import type { Keyword } from '../keywords/types'
 import type { ReviewItem } from '../reviews/types'
 import type { WatchProvider } from '../watch-providers/types'
-import type { Filters } from 'src/types/filters'
+import type { Filters } from '../../types/filters'
 
 // Models/Entities
 export type TVShowAuthor = {
