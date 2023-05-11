@@ -28,22 +28,7 @@ jobs:
         run: npm run test
 
       - name: Remove unecessary files for build
-        run: rm -rf ./src && \
-          rm -f ./.commitlintrc.js && \
-          rm -f ./.editorconfig && \
-          rm -f ./.eslintrc.js && \
-          rm -f ./.gitignore && \
-          rm -f ./.jest.config.ts && \
-          rm -f ./.nodemon.json && \
-          rm -f ./.nvmrc && \
-          rm -f ./.prettierignore && \
-          rm -f ./.prettierrc.js && \
-          rm -f ./.releaserc.js && \
-          rm -f ./autocomplete.gif && \
-          rm -f ./LICENSE && \
-          rm -f ./README.md && \
-          rm -f ./tsconfig.build.json && \
-          rm -f ./tsconfig.json
+        run: rm -rf ./src .commitlintrc.js .editorconfig .eslintrc.js .gitignore .jest.config.ts .nodemon.json .nvmrc .prettierignore .prettierrc.js .releaserc.js autocomplete.gif LICENSE README.md tsconfig.build.json tsconfig.json
 
       - name: Run release
         run: npm run release
