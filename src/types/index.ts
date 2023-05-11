@@ -618,9 +618,7 @@ export interface TMDBOptions {
   debug?: boolean
 }
 
-export type TMDBResponseError = GenericResponse
-
-export type TMDBResponse<Resource> = Resource | TMDBResponseError
+export type TMDBResponse<Resource> = Resource
 
 export type TMDBResponseList<T> = TMDBResponse<{
   results: T

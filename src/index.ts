@@ -28,6 +28,9 @@ export { WatchProvidersAPI } from './apis/watch-providers'
 // Wrapper
 export { Wrapper as TMDB } from './apis/wrapper'
 
+// Exceptions
+export * from './exceptions'
+
 // Types
 export * from './types/index'
 export * from './apis/account/types'
