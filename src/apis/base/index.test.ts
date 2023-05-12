@@ -2,7 +2,7 @@ import { BaseAPI } from '.'
 import { Fetcher } from '../../core/fetcher'
 import type { TMDBOptions } from '../../types'
 
-jest.mock('src/core/Fetcher')
+jest.mock('../../core/fetcher')
 
 describe('BaseAPI', () => {
   test('should set API url with default value', async () => {
