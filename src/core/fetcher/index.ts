@@ -1,5 +1,5 @@
-import { TMDBResponseError } from '../exceptions'
-import type { RequestBody, RequestPayload } from '../types'
+import { TMDBResponseError } from '../../exceptions'
+import type { RequestBody, RequestPayload } from '../../types'
 
 export abstract class Fetcher {
   private headers: Headers
