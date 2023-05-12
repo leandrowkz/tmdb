@@ -1,4 +1,4 @@
-import { Fetcher } from '../../core/Fetcher'
+import { Fetcher } from '../../core/fetcher'
 import type { TMDBOptions } from '../../types'
 
 export class BaseAPI extends Fetcher {
@@ -15,7 +15,10 @@ export class BaseAPI extends Fetcher {
 
   protected getPath(
     path: string,
-    queryString?: Record<string, string | string[] | number | boolean>
+    queryString?: Record<
+      string,
+      string | string[] | number | number[] | boolean
+    >
   ) {
     const params = new URLSearchParams({
       ...queryString,

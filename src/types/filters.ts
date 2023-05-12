@@ -30,7 +30,7 @@ export type Filters = {
   include_video?: boolean
   year?: number
   primary_release_year?: number
-  with_release_type?: number
+  with_release_type?: number[]
   with_cast?: string[]
   with_crew?: string[]
   with_people?: string[]
@@ -47,8 +47,8 @@ export type Filters = {
   screened_theatrically?: boolean
   'with_runtime.gte'?: number
   'with_runtime.lte'?: number
-  'primaty_release_date.gte'?: string
-  'primaty_release_date.lte'?: string
+  'primary_release_date.gte'?: string
+  'primary_release_date.lte'?: string
   'release_date.gte'?: string
   'release_date.lte'?: string
   'certification.lte'?: string
