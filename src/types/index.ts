@@ -622,7 +622,7 @@ export type TMDBResponse<Resource> = Resource
 
 export type TMDBResponseList<T> = TMDBResponse<{
   results: T
-  pages: number
+  page: number
   total_pages: number
   total_results: number
 }>

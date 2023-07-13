@@ -27,6 +27,7 @@ export type TVEpisode = {
   vote_count: number
   crew: TVEpisodePersonCrew[]
   guest_stars: TVEpisodePersonGuestStar[]
+  runtime: number
 }
 
 export type TVEpisodeItem = Pick<
@@ -42,6 +43,7 @@ export type TVEpisodeItem = Pick<
   | 'still_path'
   | 'vote_average'
   | 'vote_count'
+  | 'runtime'
 >
 
 export type TVEpisodePersonCrew = {
