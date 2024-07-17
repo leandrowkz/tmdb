@@ -59,7 +59,10 @@ export abstract class Fetcher {
 
   private async request<T>({ path, method, body }: RequestPayload) {
     let debugKey = ''
-    const url = `${this.url}/${path}`.replace('//', '/')
+
+    let url = `${this.url}/${path}`.replace('https://', '').replace('//', '/');
+    url = `https://${url}`
+
     const options: RequestInit = {
       method,
       headers: this.headers,
