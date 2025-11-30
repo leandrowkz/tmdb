@@ -1,30 +1,26 @@
-import { Fetcher } from '../../core/fetcher'
-import type { TMDBOptions } from '../../types'
+import { Fetcher } from "../../core/fetcher";
+import type { TMDBOptions } from "../../types";
 
 export class BaseAPI extends Fetcher {
-  static API_URL_V3 = 'https://api.themoviedb.org/3'
-  private apiKey: string
+	static API_URL_V3 = "https://api.themoviedb.org/3";
 
-  constructor({ url, apiKey, debug = false }: TMDBOptions) {
-    const baseURL = !url ? BaseAPI.API_URL_V3 : url
+	constructor({ url, apiKey, debug = false }: TMDBOptions) {
+		const baseURL = !url ? BaseAPI.API_URL_V3 : url;
 
-    super(baseURL, debug)
+		super(baseURL, debug);
 
-    this.apiKey = apiKey
-  }
+		this.addHeader("Authorization", `Bearer ${apiKey}`);
+	}
 
-  protected getPath(
-    path: string,
-    queryString?: Record<
-      string,
-      string | string[] | number | number[] | boolean
-    >
-  ) {
-    const params = new URLSearchParams({
-      ...queryString,
-      api_key: this.apiKey,
-    })
+	protected getPath(
+		path: string,
+		queryString?: Record<
+			string,
+			string | string[] | number | number[] | boolean
+		>,
+	) {
+		const params = new URLSearchParams(queryString as Record<string, string>);
 
-    return `${path}?${params.toString()}`
-  }
+		return `${path}?${params.toString()}`;
+	}
 }
